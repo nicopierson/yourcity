@@ -43,7 +43,7 @@ def seed_users():
     jd = User(
         username='jd', email='jd@gmail.com', password='password')
     chris = User(
-        username='chrisolney', email='chriso@gmail.com', password='password')
+        username='chrisoney', email='chriso@gmail.com', password='password')
     peter = User(
         username='peter', email='peter@gmail.com', password='password')
     jm = User(
