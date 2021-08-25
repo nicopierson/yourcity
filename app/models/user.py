@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     city_relation = db.relationship('City', back_populates='user_relation')
+    insight_relation = db.relationship('Insight', back_populates='user_relation',
+                                       cascade='all, delete-orphan')
 
     @property
     def password(self):
