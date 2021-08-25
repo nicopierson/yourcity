@@ -23,8 +23,9 @@ def throw_input_error(message="Invalid Input"):
     return {'errors': message}, 401
 
 
-def user_is_logged_in(user_id):
+def user_is_owner(user_id):
     if current_user:
+        # TODO Check current user when implementing front-end
         return user_id == current_user.id
     print("Invalid User")
     return False
