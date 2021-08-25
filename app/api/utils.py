@@ -1,26 +1,31 @@
 from app.models import City, Insight
+from flask_login import current_user
 # from wtforms.validators import ValidationError
 
 
-def validation_errors_to_message(validation_errors):
-    errorMessages = []
+def throw_validation_error(validation_errors):
+    error_messages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
-    return errorMessages
+            error_messages.append(f'{field} : {error}')
+    return error_messages
 
 
-def authorization_errors_to_message(message="Unauthorized User"):
+def throw_authorization_error(message="Unauthorized User"):
     return {'errors': message}, 401
 
 
-def input_errors_to_message(message="Invalid Input"):
+def throw_not_found_error(message="Not Found"):
+    return {'errors': message}, 404
+
+
+def throw_input_error(message="Invalid Input"):
     return {'errors': message}, 401
 
 
-def user_is_logged_in(user_sent_id, current_user):
+def user_is_logged_in(user_id):
     if current_user:
-        return user_sent_id == current_user.id
+        return user_id == current_user.id
     print("Invalid User")
     return False
 

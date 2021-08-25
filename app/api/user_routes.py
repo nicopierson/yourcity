@@ -2,7 +2,8 @@ from flask import Blueprint, request
 from flask_login import login_required
 from app.models import User, db
 from app.forms import ProfileForm
-from app.api.utils import authorization_errors_to_message, user_is_logged_in
+from wtforms.validators import ValidationError
+from app.api.utils import throw_authorization_error, user_is_logged_in, throw_not_found_error
 
 user_routes = Blueprint('users', __name__)
 
@@ -22,14 +23,17 @@ def user(id):
 
 
 @user_routes.route('/<int:id>', methods=['PUT'])
+@login_required
 def profile_update(id):
         form = ProfileForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            if user_is_logged_in(form.user_id.data):
+            if user_is_logged_in(id):
                 user = User.query.get(id)
                 form.populate_obj(user)
                 db.session.add(user)
                 db.session.commit()
                 return user.to_dict()
-            return authorization_errors_to_message()
+            return throw_authorization_error()
+        return throw_not_found_error()
+    
