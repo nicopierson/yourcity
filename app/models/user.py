@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.sql import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -10,8 +11,14 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, 
+                           server_default=func.now(), onupdate=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, 
+                           server_default=func.now(), onupdate=func.now())
 
     city_relation = db.relationship('City', back_populates='user_relation')
+    insight_relation = db.relationship('Insight', back_populates='user_relation',
+                                       cascade='all, delete-orphan')
 
     @property
     def password(self):

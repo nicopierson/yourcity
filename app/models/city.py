@@ -17,6 +17,8 @@ class City(db.Model):
                            server_default=func.now(), onupdate=func.now())
     
     user_relation = db.relationship('User', back_populates='city_relation')
+    insight_relation = db.relationship('Insight', back_populates='city_relation',
+                                       cascade='all, delete-orphan')
     
     def to_dict(self):
         return {
