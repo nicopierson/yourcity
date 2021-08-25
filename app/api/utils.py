@@ -1,4 +1,5 @@
 from app.models import City, Insight
+# from wtforms.validators import ValidationError
 
 
 def validation_errors_to_message(validation_errors):
