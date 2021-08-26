@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
-import Tester from './components/Tester';
+import City from './components/City';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +29,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Tester />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -46,6 +45,9 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+        <Route path='/city/:cityId' exact={true}>
+          <City />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
