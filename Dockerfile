@@ -3,8 +3,10 @@ FROM node:12 AS build-stage
 WORKDIR /react-app
 COPY react-app/. .
 
+ARG HEROKU_URL=https://yourcity-app.herokuapp.com/
+
 # You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL=https://yourcity-app.herokuapp.com/
+ENV REACT_APP_BASE_URL=${HEROKU_URL}
 
 # Build our React App
 RUN npm install
