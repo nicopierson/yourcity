@@ -17,10 +17,15 @@ def get_all_cities():
 
 
 @city_routes.route('/<int:id>')
-@login_required
 def get_one_city(id):
     city = City.query.get_or_404(id)
     return city.to_dict()
+
+
+@city_routes.route('/users/<int:id>')
+def get_city_by_user(id):
+    cities = City.query.filter(City.user_id == id).all()
+    return {'cities': [city.to_dict() for city in cities]}
 
 
 # use trailing slash in api route for POSTs

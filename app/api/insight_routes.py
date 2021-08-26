@@ -18,10 +18,21 @@ def get_all_insights():
 
 
 @insight_routes.route('/<int:id>')
-# @login_required
 def get_one_insight(id):
     insight = Insight.query.get_or_404(id)
     return insight.to_dict()
+
+
+@insight_routes.route('/users/<int:id>')
+def get_insights_by_user(id):
+    insights = Insight.query.filter(Insight.user_id == id).all()
+    return {'insights': [insight.to_dict() for insight in insights]}
+
+
+@insight_routes.route('/cities/<int:id>')
+def get_insights_by_city(id):
+    insights = Insight.query.filter(Insight.city_id == id).all()
+    return {'insights': [insight.to_dict() for insight in insights]}
 
 
 # use trailing slash in api route for POSTs

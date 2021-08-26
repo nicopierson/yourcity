@@ -1,6 +1,5 @@
 from app.models import City, Insight
 from flask_login import current_user
-# from wtforms.validators import ValidationError
 
 
 def throw_validation_error(validation_errors):
