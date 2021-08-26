@@ -1,14 +1,17 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import Insight, db
-# from app.forms import InsightPostForm, InsightUpdateForm
-from app.api.utils import throw_authorization_error, user_is_owner, throw_not_found_error
+from app.models import Insight, City, User, db
+from app.forms import InsightPostForm, InsightUpdateForm
+from app.api.utils import (
+    throw_authorization_error, user_is_owner, throw_not_found_error, id_exists,
+    throw_server_error
+)
 
 insight_routes = Blueprint('insights', __name__)
 
 
 @insight_routes.route('/')
-# @login_required
+@login_required
 def get_all_insights():
     insights = Insight.query.all()
     return {'insights': [insight.to_dict() for insight in insights]}
@@ -30,25 +33,31 @@ def insight_post():
         if form.validate_on_submit():
             insight = Insight()
             form.populate_obj(insight)
-            db.session.add(insight)
-            db.session.commit()
-            return insight.to_dict()
+            try:
+                db.session.add(insight)
+                db.session.commit()
+                return insight.to_dict()
+            except:
+                return throw_server_error()
         return throw_not_found_error()
 
 
 @insight_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def insight_update(id):
-        user_id = Insight.query.get_or_404(id).user_id
         form = InsightUpdateForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             if user_is_owner(user_id):
                 insight = Insight.query.get_or_404(id)
                 form.populate_obj(insight)
-                db.session.add(insight)
-                db.session.commit()
-                return insight.to_dict()
+                # check of server errors
+                try:
+                    db.session.add(insight)
+                    db.session.commit()
+                    return insight.to_dict()
+                except:
+                    return throw_server_error()
             return throw_authorization_error()
         return throw_not_found_error()
     
@@ -58,8 +67,10 @@ def insight_update(id):
 def insight_delete(id):
     if user_is_owner(id):
         insight = Insight.query.get_or_404(id)
-
-        db.session.delete(insight)
-        db.session.commit()
-        return insight.to_dict()
+        try:
+            db.session.delete(insight)
+            db.session.commit()
+            return insight.to_dict()
+        except:
+            return throw_server_error()
     return throw_not_found_error()

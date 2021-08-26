@@ -11,6 +11,17 @@ def throw_validation_error(validation_errors):
     return error_messages
 
 
+def id_exists(id, model):
+    exists = model.query.get_or_404(id)
+    if exists:
+        return True
+    return False
+
+
+def throw_server_error(message="Server Error"):
+    return {'errors': message}, 500
+
+
 def throw_authorization_error(message="Unauthorized User"):
     return {'errors': message}, 401
 
