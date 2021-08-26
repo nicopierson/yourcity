@@ -76,8 +76,8 @@ def insight_update(id):
 @insight_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def insight_delete(id):
-    if user_is_owner(id):
-        insight = Insight.query.get_or_404(id)
+    insight = Insight.query.get_or_404(id)
+    if user_is_owner(insight.user_id):
         try:
             db.session.delete(insight)
             db.session.commit()

@@ -35,7 +35,7 @@ export const getCity = (id) => async (dispatch) => {
 };
 
 export const getAllCities = () => async (dispatch) => {
-    const response = await fetch('/api/cities')
+    const response = await fetch('/api/cities/')
     
     if (response.ok) {
         const data = await response.json();
@@ -47,6 +47,7 @@ export const getAllCities = () => async (dispatch) => {
 };
 
 export const removeCity = (id) => async (dispatch) => {
+        console.log(' *****************************');
     const response = await fetch(`/api/cities/${id}`, {
         method: 'DELETE',
     });
