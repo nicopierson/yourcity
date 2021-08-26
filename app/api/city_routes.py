@@ -49,12 +49,11 @@ def city_post():
 @city_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def city_update(id):
-        user_id = City.query.get_or_404(id).user_id
         form = CityUpdateForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            if user_is_owner(user_id):
-                city = City.query.get_or_404(id)
+            city = City.query.get_or_404(id)
+            if user_is_owner(city.user_id):
                 form.populate_obj(city)
                 try:
                     db.session.add(city)

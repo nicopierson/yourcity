@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session';
 import city from './city';
+import insight from './insight';
 
 const rootReducer = combineReducers({
   session,
   city,
+  insight,
 });
 
 
