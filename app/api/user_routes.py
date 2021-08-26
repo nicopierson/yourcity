@@ -8,7 +8,7 @@ from app.api.utils import throw_authorization_error, user_is_owner, throw_not_fo
 user_routes = Blueprint('users', __name__)
 
 
-@user_routes.route('/')
+@user_routes.route('/', methods=['GET'])
 @login_required
 def users():
     users = User.query.all()
@@ -18,7 +18,7 @@ def users():
 @user_routes.route('/<int:id>')
 @login_required
 def user(id):
-    user = User.query.get(id)
+    user = User.query.get_or_404(id)
     return user.to_dict()
 
 
@@ -46,5 +46,5 @@ def user_delete(id):
 
         db.session.delete(user)
         db.session.commit()
-        return { "user": user.to_dict() }
+        return user.to_dict()
     return throw_not_found_error()
