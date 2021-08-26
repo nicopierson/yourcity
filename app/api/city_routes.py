@@ -69,8 +69,8 @@ def city_update(id):
 @city_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def city_delete(id):
-    if user_is_owner(id):
-        city = City.query.get_or_404(id)
+    city = City.query.get_or_404(id)
+    if user_is_owner(city.user_id):
         try:
             db.session.delete(city)
             db.session.commit()

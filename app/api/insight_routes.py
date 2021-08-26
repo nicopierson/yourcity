@@ -1,9 +1,9 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import Insight, City, User, db
+from app.models import Insight, db
 from app.forms import InsightPostForm, InsightUpdateForm
 from app.api.utils import (
-    throw_authorization_error, user_is_owner, throw_not_found_error, id_exists,
+    throw_authorization_error, user_is_owner, throw_not_found_error,
     throw_server_error
 )
 
@@ -59,7 +59,7 @@ def insight_update(id):
         form = InsightUpdateForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            if user_is_owner(user_id):
+            if user_is_owner(id):
                 insight = Insight.query.get_or_404(id)
                 form.populate_obj(insight)
                 # check of server errors
@@ -76,8 +76,8 @@ def insight_update(id):
 @insight_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def insight_delete(id):
-    if user_is_owner(id):
-        insight = Insight.query.get_or_404(id)
+    insight = Insight.query.get_or_404(id)
+    if user_is_owner(insight.user_id):
         try:
             db.session.delete(insight)
             db.session.commit()

@@ -34,6 +34,7 @@ def throw_input_error(message="Invalid Input"):
 
 
 def user_is_owner(user_id):
+    print('CURRENT USER **************************** : ', current_user.id, user_id)
     if current_user:
         # TODO Check current user when implementing front-end
         return user_id == current_user.id
