@@ -1,6 +1,5 @@
 from app.models import City, Insight
 from flask_login import current_user
-# from wtforms.validators import ValidationError
 
 
 def throw_validation_error(validation_errors):
@@ -9,6 +8,17 @@ def throw_validation_error(validation_errors):
         for error in validation_errors[field]:
             error_messages.append(f'{field} : {error}')
     return error_messages
+
+
+def id_exists(id, model):
+    exists = model.query.get_or_404(id)
+    if exists:
+        return True
+    return False
+
+
+def throw_server_error(message="Server Error"):
+    return {'errors': message}, 500
 
 
 def throw_authorization_error(message="Unauthorized User"):
