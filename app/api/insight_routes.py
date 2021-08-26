@@ -59,8 +59,8 @@ def insight_update(id):
         form = InsightUpdateForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            if user_is_owner(id):
-                insight = Insight.query.get_or_404(id)
+            insight = Insight.query.get_or_404(id)
+            if user_is_owner(insight.user_id):
                 form.populate_obj(insight)
                 # check of server errors
                 try:

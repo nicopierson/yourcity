@@ -34,8 +34,20 @@ export const getCity = (id) => async (dispatch) => {
     }
 };
 
+export const getCitiesByUser = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/cities/users/${userId}`);
+
+    if (response.ok) {
+        const { cities } = await response.json();
+        await dispatch(setAllCities(cities));
+        return response;
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+};
+
 export const getAllCities = () => async (dispatch) => {
-    const response = await fetch('/api/cities/')
+    const response = await fetch('/api/cities/');
     
     if (response.ok) {
         const data = await response.json();
@@ -47,7 +59,6 @@ export const getAllCities = () => async (dispatch) => {
 };
 
 export const removeCity = (id) => async (dispatch) => {
-        console.log(' *****************************');
     const response = await fetch(`/api/cities/${id}`, {
         method: 'DELETE',
     });
@@ -97,19 +108,17 @@ export const resetCities = () => async (dispatch) => {
 };
 
 export default function reducer(state = {}, action) {
-    let newState = {}
+    let newState = { ...state };
     switch (action.type) {
         case SET_CITY:
-            newState = { ...state };
             newState[action.city.id] = action.city;
             return newState;
         case SET_ALL_CITIES:
             action.cities.forEach(city => {
                 newState[city.id] = city;
             });
-            return { ...state, ...newState };
+            return newState;
         case DELETE_CITY:
-            newState = { ...state };
             delete newState[action.cityId];
             return newState;
         case UNLOAD_CITIES:
