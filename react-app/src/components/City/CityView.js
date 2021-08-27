@@ -16,19 +16,21 @@ const CityView = ({ city, setShowEdit }) => {
     
     return (
         <div>
-            <h2>{ city.name }</h2>
-            <p>{ city.description }</p>
-            <p>Owner: { city.user_id }</p>
-            <button
-                onClick={() => setShowEdit(true)}
-            >
-                Edit
-            </button>
-            <button
-                onClick={handleDelete}
-            >
-                Delete
-            </button>
+            <div>
+                <div className='header_edit_container'>
+                    <h2>{ city.name }</h2>
+                    <i 
+                        onClick={() => setShowEdit(true)}
+                        className='fas fa-edit edit_item'
+                    ></i>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>{ city.description }</p>
+                    <p>Owner: { city.user_id }</p>
+                </div>
+            </div>
         </div>
     );
 };

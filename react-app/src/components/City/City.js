@@ -7,10 +7,18 @@ import CityEdit from './CityEdit';
 import CityView from './CityView';
 import CityBanner from './CityBanner';
 
+import './City.css';
+
 const City = () => {
     const { cityId } = useParams();
     const dispatch = useDispatch();
     
+    /* isOwner Boolean to check if recipe is owned by current user */
+    const userId = useSelector(state => state.session.user?.id);
+    const cityOwnerId = useSelector(state => state.city[cityId]?.user_id);
+    const isOwner = userId === cityOwnerId; 
+    console.log(isOwner);
+
     const [showEdit, setShowEdit] = useState(false);
 
     const city = useSelector(state => state.city[cityId]);
@@ -24,7 +32,7 @@ const City = () => {
     if (!city) return null;
 
     return (
-        <div>
+        <div className='city_container'>
             <CityBanner city={city} />
             {!showEdit &&
                 <CityView 
@@ -36,6 +44,7 @@ const City = () => {
                 <CityEdit
                     city={city}
                     setShowEdit={setShowEdit}
+                    isOwner={isOwner}
                 />
             }
         </div>
