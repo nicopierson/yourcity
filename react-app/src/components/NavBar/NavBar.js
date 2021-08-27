@@ -57,7 +57,9 @@ const NavBar = () => {
                     <li
                         className="button-fix navbar-li"
                     >
-                        <CityCreate />
+                        <CityCreate 
+                            userId={user.id}
+                        />
                     </li>
                     {!user &&
                         <>

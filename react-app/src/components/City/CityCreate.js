@@ -2,14 +2,14 @@ import { useState } from 'react';
 import CityCreateForm from './CityCreateForm';
 import { ModalVerify, ModalCreateCity } from '../../context/Modal'; 
 
-const CityCreate = () => {
+const CityCreate = ({ userId }) => {
     const [showModal, setShowModal] = useState();
     const [showVerification, setShowVerification] = useState(false);
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         setShowModal(false);
     };
-    const handleOpen = (e) => {
+    const handleOpen = () => {
         setShowModal(true);
     };
 
@@ -24,7 +24,11 @@ const CityCreate = () => {
                 <ModalCreateCity
                     onClose={() => setShowVerification(true)}
                 >
-                    <CityCreateForm />
+                    <CityCreateForm 
+                        userId={userId}
+                        setShowModal={setShowModal}
+                        setShowVerification={setShowVerification}
+                    />
                 </ModalCreateCity>
                 )
             }

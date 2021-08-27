@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getAllCities } from '../../store/city';
 
 function CitiesList() {
-  const [cities, setCities] = useState([]);
+  const dispatch = useDispatch();
+  const cities = useSelector(state => state.city);
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('/api/cities/');
-      const responseData = await response.json();
-      setCities(responseData.cities);
-    }
-    fetchData();
-  }, []);
+    dispatch(getAllCities());
+  }, [dispatch]);
 
-  const cityComponents = cities.map((city) => {
+  if (!cities) return null;
+
+  const cityComponents = Object.values(cities).map((city) => {
     return (
       <li key={city.id}>
         <NavLink to={`/city/${city.id}`}>{city.name}</NavLink>
       </li>
     );
   });
+
 
   return (
     <>

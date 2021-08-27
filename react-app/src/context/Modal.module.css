@@ -21,7 +21,7 @@
 
 .modal_content {
   position: absolute;
-  background-color:rgb(213, 43, 43);
+  background-color:#FFF;
   border-radius: 7px;
   width: 500px;
   padding: 1.5em;
@@ -59,22 +59,25 @@
 }
 
 .button_style_exit{
-  background-color: rgb(220, 220, 220);
-  color: #000;
-  border: solid #000 2px;
-}
-
-.button_style_exit:hover, .button_style_stay:hover{
-  box-shadow: 0 4px 8px rgb(255, 255, 255);
-  color: #000;
-  cursor: pointer;
+  background-color: rgb(244, 244, 244);
+  border: rgb(172, 172, 172) solid 1px;
 }
 
 .button_style_stay{
-  background-color: rgb(148, 243, 191);
+    background-color: #81EAAB;
+    color: #fff;
 }
 
-.button_style_exit:hover, .button_style_stay:hover{
-    background: white;
-    color: black;
+.button_style_stay:hover
+{
+  background-color: #1ce36c;
+  cursor: pointer;
+}
+
+.button_style_exit:hover
+{
+    background-color: rgb(224, 224, 224);
+    border: #000 solid 1px;
+    color: #000;
+    cursor: pointer;
 }
