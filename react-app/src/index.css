@@ -5,6 +5,7 @@
 }
 
 body {
+    min-width: 100vw;
     min-height: 100vh;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -12,6 +13,12 @@ body {
 h2, h3, h4, h5, div, p
 {
     margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 button {
