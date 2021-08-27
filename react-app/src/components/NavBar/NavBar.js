@@ -47,11 +47,11 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-li navbar-create-and-auth">
                     <li>
-                        <NavLink to='/cities' exact={true} 
+                        <NavLink to='/profile' exact={true} 
                             activeClassName='active'
                             className="navbar-btn"
                         >
-                            Cities
+                            My Cities
                         </NavLink>
                     </li>
                     {!user &&

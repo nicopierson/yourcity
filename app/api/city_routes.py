@@ -10,7 +10,6 @@ city_routes = Blueprint('cities', __name__)
 
 
 @city_routes.route('/')
-@login_required
 def get_all_cities():
     cities = City.query.all()
     return {'cities': [city.to_dict() for city in cities]}

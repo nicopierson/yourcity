@@ -18,7 +18,7 @@ const CityCreate = ({ userId }) => {
             <button
                 onClick={handleOpen}
             >
-                Creat City
+                Create City
             </button>
             {showModal && (
                 <ModalCreateCity
