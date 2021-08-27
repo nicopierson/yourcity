@@ -11,8 +11,8 @@ const Tester = () => {
 
     const getCities = async () => {
         // const res = await dispatch(getAllCities());
-        // await dispatch(resetCities())
-        // const res = await dispatch(getCity(3))
+        // await dispatch(resetCities());
+        // const res = await dispatch(getCity(3));
 
         // const payload = {
         //     description: "Test descriptiondsgdfgsd",
