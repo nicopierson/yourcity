@@ -5,11 +5,12 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import CitiesList from './components/TestComponents/CitiesList';
 import User from './components/TestComponents/User';
 import { authenticate } from './store/session';
 
 import City from './components/City';
+import CitiesList from './components/TestComponents/CitiesList';
+import MyCities from './components/TestComponents/MyCities';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,7 +26,7 @@ function App() {
   if (!loaded) {
     return null;
   }
-
+ 
   return (
     <BrowserRouter>
       <NavBar />
@@ -36,14 +37,14 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/cities' exact={true} >
+        <Route path='/' exact={true} >
           <CitiesList />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/profile' exact={true} >
+          <MyCities />
         </ProtectedRoute>
         <Route path='/city/:cityId' exact={true}>
           <City />
