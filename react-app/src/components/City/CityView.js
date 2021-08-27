@@ -1,28 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { removeCity } from '../../store/city';
+const CityView = ({ city, setShowEdit, isOwner }) => {
 
-const CityView = ({ city, setShowEdit }) => {
-    const history = useHistory();
-    const dispatch = useDispatch();
-
-    const handleDelete = (e) => {
-        e.preventDefault();
-
-        dispatch(removeCity(city.id));
-
-        history.push('/');
-    };
-    
     return (
         <div>
             <div>
                 <div className='header_edit_container'>
                     <h2>{ city.name }</h2>
-                    <i 
-                        onClick={() => setShowEdit(true)}
-                        className='fas fa-edit edit_item'
-                    ></i>
+                    {isOwner &&
+                        <i 
+                            onClick={() => setShowEdit(true)}
+                            className='fas fa-edit edit_item'
+                        ></i>
+                    }
                 </div>
             </div>
             <div>

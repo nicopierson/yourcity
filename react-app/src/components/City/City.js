@@ -38,6 +38,7 @@ const City = () => {
                 <CityView 
                     city={city}
                     setShowEdit={setShowEdit}
+                    isOwner={isOwner}
                 />
             }
             {showEdit &&
