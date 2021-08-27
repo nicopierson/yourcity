@@ -3,12 +3,14 @@ from flask_login import login_required
 from app.models import User, db
 from app.forms import ProfileForm
 from wtforms.validators import ValidationError
-from app.api.utils import throw_authorization_error, user_is_owner, throw_not_found_error
+from app.api.utils import (
+    throw_authorization_error, user_is_owner, throw_not_found_error, throw_server_error
+)
 
 user_routes = Blueprint('users', __name__)
 
 
-@user_routes.route('/', methods=['GET'])
+@user_routes.route('/')
 @login_required
 def users():
     users = User.query.all()
@@ -16,7 +18,6 @@ def users():
 
 
 @user_routes.route('/<int:id>')
-@login_required
 def user(id):
     user = User.query.get_or_404(id)
     return user.to_dict()
@@ -31,9 +32,12 @@ def user_update(id):
             if user_is_owner(id):
                 user = User.query_or_404.get(id)
                 form.populate_obj(user)
-                db.session.add(user)
-                db.session.commit()
-                return user.to_dict()
+                try:
+                    db.session.add(user)
+                    db.session.commit()
+                    return user.to_dict()
+                except:
+                    return throw_server_error()
             return throw_authorization_error()
         return throw_not_found_error()
     
@@ -43,8 +47,10 @@ def user_update(id):
 def user_delete(id):
     if user_is_owner(id):
         user = User.query.get_or_404(id)
-
-        db.session.delete(user)
-        db.session.commit()
-        return user.to_dict()
+        try:
+            db.session.delete(user)
+            db.session.commit()
+            return user.to_dict()
+        except:
+            return throw_server_error()
     return throw_not_found_error()
