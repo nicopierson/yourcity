@@ -15,7 +15,7 @@ const NavBar = () => {
     const dispatch = useDispatch();
 
     const demoLogin = async () => {
-        const data = await dispatch(login('demo@aa.io', 'password'));
+        const data = await dispatch(login('nicopierson@gmail.com', 'password'));
         if (data) {
             setErrors(data);
         }
@@ -54,15 +54,16 @@ const NavBar = () => {
                             Cities
                         </NavLink>
                     </li>
-                    <li
-                        className="button-fix navbar-li"
-                    >
-                        <CityCreate 
-                            userId={user.id}
-                        />
-                    </li>
                     {!user &&
                         <>
+                            <li>
+                                <p
+                                    className="navbar-btn navbar-btn-signed-out"
+                                    onClick={demoLogin}
+                                >
+                                    Demo Login
+                                </p>
+                            </li>
                             <li>
                                 <NavLink to='/login' exact={true} 
                                     activeClassName='active'
@@ -84,6 +85,13 @@ const NavBar = () => {
                     }
                     {user &&
                         <>
+                            <li
+                                className="button-fix navbar-li"
+                            >
+                                <CityCreate 
+                                    userId={user.id}
+                                />
+                            </li>
                             <li className="profile-avatar">
                                 <NavLink  to={`/profile/${user.id}`} 
                                     exact={true}
