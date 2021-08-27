@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
 
 const ModalContext = React.createContext();
+
 export const useModal = () => useContext(ModalContext);
 
 export function ModalProvider({ children }) {
   const modalRef = useRef();
-  const [value, setValue] = useState(false);
+  const [value, setValue] = useState();
 
 
   useEffect(() => {
@@ -16,7 +17,9 @@ export function ModalProvider({ children }) {
 
   return (
     <>
-      <ModalContext.Provider value={value}>
+      <ModalContext.Provider 
+        value={value}
+      >
         {children}
       </ModalContext.Provider>
       <div ref={modalRef} />
@@ -24,7 +27,7 @@ export function ModalProvider({ children }) {
   );
 }
 
-export function Modal({ onClose, children }) {
+export function ModalCreateCity({ onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;
 
@@ -39,11 +42,11 @@ export function Modal({ onClose, children }) {
   );
 }
 
-export function ModalVerify({ offVerify, onClose,children }) {
+export function ModalVerify({ offVerify, onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;
 
-  const verifyAndClose = () =>{
+  const verifyAndClose = () => {
     offVerify();
     onClose();
   }
@@ -57,10 +60,7 @@ export function ModalVerify({ offVerify, onClose,children }) {
           <div  className={styles.button_style_stay} onClick={offVerify}>Stay</div>
           <div className={styles.button_style_exit} onClick={verifyAndClose}>Exit</div>
         </div>
-
-
       </div>
-
     </div>,
     modalNode
   );

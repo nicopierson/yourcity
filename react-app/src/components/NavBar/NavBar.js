@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import CityCreate from '../City/CityCreate';
 
 const NavBar = () => {
   return (
@@ -9,6 +10,9 @@ const NavBar = () => {
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
+        </li>
+        <li>
+          <CityCreate />
         </li>
         <li>
           <NavLink to='/login' exact={true} activeClassName='active'>

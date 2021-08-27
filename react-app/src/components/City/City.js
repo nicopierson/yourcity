@@ -17,7 +17,6 @@ const City = () => {
     const userId = useSelector(state => state.session.user?.id);
     const cityOwnerId = useSelector(state => state.city[cityId]?.user_id);
     const isOwner = userId === cityOwnerId; 
-    console.log(isOwner);
 
     const [showEdit, setShowEdit] = useState(false);
 

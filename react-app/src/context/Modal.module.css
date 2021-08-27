@@ -8,8 +8,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1002;
-
 }
 
 .modal_background {
@@ -18,14 +16,13 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal_content {
   position: absolute;
-  background-color:white;
+  background-color:rgb(213, 43, 43);
   border-radius: 7px;
-  height: auto;
   width: 500px;
   padding: 1.5em;
 }
