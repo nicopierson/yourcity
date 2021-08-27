@@ -21,8 +21,6 @@ const NavBar = () => {
         }
     }
 
-    if (!user) return null;
-
     return (
         <nav className="navbar-container">
             <ul className="navbar-ul">
@@ -56,13 +54,6 @@ const NavBar = () => {
                             Cities
                         </NavLink>
                     </li>
-                    <li
-                        className="button-fix navbar-li"
-                    >
-                        <CityCreate 
-                            userId={user.id}
-                        />
-                    </li>
                     {!user &&
                         <>
                             <li>
@@ -94,6 +85,13 @@ const NavBar = () => {
                     }
                     {user &&
                         <>
+                            <li
+                                className="button-fix navbar-li"
+                            >
+                                <CityCreate 
+                                    userId={user.id}
+                                />
+                            </li>
                             <li className="profile-avatar">
                                 <NavLink  to={`/profile/${user.id}`} 
                                     exact={true}
