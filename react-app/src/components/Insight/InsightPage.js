@@ -8,6 +8,7 @@ import { getInsightsByCity, resetInsights } from '../../store/insight';
 const InsightPage = ({ cityId, userId }) => {
     const dispatch = useDispatch();
 
+    const user = useSelector(state => state.session.user);
     const insights = useSelector(state => Object.values(state.insight));
 
     useEffect(() => {
@@ -29,10 +30,12 @@ const InsightPage = ({ cityId, userId }) => {
                     />
                 )
             }
-            <InsightCreate 
-                userId={userId}
-                cityId={cityId}
-            />
+            {user &&
+                <InsightCreate 
+                    userId={userId}
+                    cityId={cityId}
+                />
+            }
         </div>
     )
 };
