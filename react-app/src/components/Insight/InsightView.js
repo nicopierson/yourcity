@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const InsightView = ({ insight, isOwner, setShowEdit }) => {
+const InsightView = ({ insight, isOwner, setShow }) => {
 
  
     //TODO make user slice to obtain user for each insight
@@ -11,7 +11,7 @@ const InsightView = ({ insight, isOwner, setShowEdit }) => {
                 <h2>Insight</h2>
                 {isOwner &&
                     <i
-                        onClick={() => setShowEdit(true)}
+                        onClick={() => setShow(true)}
                         className='fas fa-edit edit_item'
                     >
                     </i>

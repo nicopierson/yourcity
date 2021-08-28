@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import InsightView from './InsightView';
-import InsightEdit from './InsightEdit';
+import InsightForm from './InsightForm';
 
 const Insight = ({ insight, userId }) => {
     const [showEdit, setShowEdit] = useState(false);
@@ -17,14 +17,15 @@ const Insight = ({ insight, userId }) => {
                 <InsightView 
                     isOwner={isOwner}
                     insight={insight}
-                    setShowEdit={setShowEdit}
+                    setShow={setShowEdit}
                 />
             }
             {showEdit &&
-                <InsightEdit
+                <InsightForm
                     isOwner={isOwner}
                     insight={insight}
-                    setShowEdit={setShowEdit}
+                    setShow={setShowEdit}
+                    isCreate={false}
                 />
             }
         </div>

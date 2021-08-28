@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getInsightsByCity, resetInsights } from '../../store/insight';
 import Insight from './Insight';
+import InsightCreate from './InsightCreate';
+import { getInsightsByCity, resetInsights } from '../../store/insight';
 
 const InsightPage = ({ cityId, userId }) => {
     const dispatch = useDispatch();
@@ -28,6 +29,10 @@ const InsightPage = ({ cityId, userId }) => {
                     />
                 )
             }
+            <InsightCreate 
+                userId={userId}
+                cityId={cityId}
+            />
         </div>
     )
 };
