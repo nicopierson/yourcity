@@ -8,6 +8,7 @@ import CityView from './CityView';
 import CityBanner from './CityBanner';
 
 import './City.css';
+import Insight from '../Insight';
 
 const City = () => {
     const { cityId } = useParams();
@@ -31,22 +32,30 @@ const City = () => {
     if (!city) return null;
 
     return (
-        <div className='city_container'>
-            <CityBanner city={city} />
-            {!showEdit &&
-                <CityView 
-                    city={city}
-                    setShowEdit={setShowEdit}
+        <div>
+            <div className='city_container'>
+                <CityBanner city={city} />
+                {!showEdit &&
+                    <CityView 
+                        city={city}
+                        setShowEdit={setShowEdit}
+                        isOwner={isOwner}
+                    />
+                }
+                {showEdit &&
+                    <CityEdit
+                        city={city}
+                        setShowEdit={setShowEdit}
+                        isOwner={isOwner}
+                    />
+                }
+            </div>
+            <div>
+                <Insight 
+                    cityId={cityId}
                     isOwner={isOwner}
                 />
-            }
-            {showEdit &&
-                <CityEdit
-                    city={city}
-                    setShowEdit={setShowEdit}
-                    isOwner={isOwner}
-                />
-            }
+            </div>
         </div>
     )
 };
