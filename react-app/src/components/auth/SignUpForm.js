@@ -22,7 +22,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     } else {
-      setErrors(["Passwords do not match."])
+      setErrors([{"field": "password", "message": "Passwords do not match."}])
     }
   };
 
@@ -51,9 +51,9 @@ const SignUpForm = () => {
       onSubmit={onSignUp}
       className={styles.sign_container}
     >
-      <div>
+      <div className={styles.errors}>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind}>{error.field}: {error.message}</div>
         ))}
       </div>
       <div>

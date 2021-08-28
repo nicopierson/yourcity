@@ -37,16 +37,16 @@ const LoginForm = () => {
       onSubmit={onLogin}
       className={styles.sign_container}
     >
-      <div>
+      <div className={styles.errors}>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind}>{error.field}: {error.message}</div>
         ))}
       </div>
       <div>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
-          type='text'
+          type='email'
           placeholder='Email'
           value={email}
           onChange={updateEmail}

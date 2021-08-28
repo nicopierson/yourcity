@@ -9,8 +9,12 @@ def throw_validation_error(validation_errors):
     error_messages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            error_messages.append(f'{field} : {error}')
-    return error_messages
+            error_message = {
+                'field': field,
+                'message': error,
+            }
+            error_messages.append(error_message)
+    return {'errors': error_messages}, 401
 
 
 def id_exists(id, model):
@@ -30,7 +34,7 @@ def throw_server_error(message="Server Error"):
     return {'errors': message}, 500
 
 
-def throw_authorization_error(message="Unauthorized User"):
+def throw_authorization_error(message="Unauthorized"):
     """
     Throw an unauthorized error 401
     """
