@@ -24,6 +24,6 @@ jobs:
       - name: Login to Heroku Container registry
         run: heroku container:login
       - name: Build and push
-        run: heroku container:push -a yourcity-app web
+        run: heroku container:push -a yourcity-app web --arg HEROKU_URL=https://yourcity-app.herokuapp.com/
       - name: Release
         run: heroku container:release -a yourcity-app web
