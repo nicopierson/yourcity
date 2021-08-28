@@ -36,7 +36,7 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
         e.preventDefault();
 
         dispatch(removeCity(city.id));
-        history.push('/');
+        history.push('/profile');
     };
 
     return (

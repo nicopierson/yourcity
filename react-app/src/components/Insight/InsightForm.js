@@ -8,9 +8,9 @@ import styles from '../City/CityEdit.module.css'
 const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) => {
     const dispatch = useDispatch();
     const [insightText, setInsightText] = useState(insight?.insight ? insight.insight : '');
-    const [title, setTitle] = useState(isCreate ? 'Add Insight' : 'Edit Insight');
-    const [city_id, setCityId] = useState(insight?.city_id ? insight.city_id : cityId);
-    const [user_id, setUserId] = useState(insight?.user_id ? insight.user_id : userId);
+    const title = isCreate ? 'Add Insight' : 'Edit Insight';
+    const city_id = insight?.city_id ? insight.city_id : cityId;
+    const user_id = insight?.user_id ? insight.user_id : userId;
 
     const TEXTAREA_ROWS = 6;
 
@@ -24,7 +24,8 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
             city_id,
         };
 
-        const data = await dispatch(updateInsight(payload));
+        await dispatch(updateInsight(payload));
+        // const data = await dispatch(updateInsight(payload));
         // console.log(data);
         // returns the errors or the insight
         setShow(false);
@@ -39,7 +40,8 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
             city_id,
         };
 
-        const data = await dispatch(createInsight(payload));
+        await dispatch(createInsight(payload));
+        // const data = await dispatch(createInsight(payload));
         // console.log(data);
         // returns the errors or the insight
         setShow(false);

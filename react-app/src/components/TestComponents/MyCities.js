@@ -14,7 +14,7 @@ function MyCities() {
             dispatch(resetCities())
             dispatch(getCitiesByUser(userId));
         }
-    }, [dispatch]);
+    }, [dispatch, userId]);
 
     if (!cities) return null;
 

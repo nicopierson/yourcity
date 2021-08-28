@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
@@ -10,15 +10,16 @@ import './NavBar.css';
 
 const NavBar = () => {
 
-    const [errors, setErrors] = useState([]);
+    //TODO: add validators
+    // const [errors, setErrors] = useState([]);
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 
     const demoLogin = async () => {
-        const data = await dispatch(login('nicopierson@gmail.com', 'password'));
-        if (data) {
-            setErrors(data);
-        }
+        await dispatch(login('nicopierson@gmail.com', 'password'));
+        // if (data) {
+        //     setErrors(data);
+        // }
     }
 
     return (

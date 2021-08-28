@@ -1,8 +1,5 @@
-import { useEffect } from 'react';
-
 const InsightView = ({ insight, isOwner, setShow }) => {
-
- 
+    
     //TODO make user slice to obtain user for each insight
 
     return (

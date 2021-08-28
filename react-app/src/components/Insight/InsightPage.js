@@ -15,7 +15,7 @@ const InsightPage = ({ cityId, userId }) => {
             dispatch(resetInsights());
             dispatch(getInsightsByCity(cityId));
         }
-    }, [dispatch]);
+    }, [dispatch, cityId]);
 
 
     return (

@@ -27,7 +27,7 @@ const City = () => {
         if (cityId) {
             dispatch(getCity(cityId))
         }
-    }, [dispatch]);
+    }, [dispatch, cityId]);
 
     if (!city) return null;
 
