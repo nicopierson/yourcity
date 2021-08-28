@@ -1,3 +1,3 @@
-import Insight from './Insight';
+import InsightPage from './InsightPage';
 
-export default Insight;
+export default InsightPage;

@@ -1,22 +1,26 @@
-const InsightView = ({ insights, isOwner }) => {
+import { useEffect } from 'react';
 
+const InsightView = ({ insight, isOwner, setShowEdit }) => {
 
+ 
+    //TODO make user slice to obtain user for each insight
 
     return (
         <div>
-            {insights && Object.values(insights).map((insight) =>             
-                <div>
-                    <div className='header_edit_container'>
-                        <h2>Insight</h2>
-                    </div>
-                    <div>
-                        <h4>Owner id: { insight.user_id }</h4>
-                        <h4>User: </h4>
-                        <p>{ insight.insight }</p>
-                    </div>
-                </div>
-            )}
-
+            <div className='header_edit_container'>
+                <h2>Insight</h2>
+                {isOwner &&
+                    <i
+                        onClick={() => setShowEdit(true)}
+                        className='fas fa-edit edit_item'
+                    >
+                    </i>
+                }
+            </div>
+            <div>
+                <h4>Owner id: { insight.user_id }</h4>
+                <p>{ insight.insight }</p>
+            </div>
         </div>
     )
 };

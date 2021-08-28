@@ -1,27 +1,32 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 
-import { getInsightsByCity, resetInsights } from '../../store/insight';
 import InsightView from './InsightView';
+import InsightEdit from './InsightEdit';
 
-const Insight = ({ cityId, isOwner }) => {
-    const dispatch = useDispatch();
+const Insight = ({ insight, userId }) => {
+    const [showEdit, setShowEdit] = useState(false);
 
-    const insights = useSelector(state => state.insight);
-    console.log(insights);
+    /* isOwner Boolean to check if insight is owned by current user */
+    const isOwner = userId === insight.user_id;
 
-    useEffect(() => {
-        dispatch(resetInsights());
-        dispatch(getInsightsByCity(cityId));
-    }, [dispatch]);
-    // const [showView, setShowView] = useState(false);
+    if (!insight) return null;
 
     return (
         <div>
-            <InsightView 
-                isOwner={isOwner}
-                insights={insights}
-            />
+            {!showEdit &&  
+                <InsightView 
+                    isOwner={isOwner}
+                    insight={insight}
+                    setShowEdit={setShowEdit}
+                />
+            }
+            {showEdit &&
+                <InsightEdit
+                    isOwner={isOwner}
+                    insight={insight}
+                    setShowEdit={setShowEdit}
+                />
+            }
         </div>
     )
 };

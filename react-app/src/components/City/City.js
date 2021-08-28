@@ -8,13 +8,13 @@ import CityView from './CityView';
 import CityBanner from './CityBanner';
 
 import './City.css';
-import Insight from '../Insight';
+import InsightPage from '../Insight';
 
 const City = () => {
     const { cityId } = useParams();
     const dispatch = useDispatch();
     
-    /* isOwner Boolean to check if recipe is owned by current user */
+    /* isOwner Boolean to check if 4city is owned by current user */
     const userId = useSelector(state => state.session.user?.id);
     const cityOwnerId = useSelector(state => state.city[cityId]?.user_id);
     const isOwner = userId === cityOwnerId; 
@@ -51,9 +51,9 @@ const City = () => {
                 }
             </div>
             <div>
-                <Insight 
+                <InsightPage
                     cityId={cityId}
-                    isOwner={isOwner}
+                    userId={userId}
                 />
             </div>
         </div>

@@ -43,7 +43,7 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
         <div className={styles.edit_container}>
             <div className={styles.header_outer_container}>
                 <div className='header_edit_container'>
-                    <h2>Edit City</h2>
+                    <h2>Edit {city.name}</h2>
                     {isOwner &&
                         <i 
                             className={`fas fa-minus-circle delete_item`}
