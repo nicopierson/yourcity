@@ -3,3 +3,8 @@
     margin-top: 50px;
     padding: 15px;
 }
+
+.errors
+{
+    color: rgb(255, 0, 0);
+}

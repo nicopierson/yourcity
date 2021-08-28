@@ -21,6 +21,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors([{"field": "password", "message": "Passwords do not match."}])
     }
   };
 
@@ -49,9 +51,9 @@ const SignUpForm = () => {
       onSubmit={onSignUp}
       className={styles.sign_container}
     >
-      <div>
+      <div className={styles.errors}>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind}>{error.field}: {error.message}</div>
         ))}
       </div>
       <div>
@@ -61,15 +63,17 @@ const SignUpForm = () => {
           name='username'
           onChange={updateUsername}
           value={username}
+          // required={true}
         ></input>
       </div>
       <div>
         <label>Email</label>
         <input
-          type='text'
+          type='email'
           name='email'
           onChange={updateEmail}
           value={email}
+          // required={true}
         ></input>
       </div>
       <div>
@@ -79,6 +83,7 @@ const SignUpForm = () => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>
