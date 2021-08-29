@@ -117,3 +117,14 @@
 {
     margin-top: 40px;
 }
+
+.form_input span 
+{
+    padding: 5px;
+}
+
+.form_input span:hover
+{
+    cursor: pointer;
+    text-decoration: underline 1px solid #fff;
+}

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
 import styles from './Form.module.css';
 
 const LoginForm = () => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,6 +19,11 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+  };
+
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    await dispatch(login('nicopierson@gmail.com', 'password'));
   };
 
   const updateEmail = (e) => {
@@ -82,7 +88,20 @@ const LoginForm = () => {
           </button>
         </div>
         <div className={`${styles.form_input}`}>
-          <p>Or Try the Demo account</p>
+          <p>
+            <span
+              onClick={() => history.push('/sign-up')}
+              className={styles.demo_link}
+            >
+              Don't have an account.
+            </span>
+            <span
+              onClick={handleDemo}
+              className={styles.demo_link}
+            >
+              Or Try the Demo account
+            </span>
+          </p>
         </div>
       </form>
     </div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { Redirect, useHistory } from 'react-router-dom';
+import { signUp, login } from '../../store/session';
 
 import styles from './Form.module.css';
 
 const SignUpForm = () => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -24,6 +25,11 @@ const SignUpForm = () => {
     } else {
       setErrors([{"field": "password", "message": "Passwords do not match."}])
     }
+  };
+
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    await dispatch(login('nicopierson@gmail.com', 'password'));
   };
 
   const updateUsername = (e) => {
@@ -120,7 +126,20 @@ const SignUpForm = () => {
           </button>
         </div>
         <div className={`${styles.form_input}`}>
-          <p>Or Try the Demo account</p>
+          <p>
+            <span
+              onClick={() => history.push('/login')}
+              className={styles.demo_link}
+            >
+              Already have an account.
+            </span>
+            <span
+              onClick={handleDemo}
+              className={styles.demo_link}
+            >
+              Or Try the Demo account
+            </span>
+          </p>
         </div>
       </form>
     </div>
