@@ -9,7 +9,7 @@
 .outer_container_sign_up
 {
     position: fixed;
-    width: 50%;
+    width: 50vw;
     top: 0;
     bottom: 0;
     right: 0;
@@ -23,7 +23,6 @@
     align-items: center;
     margin-top: 50px;
     padding: 15px;
-    max-width: 500px;
     background-color: #000;
     color: #fff;
     overflow: hidden;
@@ -61,7 +60,6 @@
     display: flex;
     justify-content: center;
     margin: 10px;
-    /* margin-left: 150px; */
 }
 
 .form_input input
@@ -88,7 +86,7 @@
     pointer-events: none;
     padding: 5px 5px 5px 5px;
     color: rgb(212, 212, 212);
-    left: 100px;
+    left: 10vw;
 }
 
 .form_input input:focus ~ label,
@@ -127,4 +125,31 @@
 {
     cursor: pointer;
     text-decoration: underline 1px solid #fff;
+}
+
+@media only screen and (max-width: 850px) {
+    .outer_container_sign_up
+    {
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+    }
+
+    .outer_container_sign_in
+    {
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+    }
+
+    .form_input label {
+        position: absolute;
+        font-size: 16px;
+        pointer-events: none;
+        padding: 5px 5px 5px 5px;
+        color: rgb(212, 212, 212);
+        left: 20vw;
+    }
 }
