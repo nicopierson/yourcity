@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { Redirect, useHistory } from 'react-router-dom';
+import { signUp, login } from '../../store/session';
 
 import styles from './Form.module.css';
 
 const SignUpForm = () => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -24,6 +25,11 @@ const SignUpForm = () => {
     } else {
       setErrors([{"field": "password", "message": "Passwords do not match."}])
     }
+  };
+
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    await dispatch(login('nicopierson@gmail.com', 'password'));
   };
 
   const updateUsername = (e) => {
@@ -47,57 +53,96 @@ const SignUpForm = () => {
   }
 
   return (
-    <form 
-      onSubmit={onSignUp}
-      className={styles.sign_container}
-    >
-      <div className={styles.errors}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error.field}: {error.message}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-          // required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='email'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-          // required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-          required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div className={styles.outer_container_sign_up}>
+      <form 
+        onSubmit={onSignUp}
+        className={styles.sign_container}
+      >
+        <div className={`${styles.header_container} ${styles.header}`}>
+          <h2
+            className={styles.header_text}
+          >
+            Let's Get Started
+          </h2>
+          <div className={styles.errors}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error.field}: {error.message}</div>
+            ))}
+          </div>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='text'
+            id='username'
+            name='username'
+            onChange={updateUsername}
+            value={username}
+            placeholder=' '
+            // required={true}
+            ></input>
+            <label htmlFor='username'>User Name</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='email'
+            name='email'
+            id='email'
+            onChange={updateEmail}
+            value={email}
+            placeholder=' '
+            // required={true}
+            ></input>
+            <label htmlFor='email'>Email</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='password'
+            name='password'
+            id='password'
+            onChange={updatePassword}
+            value={password}
+            required={true}
+            placeholder=' '
+            ></input>
+            <label htmlFor='password'>Password</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+            placeholder=' '
+            ></input>
+            <label htmlFor='repeat_password'>Confirm Password</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <button 
+            type='submit'
+            className='add_button'    
+          >
+            Sign Up
+          </button>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <p>
+            <span
+              onClick={() => history.push('/login')}
+              className={styles.demo_link}
+            >
+              Already have an account.
+            </span>
+            <span
+              onClick={handleDemo}
+              className={styles.demo_link}
+            >
+              Or Try the Demo account
+            </span>
+          </p>
+        </div>
+      </form>
+    </div>
   );
 };
 
