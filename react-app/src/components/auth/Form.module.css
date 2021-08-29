@@ -1,3 +1,20 @@
+.outer_container_sign_in
+{
+    position: fixed;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+}
+
+.outer_container_sign_up
+{
+    position: fixed;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
 .sign_container
 {
     height: 100vh;
@@ -9,13 +26,18 @@
     max-width: 500px;
     background-color: #000;
     color: #fff;
+    overflow: hidden;
 }
 
-.header {
-    font-size: 36px;
+.header_container {
     text-align: center;
-    margin-bottom: 80px;
-    text-transform: uppercase;
+    margin: 50px 0 40px 0;
+}
+
+.header_text
+{
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .header_container
@@ -27,6 +49,7 @@
 {
     color: rgb(255, 0, 0);
     font-size: 12px;
+    height: 20px;
 }
 
 .form_input
@@ -36,9 +59,9 @@
     height: 50px;
     padding: 5px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 10px;
-    margin-left: 80px;
+    /* margin-left: 150px; */
 }
 
 .form_input input
@@ -53,7 +76,7 @@
     outline: none;
     border-radius: 5px;
     border-bottom: 2px solid rgb(92, 92, 92);
-    padding: 5px 5px 5px 5px;
+    padding: 7px 10px 7px 10px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: rgb(255, 255, 255);
     background-color: #000;
@@ -64,7 +87,8 @@
     font-size: 16px;
     pointer-events: none;
     padding: 5px 5px 5px 5px;
-    color: #fff;
+    color: rgb(212, 212, 212);
+    left: 100px;
 }
 
 .form_input input:focus ~ label,
@@ -72,11 +96,24 @@
 {
     font-size: 14px;
     top: -20px;
-    color: rgb(255, 255, 255);
+    color: rgb(175, 175, 175);
     transition: 0.3s;
 }
 
 .form_input input:focus
 {
     border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.form_input button
+{
+    margin-top: 20px;
+    padding: 15px;
+    min-width: 40%;
+    height: 50px;
+}
+
+.form_input p
+{
+    margin-top: 40px;
 }

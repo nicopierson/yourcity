@@ -47,64 +47,83 @@ const SignUpForm = () => {
   }
 
   return (
-    <form 
-      onSubmit={onSignUp}
-      className={styles.sign_container}
-    >
-      <div className={styles.errors}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error.field}: {error.message}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-          // required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='email'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-          // required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-          required={true}
-          placeholder=' '
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-          placeholder=' '
-        ></input>
-      </div>
-      <button 
-        type='submit'
-        className='add_button'    
+    <div className={styles.outer_container_sign_up}>
+      <form 
+        onSubmit={onSignUp}
+        className={styles.sign_container}
       >
-        Sign Up
-      </button>
-    </form>
+        <div className={`${styles.header_container} ${styles.header}`}>
+          <h2
+            className={styles.header_text}
+          >
+            Let's Get Started
+          </h2>
+          <div className={styles.errors}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error.field}: {error.message}</div>
+            ))}
+          </div>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='text'
+            id='username'
+            name='username'
+            onChange={updateUsername}
+            value={username}
+            placeholder=' '
+            // required={true}
+            ></input>
+            <label htmlFor='username'>User Name</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='email'
+            name='email'
+            id='email'
+            onChange={updateEmail}
+            value={email}
+            placeholder=' '
+            // required={true}
+            ></input>
+            <label htmlFor='email'>Email</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='password'
+            name='password'
+            id='password'
+            onChange={updatePassword}
+            value={password}
+            required={true}
+            placeholder=' '
+            ></input>
+            <label htmlFor='password'>Password</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+            placeholder=' '
+            ></input>
+            <label htmlFor='repeat_password'>Confirm Password</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <button 
+            type='submit'
+            className='add_button'    
+          >
+            Sign Up
+          </button>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <p>Or Try the Demo account</p>
+        </div>
+      </form>
+    </div>
   );
 };
 

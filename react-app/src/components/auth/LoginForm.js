@@ -33,54 +33,59 @@ const LoginForm = () => {
   }
 
   return (
-    <form 
-      onSubmit={onLogin}
-      className={styles.sign_container}
-    >
-      <div className={`${styles.header_container} ${styles.header}`}>
-        <h2
-          className={styles.header}
-        >
-          Login
-        </h2>
-        <div className={styles.errors}>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error.field}: {error.message}</div>
-          ))}
+    <div className={styles.outer_container_sign_in}>
+      <form 
+        onSubmit={onLogin}
+        className={styles.sign_container}
+      >
+        <div className={`${styles.header_container} ${styles.header}`}>
+          <h2
+            className={styles.header_text}
+          >
+            Welcome Back
+          </h2>
+          <div className={styles.errors}>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error.field}: {error.message}</div>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className={`${styles.form_input}`}>
-        <input
-          name='email'
-          type='email'
-          id='email'
-          value={email}
-          onChange={updateEmail}
-          placeholder=' '
-        />
-        <label htmlFor='email'>Email</label>
-      </div>
-      <div className={`${styles.form_input}`}>
-        <input
-          name='password'
-          type='password'
-          id='password'
-          value={password}
-          onChange={updatePassword}
-          placeholder=' '
-        />
-        <label htmlFor='password'>Password</label>
-      </div>
-      <div className={`${styles.form_input}`}>
-        <button 
-          type='submit'
-          className='add_button'
-          placeholder=' '
-        >
-          Login
-        </button>
-      </div>
-    </form>
+        <div className={`${styles.form_input}`}>
+          <input
+            name='email'
+            type='email'
+            id='email'
+            value={email}
+            onChange={updateEmail}
+            placeholder=' '
+          />
+          <label htmlFor='email'>Email</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <input
+            name='password'
+            type='password'
+            id='password'
+            value={password}
+            onChange={updatePassword}
+            placeholder=' '
+          />
+          <label htmlFor='password'>Password</label>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <button 
+            type='submit'
+            className='add_button'
+            placeholder=' '
+          >
+            Login
+          </button>
+        </div>
+        <div className={`${styles.form_input}`}>
+          <p>Or Try the Demo account</p>
+        </div>
+      </form>
+    </div>
   );
 };
 
