@@ -84,6 +84,7 @@ const SignUpForm = () => {
           onChange={updatePassword}
           value={password}
           required={true}
+          placeholder=' '
         ></input>
       </div>
       <div>
@@ -94,9 +95,15 @@ const SignUpForm = () => {
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
+          placeholder=' '
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button 
+        type='submit'
+        className='add_button'    
+      >
+        Sign Up
+      </button>
     </form>
   );
 };

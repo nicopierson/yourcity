@@ -37,31 +37,48 @@ const LoginForm = () => {
       onSubmit={onLogin}
       className={styles.sign_container}
     >
-      <div className={styles.errors}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error.field}: {error.message}</div>
-        ))}
+      <div className={`${styles.header_container} ${styles.header}`}>
+        <h2
+          className={styles.header}
+        >
+          Login
+        </h2>
+        <div className={styles.errors}>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error.field}: {error.message}</div>
+          ))}
+        </div>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+      <div className={`${styles.form_input}`}>
         <input
           name='email'
           type='email'
-          placeholder='Email'
+          id='email'
           value={email}
           onChange={updateEmail}
+          placeholder=' '
         />
+        <label htmlFor='email'>Email</label>
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+      <div className={`${styles.form_input}`}>
         <input
           name='password'
           type='password'
-          placeholder='Password'
+          id='password'
           value={password}
           onChange={updatePassword}
+          placeholder=' '
         />
-        <button type='submit'>Login</button>
+        <label htmlFor='password'>Password</label>
+      </div>
+      <div className={`${styles.form_input}`}>
+        <button 
+          type='submit'
+          className='add_button'
+          placeholder=' '
+        >
+          Login
+        </button>
       </div>
     </form>
   );
