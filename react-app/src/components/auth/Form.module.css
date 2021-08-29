@@ -1,4 +1,24 @@
-.outer_container_sign_in
+.parent_container
+{
+    height: 100vh;
+    width: 50vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parent_container_sign_in
+{
+    width: 100vw;
+    background-image: url("https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/capturebywells-1OZlrzh-7FM-unsplash.jpg");
+}
+
+.parent_container_sign_up
+{
+    background-image: url("https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/alfons-taekema-lvXeO04CxwQ-unsplash.jpg");
+}
+
+.sign_in_container
 {
     position: fixed;
     width: 50%;
@@ -6,7 +26,7 @@
     bottom: 0;
 }
 
-.outer_container_sign_up
+.sign_up_container
 {
     position: fixed;
     width: 50vw;
@@ -15,7 +35,13 @@
     right: 0;
 }
 
-.sign_container
+/* .sign_up_container img
+{
+    display: absolute;
+    height: 100vh;
+} */
+
+.form_container
 {
     height: 100vh;
     display: flex;
@@ -128,7 +154,13 @@
 }
 
 @media only screen and (max-width: 850px) {
-    .outer_container_sign_up
+    .parent_container
+    {
+        width: 100vw;
+        background-image: none;
+    }
+
+    .sign_up_container
     {
         position: fixed;
         width: 100vw;
@@ -136,7 +168,7 @@
         bottom: 0;
     }
 
-    .outer_container_sign_in
+    .sign_in_container
     {
         position: fixed;
         width: 100vw;

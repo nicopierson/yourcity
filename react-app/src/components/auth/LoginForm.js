@@ -39,71 +39,73 @@ const LoginForm = () => {
   }
 
   return (
-    <div className={styles.outer_container_sign_in}>
-      <form 
-        onSubmit={onLogin}
-        className={styles.sign_container}
-      >
-        <div className={`${styles.header_container} ${styles.header}`}>
-          <h2
-            className={styles.header_text}
-          >
-            Welcome Back
-          </h2>
-          <div className={styles.errors}>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error.field}: {error.message}</div>
-            ))}
+    <div className={`${styles.parent_container} ${styles.parent_container_sign_in}`}>
+      <div className={styles.sign_in_container}>
+        <form 
+          onSubmit={onLogin}
+          className={styles.form_container}
+        >
+          <div className={`${styles.header_container} ${styles.header}`}>
+            <h2
+              className={styles.header_text}
+            >
+              Welcome Back
+            </h2>
+            <div className={styles.errors}>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error.field}: {error.message}</div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <input
-            name='email'
-            type='email'
-            id='email'
-            value={email}
-            onChange={updateEmail}
-            placeholder=' '
-          />
-          <label htmlFor='email'>Email</label>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <input
-            name='password'
-            type='password'
-            id='password'
-            value={password}
-            onChange={updatePassword}
-            placeholder=' '
-          />
-          <label htmlFor='password'>Password</label>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <button 
-            type='submit'
-            className='add_button'
-            placeholder=' '
-          >
-            Login
-          </button>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <p>
-            <span
-              onClick={() => history.push('/sign-up')}
-              className={styles.demo_link}
+          <div className={`${styles.form_input}`}>
+            <input
+              name='email'
+              type='email'
+              id='email'
+              value={email}
+              onChange={updateEmail}
+              placeholder=' '
+            />
+            <label htmlFor='email'>Email</label>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <input
+              name='password'
+              type='password'
+              id='password'
+              value={password}
+              onChange={updatePassword}
+              placeholder=' '
+            />
+            <label htmlFor='password'>Password</label>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <button 
+              type='submit'
+              className='add_button'
+              placeholder=' '
             >
-              Don't have an account.
-            </span>
-            <span
-              onClick={handleDemo}
-              className={styles.demo_link}
-            >
-              Or Try the Demo account
-            </span>
-          </p>
-        </div>
-      </form>
+              Login
+            </button>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <p>
+              <span
+                onClick={() => history.push('/sign-up')}
+                className={styles.demo_link}
+              >
+                Don't have an account.
+              </span>
+              <span
+                onClick={handleDemo}
+                className={styles.demo_link}
+              >
+                Or Try the Demo account
+              </span>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

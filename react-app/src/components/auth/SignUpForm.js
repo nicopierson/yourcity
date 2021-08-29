@@ -53,95 +53,97 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className={styles.outer_container_sign_up}>
-      <form 
-        onSubmit={onSignUp}
-        className={styles.sign_container}
-      >
-        <div className={`${styles.header_container} ${styles.header}`}>
-          <h2
-            className={styles.header_text}
-          >
-            Let's Get Started
-          </h2>
-          <div className={styles.errors}>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error.field}: {error.message}</div>
-            ))}
+    <div className={`${styles.parent_container} ${styles.parent_container_sign_up}`}>
+      <div className={styles.sign_up_container}>
+        <form 
+          onSubmit={onSignUp}
+          className={styles.form_container}
+        >
+          <div className={`${styles.header_container} ${styles.header}`}>
+            <h2
+              className={styles.header_text}
+            >
+              Let's Get Started
+            </h2>
+            <div className={styles.errors}>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error.field}: {error.message}</div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <input
-            type='text'
-            id='username'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-            placeholder=' '
-            // required={true}
-            ></input>
-            <label htmlFor='username'>User Name</label>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            onChange={updateEmail}
-            value={email}
-            placeholder=' '
-            // required={true}
-            ></input>
-            <label htmlFor='email'>Email</label>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            onChange={updatePassword}
-            value={password}
-            required={true}
-            placeholder=' '
-            ></input>
-            <label htmlFor='password'>Password</label>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-            placeholder=' '
-            ></input>
-            <label htmlFor='repeat_password'>Confirm Password</label>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <button 
-            type='submit'
-            className='add_button'    
-          >
-            Sign Up
-          </button>
-        </div>
-        <div className={`${styles.form_input}`}>
-          <p>
-            <span
-              onClick={() => history.push('/login')}
-              className={styles.demo_link}
+          <div className={`${styles.form_input}`}>
+            <input
+              type='text'
+              id='username'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+              placeholder=' '
+              // required={true}
+              ></input>
+              <label htmlFor='username'>User Name</label>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              onChange={updateEmail}
+              value={email}
+              placeholder=' '
+              // required={true}
+              ></input>
+              <label htmlFor='email'>Email</label>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <input
+              type='password'
+              name='password'
+              id='password'
+              onChange={updatePassword}
+              value={password}
+              required={true}
+              placeholder=' '
+              ></input>
+              <label htmlFor='password'>Password</label>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <input
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+              placeholder=' '
+              ></input>
+              <label htmlFor='repeat_password'>Confirm Password</label>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <button 
+              type='submit'
+              className='add_button'    
             >
-              Already have an account.
-            </span>
-            <span
-              onClick={handleDemo}
-              className={styles.demo_link}
-            >
-              Or Try the Demo account
-            </span>
-          </p>
-        </div>
-      </form>
+              Sign Up
+            </button>
+          </div>
+          <div className={`${styles.form_input}`}>
+            <p>
+              <span
+                onClick={() => history.push('/login')}
+                className={styles.demo_link}
+              >
+                Already have an account.
+              </span>
+              <span
+                onClick={handleDemo}
+                className={styles.demo_link}
+              >
+                Or Try the Demo account
+              </span>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
