@@ -8,7 +8,7 @@ const InsightCreate = ({ userId, cityId }) => {
     return (
         <>
             {!showCreate &&
-                <div className=''>
+                <div>
                     <button
                         className='save_button'
                         onClick={() => setShowCreate(true)}

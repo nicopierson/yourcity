@@ -1,20 +1,36 @@
-.header_container
-{
-
-}
-
 .text_container
 {
-
+    padding: 0 10px 10px 10px;
 }
 
-.text_container
+.headers_container
 {
-    border-bottom: 1px solid #000;
-}
-
-.header_container
-{
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.headers_container img
+{
+    height: 75px;
+    width: 75px;
+    border-radius: 40px;
+}
+
+.text_container span
+{
+    font-weight: 600;
+}
+
+.username_link
+{
+    text-decoration: none;
+    color: rgb(99, 99, 99);
+}
+
+.username_link:hover
+{
+    color: #000;
 }

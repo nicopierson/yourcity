@@ -1,0 +1,25 @@
+.layout__one_insight_text
+{
+    grid-area: insight-text;
+}
+
+.layout__one_insight_header
+{
+    grid-area: insight-photo;
+}
+
+.layout__one_insight_edit
+{
+    grid-area: insight-edit;
+}
+
+.layout__one_insight_container
+{
+    display: grid;
+    grid-template-columns: 10px 1fr 4fr 10px;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". insight-photo insight-text insight-edit"
+    ;
+    margin: 10px 0 10px 0;
+}

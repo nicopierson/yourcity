@@ -1,26 +1,42 @@
+import { Link } from 'react-router-dom';
+
 import styles from './Insight.module.css';
+import './InsightLayout.css';
 
-const InsightView = ({ insight, isOwner, setShow }) => {
+const InsightView = ({ insight, isOwner, setShow, username }) => {
     
-    //TODO make user slice to obtain user for each insight
-
     return (
-        <>
-            <div className={`${styles.headers_container} header_edit_container`}>
-                <h2>Insight</h2>
-                {isOwner &&
+        <div className='layout__one_insight_container'>
+            <div 
+                className={`${styles.headers_container} header_edit_container layout__one_insight_header`}
+            >
+                <img 
+                    alt='profile' 
+                    src='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/pudds_profile.jpg' 
+                />
+            </div>
+            <div className={`${styles.text_container} layout__one_insight_text`}>
+                <p>
+                    <span>
+                        <Link 
+                            className={styles.username_link}
+                            to={`/profile/${insight.user_id}`}
+                        >
+                            { username }
+                        </Link></span>  { insight.insight }</p>
+            </div>
+            {isOwner &&
+                <div
+                    className='layout__one_insight_edit'
+                >
                     <i
                         onClick={() => setShow(true)}
                         className='fas fa-edit edit_item'
                     >
                     </i>
-                }
-            </div>
-            <div className={styles.text_container}>
-                <h4>Owner id: { insight.user_id }</h4>
-                <p>{ insight.insight }</p>
-            </div>
-        </>
+                </div>
+            }
+        </div>
     )
 };
 
