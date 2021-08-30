@@ -3,12 +3,35 @@
     padding: 15px;
 }
 
-.main_city_text h2
+.main_city_text p
+{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.main_city_text p i
+{
+    margin-right: 15px;
+}
+
+.text_container
+{
+    border-bottom: 1px solid #000;
+}
+
+.header_container
 {
     font-size: 24px;
+    margin-bottom: 15px;
 }
 
 .insights_text
 {
     padding: 15px;
+}
+
+.subheader_container
+{
+    display: flex;
+    justify-content: space-between;
 }
