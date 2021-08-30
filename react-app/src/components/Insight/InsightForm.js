@@ -54,7 +54,7 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
     };
 
     return (
-        <div>
+        <div className='layout__insight_create_form'>
             <div className='header_edit_container'>
                 <h2>{ title }</h2>
                 {isOwner && !isCreate &&

@@ -23,3 +23,15 @@
     ;
     margin: 10px 0 10px 0;
 }
+
+.layout__insight_create
+{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.layout__insight_create_form
+{
+    width: 100%;
+}
