@@ -12,7 +12,7 @@ const Insight = ({ insight, userId }) => {
     if (!insight) return null;
 
     return (
-        <div>
+        <>
             {!showEdit &&  
                 <InsightView 
                     isOwner={isOwner}
@@ -28,7 +28,7 @@ const Insight = ({ insight, userId }) => {
                     isCreate={false}
                 />
             }
-        </div>
+        </>
     )
 };
 

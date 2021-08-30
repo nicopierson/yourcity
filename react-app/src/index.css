@@ -61,6 +61,13 @@ button.save_button
 {
     background-color: #81EAAB;
     color: #fff;
+    border: #81EAAB solid 1px;
+    margin-right: 10px;
+}
+
+button.save_button i
+{
+    margin-right: 5px;
 }
 
 button.save_button:hover
@@ -95,14 +102,16 @@ i.delete_item:hover
 input.edit_field
 {
     padding: 5px;
-    width: 95%;
+    width: 100%;
+    margin: 10px 0 0 0;
 }
 
 textarea.edit_field
 {
     resize: none;
     padding: 10px;
-    width: 95%;
+    width: 100%;
+    margin: 10px 0 10px 0;
 }
 
 .header_edit_container
@@ -110,7 +119,7 @@ textarea.edit_field
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 100%;
 }
 
 .header_edit_container h2

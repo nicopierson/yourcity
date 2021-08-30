@@ -68,13 +68,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-right: 20px;
 }
 
 .navbar-title {
     font-size: 25px;
     font-weight: 900;
     color: black;
-    margin: 20px;
+    margin-left: 20px;
 }
 
 .navbar-title:hover {
