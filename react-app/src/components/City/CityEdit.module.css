@@ -13,3 +13,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.submit_buttons
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit_header
+{
+
+}

@@ -16,14 +16,24 @@ const InsightView = ({ insight, isOwner, setShow, username }) => {
                 />
             </div>
             <div className={`${styles.text_container} layout__one_insight_text`}>
-                <p>
+                <p className={styles.text_show_all}>
                     <span>
                         <Link 
                             className={styles.username_link}
                             to={`/profile/${insight.user_id}`}
                         >
                             { username }
-                        </Link></span>  { insight.insight }</p>
+                        </Link></span>  { insight.insight }
+                </p>
+                <p className={styles.text_show_min}>
+                    <span>
+                        <Link 
+                            className={styles.username_link}
+                            to={`/profile/${insight.user_id}`}
+                        >
+                            { username }
+                        </Link></span>  { insight.insight }
+                </p>
             </div>
             {isOwner &&
                 <div

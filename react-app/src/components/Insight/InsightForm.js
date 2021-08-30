@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { updateInsight, removeInsight, createInsight } from '../../store/insight';
 
-import styles from '../City/CityEdit.module.css'
+import styles from '../City/CityEdit.module.css';
 
 const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) => {
     const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
 
     return (
         <div className='layout__insight_create_form'>
-            <div className='header_edit_container'>
+            <div className={`header_edit_container`}>
                 <h2>{ title }</h2>
                 {isOwner && !isCreate &&
                     <i
@@ -76,32 +76,32 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
                     placeholder='Provide insight about the city...'
                 >
                 </textarea>
-                    <div>
-                        {isCreate &&
-                            <button
-                                onClick={handleCreate}
-                                className='save_button'
-                            >
-                                <i className='fas fa-check-circle'></i>
-                                <span>Save</span>
-                            </button>
-                        }
-                        {!isCreate &&
-                            <button
-                                onClick={handleEdit}
-                                className='save_button'
-                            >
-                                <i className='fas fa-check-circle'></i>
-                                <span>Save</span>
-                            </button>
-                        }
-                        <button
-                            className='cancel_button'
-                            onClick={() => setShow(false)}
-                        >
-                            Cancel
-                        </button>
-                    </div>
+            </div>
+            <div className={styles.submit_buttons}>
+                {isCreate &&
+                    <button
+                        onClick={handleCreate}
+                        className='save_button'
+                    >
+                        <i className='fas fa-check-circle'></i>
+                        <span>Save</span>
+                    </button>
+                }
+                {!isCreate &&
+                    <button
+                        onClick={handleEdit}
+                        className='save_button'
+                    >
+                        <i className='fas fa-check-circle'></i>
+                        <span>Save</span>
+                    </button>
+                }
+                <button
+                    className='cancel_button'
+                    onClick={() => setShow(false)}
+                >
+                    Cancel
+                </button>
             </div>
         </div>
     )
