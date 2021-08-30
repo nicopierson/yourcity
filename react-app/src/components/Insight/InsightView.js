@@ -1,10 +1,12 @@
+import styles from './Insight.module.css';
+
 const InsightView = ({ insight, isOwner, setShow }) => {
     
     //TODO make user slice to obtain user for each insight
 
     return (
-        <div>
-            <div className='header_edit_container'>
+        <>
+            <div className={`${styles.headers_container} header_edit_container`}>
                 <h2>Insight</h2>
                 {isOwner &&
                     <i
@@ -14,11 +16,11 @@ const InsightView = ({ insight, isOwner, setShow }) => {
                     </i>
                 }
             </div>
-            <div>
+            <div className={styles.text_container}>
                 <h4>Owner id: { insight.user_id }</h4>
                 <p>{ insight.insight }</p>
             </div>
-        </div>
+        </>
     )
 };
 

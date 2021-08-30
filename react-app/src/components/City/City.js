@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getCity } from '../../store/city';
+import { getUser } from '../../store/user';
 import CityEdit from './CityEdit';
 import CityView from './CityView';
 import CityBanner from './CityBanner';
@@ -18,6 +19,8 @@ const City = () => {
     const userId = useSelector(state => state.session.user?.id);
     const cityOwnerId = useSelector(state => state.city[cityId]?.user_id);
     const isOwner = userId === cityOwnerId; 
+    /* Get username for city */
+    const username = useSelector(state => state.user[cityOwnerId]?.username);
 
     const [showEdit, setShowEdit] = useState(false);
 
@@ -25,9 +28,10 @@ const City = () => {
 
     useEffect(() => {
         if (cityId) {
-            dispatch(getCity(cityId))
+            dispatch(getCity(cityId));
+            dispatch(getUser(cityOwnerId));
         }
-    }, [dispatch, cityId]);
+    }, [dispatch, cityId, cityOwnerId]);
 
     if (!city) return null;
 
@@ -41,6 +45,7 @@ const City = () => {
                             city={city}
                             setShowEdit={setShowEdit}
                             isOwner={isOwner}
+                            username={username}
                         />
                     </div>
                 }
@@ -51,17 +56,16 @@ const City = () => {
                             setShowEdit={setShowEdit}
                             isOwner={isOwner}
                             className={styles.main_city_text}
+                            username={username}
                         />
                     </div>
                 }
             </div>
-            <div className='layout__insights_container'>
-                <div className={styles.insights_text}>
-                    <InsightPage
-                        cityId={cityId}
-                        userId={userId}
-                    />
-                </div>
+            <div className={`layout__insights_container ${styles.insights_text}`}>
+                <InsightPage
+                    cityId={cityId}
+                    userId={userId}
+                />
             </div>
         </>
     )

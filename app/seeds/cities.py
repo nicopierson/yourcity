@@ -20,7 +20,7 @@ def seed_cities():
         name='Los Angeles',
         state='California',
         thumbnail_img='https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/54/7d.jpg',
-        description='The city of Los Angeles [69] (also known simply as L.A., and nicknamed the "City of Angels") is the most populous city in California. Located on a broad basin in Southern California, the city is surrounded by vast mountain ranges, valleys, forests, beautiful beaches along the Pacific Ocean, and nearby desert.',
+        description='The city of Los Angeles (also known simply as L.A., and nicknamed the "City of Angels") is the most populous city in California. Located on a broad basin in Southern California, the city is surrounded by vast mountain ranges, valleys, forests, beautiful beaches along the Pacific Ocean, and nearby desert.',
         user_id=1,
     )
     austin = City(

@@ -1,6 +1,6 @@
 import styles from './City.module.css';
 
-const CityView = ({ city, setShowEdit, isOwner }) => {
+const CityView = ({ city, setShowEdit, isOwner, username }) => {
     console.log(city);
     return (
         <>
@@ -23,7 +23,7 @@ const CityView = ({ city, setShowEdit, isOwner }) => {
                     </span>
                     <span>
                         <i className='fas fa-user'></i>
-                        { city.user_id }
+                        { username }
                     </span>
                 </p>
                 <p>{ city.description }</p>
