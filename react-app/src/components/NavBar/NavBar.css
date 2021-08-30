@@ -1,5 +1,4 @@
 .navbar-container{
-    position: fixed;
     background-color: white;
     margin: 0;
     width: 100%;
@@ -28,7 +27,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    margin-bottom: 10px;
 }
 
 .navbar-search__input-wrapper{
@@ -70,13 +68,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-right: 20px;
 }
 
 .navbar-title {
     font-size: 25px;
     font-weight: 900;
     color: black;
-    margin: 20px;
+    margin-left: 20px;
 }
 
 .navbar-title:hover {
@@ -209,30 +208,44 @@ button#demo-login-btn:hover {
 
 /* responsive queries*/
 @media only screen and (max-width: 1000px) {
-    .navbar-btn{
-        display: none;
-    }
-    .navbar-title{
-        font-size: 15px;
-    }
-
-}
-
-@media only screen and (max-width: 600px) {
-    .navbar-btn{
-        visibility: hidden;
-    }
-    .navbar-search__input-wrapper{
-        visibility: hidden;
+    .navbar-container
+    {
+        height: 65px;
     }
 
     .navbar-search{
-        visibility: hidden;
-    }
-
-    .add-recipe-base-text{
-        visibility: hidden;
         display: none;
     }
+
+    .navbar-title{
+        font-size: 24px;
+    }
+
+    .navbar-create-and-auth {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .navbar-btn
+    {
+        margin: 10px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-search__input-wrapper{
+        visibility: none;
+    }
+
+    .navbar-search{
+        display: none;
+    }
+
+    /* .main-text{
+        visibility: hidden;
+        display: none;
+    } */
 
 }

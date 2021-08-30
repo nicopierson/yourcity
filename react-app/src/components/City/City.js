@@ -6,9 +6,9 @@ import { getCity } from '../../store/city';
 import CityEdit from './CityEdit';
 import CityView from './CityView';
 import CityBanner from './CityBanner';
-
-import './City.css';
 import InsightPage from '../Insight';
+
+import styles from './City.module.css';
 
 const City = () => {
     const { cityId } = useParams();
@@ -32,31 +32,38 @@ const City = () => {
     if (!city) return null;
 
     return (
-        <div>
-            <div className='city_container'>
+        <>
+            <div className='layout__main_container'>
                 <CityBanner city={city} />
                 {!showEdit &&
-                    <CityView 
-                        city={city}
-                        setShowEdit={setShowEdit}
-                        isOwner={isOwner}
-                    />
+                    <div className={styles.main_city_text}>
+                        <CityView 
+                            city={city}
+                            setShowEdit={setShowEdit}
+                            isOwner={isOwner}
+                        />
+                    </div>
                 }
                 {showEdit &&
-                    <CityEdit
-                        city={city}
-                        setShowEdit={setShowEdit}
-                        isOwner={isOwner}
-                    />
+                    <div className={styles.main_city_text}>
+                        <CityEdit
+                            city={city}
+                            setShowEdit={setShowEdit}
+                            isOwner={isOwner}
+                            className={styles.main_city_text}
+                        />
+                    </div>
                 }
             </div>
-            <div>
-                <InsightPage
-                    cityId={cityId}
-                    userId={userId}
-                />
+            <div className='layout__insights_container'>
+                <div className={styles.insights_text}>
+                    <InsightPage
+                        cityId={cityId}
+                        userId={userId}
+                    />
+                </div>
             </div>
-        </div>
+        </>
     )
 };
 

@@ -24,6 +24,7 @@ class City(db.Model):
         return {
             'id': self.id,
             'name': self.name,
+            'state': self.state,
             'thumbnail_img': self.thumbnail_img,
             'description': self.description,
             'user_id': self.user_id,

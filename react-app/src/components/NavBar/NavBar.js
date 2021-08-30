@@ -23,7 +23,7 @@ const NavBar = () => {
     }
 
     return (
-        <nav className="navbar-container">
+        <nav className="navbar-container layout__header_container">
             <ul className="navbar-ul">
                 <div className="navbar-li navbar-title-and-feed">
                     <li>
