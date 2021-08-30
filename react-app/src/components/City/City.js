@@ -32,8 +32,8 @@ const City = () => {
     if (!city) return null;
 
     return (
-        <div>
-            <div className='city_container'>
+        <>
+            <div className='layout__main_container'>
                 <CityBanner city={city} />
                 {!showEdit &&
                     <CityView 
@@ -50,13 +50,13 @@ const City = () => {
                     />
                 }
             </div>
-            <div>
+            <div className='layout__insights_container'>
                 <InsightPage
                     cityId={cityId}
                     userId={userId}
                 />
             </div>
-        </div>
+        </>
     )
 };
 
