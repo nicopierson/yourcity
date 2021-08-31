@@ -1,11 +1,13 @@
 .layout__footer_container
 {
     grid-area: footer;
+    height: 5vh;
 }
 
 .layout__header_container
 {
     grid-area: header;
+    height: 5vh;
 }
 
 .layout__main_container
@@ -17,7 +19,7 @@
 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 5vh auto;
     grid-template-areas:
         "header"
         "main"
@@ -28,6 +30,12 @@
 
 @media only screen and (max-width: 1000px) {
     #root{
-        grid-template-rows: 65px auto;
+        grid-template-rows: 6.5vh auto;
+    }
+
+    .layout__footer_container
+    {
+        grid-area: footer;
+        height: 6.5vh;
     }
 }

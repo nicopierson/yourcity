@@ -4,7 +4,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
 import styles from './Form.module.css';
-import layout from './LoginLayout.module.css';
+import './SignUpInLayout.css';
 
 const LoginForm = () => {
   const history = useHistory();
@@ -40,13 +40,13 @@ const LoginForm = () => {
   }
 
   return (
-    <div className={layout.layout__login_container}>
+    <div className='layout__login_container'>
       <section
-        className={layout.layout__photo_container}
+        className='layout__photo_container'
       >
         <img alt='barcelona' src='https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/alfons-taekema-lvXeO04CxwQ-unsplash.jpg' />
       </section>
-      <section className={layout.layout__input_container}>
+      <section className='layout__input_login_container'>
         <form 
           onSubmit={onLogin}
           className={styles.form_container}

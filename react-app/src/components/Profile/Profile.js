@@ -11,19 +11,21 @@ import './ProfileLayout.css';
 const Profile = () => {
     const { profileId } = useParams();
     const dispatch = useDispatch();
-
+    
     /* isOwner Boolean to check if profile is owned by current user */
     const user = useSelector(state => state.session.user);
-    const profile = useSelector(state => state.user[profileId])
-    const isOwner = +profileId === user.id;
-
+    const profile = useSelector(state => state?.user[profileId])
+    const isOwner = +profileId === user?.id;
+    
     useEffect(() => {
         if (profileId) {
             dispatch(resetUsers());
             dispatch(getUser(profileId));
         }
     }, [dispatch, profileId]);
-
+    
+    if (!profileId) return null;
+    
     return (
         <div className='layout__profile_container'>
             <section

@@ -6,6 +6,7 @@
 .feed_tab_container
 {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .feed_tab_container p
@@ -32,4 +33,37 @@
     background-color: #f5f5f5;
     color: #000;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 850px) {
+    .feed_tab_container p
+    {
+        font-size: 14px;
+        margin: 0 10px 0 0px;
+        border-radius: 14px;
+        padding: 10px;
+    }
+    .feed_container
+    {
+        padding: 30px;
+    }
+    .feed_tab_container
+    {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .feed_tab_container p
+    {
+        font-size: 12px;
+        margin: 0 10px 10px 0px;
+        padding: 7px;
+        border-radius: 10px;
+    }
+    .feed_container
+    {
+        padding: 15px;
+    }
+
 }
