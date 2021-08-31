@@ -3,12 +3,14 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getCity } from '../../store/city';
+import { getUser } from '../../store/user';
 import CityEdit from './CityEdit';
 import CityView from './CityView';
 import CityBanner from './CityBanner';
-
-import './City.css';
 import InsightPage from '../Insight';
+
+import styles from './City.module.css';
+import './CityLayout.css';
 
 const City = () => {
     const { cityId } = useParams();
@@ -18,6 +20,8 @@ const City = () => {
     const userId = useSelector(state => state.session.user?.id);
     const cityOwnerId = useSelector(state => state.city[cityId]?.user_id);
     const isOwner = userId === cityOwnerId; 
+    /* Get username for city */
+    const username = useSelector(state => state.user[cityOwnerId]?.username);
 
     const [showEdit, setShowEdit] = useState(false);
 
@@ -25,38 +29,48 @@ const City = () => {
 
     useEffect(() => {
         if (cityId) {
-            dispatch(getCity(cityId))
+            dispatch(getCity(cityId));
         }
-    }, [dispatch, cityId]);
+        if (cityId && cityOwnerId) {
+            dispatch(getUser(cityOwnerId));
+        }
+    }, [dispatch, cityId, cityOwnerId]);
 
     if (!city) return null;
 
     return (
-        <div>
-            <div className='city_container'>
+        <main className='layout__main_container'>
+            <section className='layout__city_container'>
                 <CityBanner city={city} />
                 {!showEdit &&
-                    <CityView 
-                        city={city}
-                        setShowEdit={setShowEdit}
-                        isOwner={isOwner}
-                    />
+                    <div className={styles.main_city_text}>
+                        <CityView 
+                            city={city}
+                            setShowEdit={setShowEdit}
+                            isOwner={isOwner}
+                            username={username}
+                        />
+                    </div>
                 }
                 {showEdit &&
-                    <CityEdit
-                        city={city}
-                        setShowEdit={setShowEdit}
-                        isOwner={isOwner}
-                    />
+                    <div className={styles.main_city_text}>
+                        <CityEdit
+                            city={city}
+                            setShowEdit={setShowEdit}
+                            isOwner={isOwner}
+                            className={styles.main_city_text}
+                            username={username}
+                        />
+                    </div>
                 }
-            </div>
-            <div>
+            </section>
+            <section className={`layout__insights_container ${styles.insights_text}`}>
                 <InsightPage
                     cityId={cityId}
                     userId={userId}
                 />
-            </div>
-        </div>
+            </section>
+        </main>
     )
 };
 

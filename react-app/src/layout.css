@@ -1,0 +1,33 @@
+.layout__footer_container
+{
+    grid-area: footer;
+}
+
+.layout__header_container
+{
+    grid-area: header;
+}
+
+.layout__main_container
+{
+    grid-area: main;
+}
+
+#root
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer"
+    ;
+    height: 100vh;
+}
+
+@media only screen and (max-width: 1000px) {
+    #root{
+        grid-template-rows: 65px auto;
+    }
+}

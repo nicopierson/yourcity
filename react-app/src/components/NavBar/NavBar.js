@@ -1,7 +1,6 @@
-// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { NavLink } from 'react-router-dom';
+
 import LogoutButton from '../auth/LogoutButton';
 import CityCreate from '../City/CityCreate';
 import { login } from '../../store/session';
@@ -10,20 +9,15 @@ import './NavBar.css';
 
 const NavBar = () => {
 
-    //TODO: add validators
-    // const [errors, setErrors] = useState([]);
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 
     const demoLogin = async () => {
         await dispatch(login('nicopierson@gmail.com', 'password'));
-        // if (data) {
-        //     setErrors(data);
-        // }
     }
 
     return (
-        <nav className="navbar-container">
+        <nav className="navbar-container layout__header_container">
             <ul className="navbar-ul">
                 <div className="navbar-li navbar-title-and-feed">
                     <li>

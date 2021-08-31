@@ -1,25 +1,34 @@
-const CityView = ({ city, setShowEdit, isOwner }) => {
+import styles from './City.module.css';
+
+const CityView = ({ city, setShowEdit, isOwner, username }) => {
 
     return (
-        <div>
-            <div>
-                <div className='header_edit_container'>
-                    <h2>{ city.name }</h2>
-                    {isOwner &&
-                        <i 
-                            onClick={() => setShowEdit(true)}
-                            className='fas fa-edit edit_item'
-                        ></i>
-                    }
-                </div>
+        <>
+            <div className={`${styles.header_container} header_edit_container`}>
+                <h2>{ city.name }</h2>
+                {isOwner &&
+                    <i 
+                        onClick={() => setShowEdit(true)}
+                        className='fas fa-edit edit_item'
+                    ></i>
+                }
             </div>
-            <div>
-                <div>
-                    <p>{ city.description }</p>
-                    <p>Owner: { city.user_id }</p>
-                </div>
+            <div className={styles.text_container}>
+                <p
+                    className={styles.subheader_container}
+                >
+                    <span>
+                        <i className='fas fa-map-marked-alt'></i>
+                        { city.state }
+                    </span>
+                    <span>
+                        <i className='fas fa-user'></i>
+                        { username }
+                    </span>
+                </p>
+                <p>{ city.description }</p>
             </div>
-        </div>
+        </>
     );
 };
 

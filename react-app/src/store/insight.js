@@ -91,9 +91,14 @@ export const updateInsight = (payload) => async(dispatch) => {
     });
 
     if (response.ok) {
-        const insight = await response.json();
-        await dispatch(setInsight(insight));
-        return insight;
+        const data = await response.json();
+        await dispatch(setInsight(data));
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+        return data.errors;
+        }
     } else {
         return ['An error occurred. Please try again.']
     }
@@ -107,9 +112,14 @@ export const createInsight = (payload) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const insight = await response.json();
-        await dispatch(setInsight(insight));
-        return insight;
+        const data = await response.json();
+        await dispatch(setInsight(data));
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+        return data.errors;
+        }
     } else {
         return ['An error occurred. Please try again.']
     }

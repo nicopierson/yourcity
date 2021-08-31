@@ -1,5 +1,143 @@
-.sign_container
+.form_container
 {
-    margin-top: 50px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 15px;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.header_container {
+    text-align: center;
+    margin: 50px 0 40px 0;
+}
+
+.header_text
+{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.header_container
+{
+    width: 100%;
+}
+
+.errors
+{
+    color: rgb(255, 0, 0);
+    font-size: 14px;
+    height: 20px;
+}
+
+.form_input
+{
+    width: 100%;
+    position: relative;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form_input input
+{
+    width: 60%;
+    font-size: 14px;
+    position: absolute;
+    font-size: 18px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border-bottom: 2px solid rgb(92, 92, 92);
+    padding: 7px 10px 7px 10px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: #000;
+}
+
+.form_input label {
+    position: absolute;
+    font-size: 16px;
+    pointer-events: none;
+    padding: 5px 5px 5px 5px;
+    color: rgb(212, 212, 212);
+    left: 10vw;
+}
+
+.form_input input:focus ~ label,
+.form_input input:not(:placeholder-shown) ~ label 
+{
+    font-size: 14px;
+    top: -20px;
+    color: rgb(175, 175, 175);
+    transition: 0.3s;
+}
+
+.form_input input:focus
+{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.form_input button
+{
+    margin-top: 20px;
+    padding: 15px;
+    min-width: 40%;
+    height: 50px;
+}
+
+.form_input p
+{
+    margin-top: 40px;
+}
+
+.form_input span 
+{
+    padding: 5px;
+}
+
+.form_input span:hover
+{
+    cursor: pointer;
+    text-decoration: underline 1px solid #fff;
+}
+
+@media only screen and (max-width: 850px) {
+    .parent_container
+    {
+        width: 100vw;
+        background-image: none;
+    }
+
+    .sign_up_container
+    {
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+    }
+
+    .sign_in_container
+    {
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+    }
+
+    .form_input label {
+        position: absolute;
+        font-size: 16px;
+        pointer-events: none;
+        padding: 5px 5px 5px 5px;
+        color: rgb(212, 212, 212);
+        left: 20vw;
+    }
 }

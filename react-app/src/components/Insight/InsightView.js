@@ -1,23 +1,37 @@
-const InsightView = ({ insight, isOwner, setShow }) => {
-    
-    //TODO make user slice to obtain user for each insight
+import InsightText from './InsightText';
 
+import styles from './Insight.module.css';
+import './InsightLayout.css';
+
+const InsightView = ({ insight, isOwner, setShow, username }) => {
+    
     return (
-        <div>
-            <div className='header_edit_container'>
-                <h2>Insight</h2>
-                {isOwner &&
+        <div className='layout__one_insight_container'>
+            <div 
+                className={`${styles.headers_container} header_edit_container layout__one_insight_header`}
+            >
+                <img 
+                    alt='profile' 
+                    src='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/pudds_profile.jpg' 
+                />
+            </div>
+            <div className={`${styles.text_container} layout__one_insight_text`}>
+                <InsightText
+                    insight={insight}
+                    username={username}
+                />
+            </div>
+            {isOwner &&
+                <div
+                    className='layout__one_insight_edit'
+                >
                     <i
                         onClick={() => setShow(true)}
                         className='fas fa-edit edit_item'
                     >
                     </i>
-                }
-            </div>
-            <div>
-                <h4>Owner id: { insight.user_id }</h4>
-                <p>{ insight.insight }</p>
-            </div>
+                </div>
+            }
         </div>
     )
 };

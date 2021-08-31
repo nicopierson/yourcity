@@ -3,7 +3,7 @@ from flask_login import login_required
 from app.models import City, db
 from app.forms import CityPostForm, CityUpdateForm
 from app.api.utils import (
-    throw_authorization_error, user_is_owner, throw_not_found_error, throw_server_error
+    throw_authorization_error, throw_validation_error, user_is_owner, throw_not_found_error, throw_server_error
 )
 
 city_routes = Blueprint('cities', __name__)
@@ -42,7 +42,7 @@ def city_post():
                 return city.to_dict()
             except:
                 return throw_server_error()
-        return throw_not_found_error()
+        return throw_validation_error(form.errors)
 
 
 @city_routes.route('/<int:id>', methods=['PUT'])
@@ -61,7 +61,7 @@ def city_update(id):
                 except:
                     return throw_server_error()
             return throw_authorization_error()
-        return throw_not_found_error()
+        return throw_validation_error(form.errors)
     
     
 @city_routes.route('/<int:id>', methods=['DELETE'])
@@ -75,4 +75,4 @@ def city_delete(id):
             return city.to_dict()
         except:
             return throw_server_error()
-    return throw_not_found_error()
+    return throw_authorization_error()

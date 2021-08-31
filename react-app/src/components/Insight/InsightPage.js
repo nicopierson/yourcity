@@ -20,7 +20,7 @@ const InsightPage = ({ cityId, userId }) => {
 
 
     return (
-        <div>
+        <>
             {insights.length > 0 && 
                 insights.map((insight) =>             
                     <Insight 
@@ -36,7 +36,7 @@ const InsightPage = ({ cityId, userId }) => {
                     cityId={cityId}
                 />
             }
-        </div>
+        </>
     )
 };
 

@@ -3,7 +3,7 @@ from flask_login import login_required
 from app.models import Insight, db
 from app.forms import InsightPostForm, InsightUpdateForm
 from app.api.utils import (
-    throw_authorization_error, user_is_owner, throw_not_found_error,
+    throw_authorization_error, throw_validation_error, user_is_owner, throw_not_found_error,
     throw_server_error
 )
 
@@ -50,7 +50,7 @@ def insight_post():
                 return insight.to_dict()
             except:
                 return throw_server_error()
-        return throw_not_found_error()
+        return throw_validation_error(form.errors)
 
 
 @insight_routes.route('/<int:id>', methods=['PUT'])
@@ -70,7 +70,7 @@ def insight_update(id):
                 except:
                     return throw_server_error()
             return throw_authorization_error()
-        return throw_not_found_error()
+        return throw_validation_error(form.errors)
     
     
 @insight_routes.route('/<int:id>', methods=['DELETE'])
@@ -84,4 +84,4 @@ def insight_delete(id):
             return insight.to_dict()
         except:
             return throw_server_error()
-    return throw_not_found_error()
+    return throw_authorization_error()
