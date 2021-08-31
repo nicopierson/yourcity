@@ -58,19 +58,24 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
 
     return (
         <div className='layout__insight_create_form'>
-            <div className={`header_edit_container`}>
-                <h2>{ title }</h2>
-                <div className={styles.errors}>
+            <div className={styles.header_outer_container}>
+                <div className={`header_edit_container`}>
+                    <h2>{ title }</h2>
+                    {isOwner && !isCreate &&
+                        <i
+                            onClick={handleDelete}
+                            className={`fas fa-minus-circle delete_item`}
+                        ></i>
+                    }
+                </div>
+                <div className={styles.errors_insight}>
                     {errors.length > 0 && errors.map((error, ind) => (
                         <div key={ind}>{error.field}: {error.message}</div>
                     ))}
+                    {errors.length === 0 &&
+                        <p className={styles.header_description_edit_city}>Edit your insight...</p>
+                    }
                 </div>
-                {isOwner && !isCreate &&
-                    <i
-                        onClick={handleDelete}
-                        className={`fas fa-minus-circle delete_item`}
-                    ></i>
-                }
             </div>
             <div className={styles.edit_input_container}>
                 <textarea
