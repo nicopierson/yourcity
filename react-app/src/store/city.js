@@ -81,7 +81,7 @@ export const updateCity = (payload) => async(dispatch) => {
     if (response.ok) {
         const data = await response.json();
         await dispatch(setCity(data));
-        return data;
+        return null;
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
@@ -102,7 +102,7 @@ export const createCity = (payload) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         await dispatch(setCity(data));
-        return data;
+        return null;
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {

@@ -52,7 +52,7 @@ const LoginForm = () => {
               Welcome Back
             </h2>
             <div className={styles.errors}>
-              {errors.map((error, ind) => (
+              {errors.length > 0 && errors.map((error, ind) => (
                 <div key={ind}>{error.field}: {error.message}</div>
               ))}
             </div>

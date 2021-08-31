@@ -16,7 +16,7 @@ def city_id_exists(form, field):
     """
     id = field.data
     city = City.query.filter(City.id == id).first()
-    if city:
+    if not city:
         raise ValidationError('City provided not found.')
     
     
