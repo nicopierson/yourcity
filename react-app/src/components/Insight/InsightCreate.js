@@ -6,16 +6,16 @@ const InsightCreate = ({ userId, cityId }) => {
     const [showCreate, setShowCreate] = useState(false);
 
     return (
-        <>
+        <div className='layout__insight_create'>
             {!showCreate &&
-                <div className=''>
+                <>
                     <button
                         className='save_button'
                         onClick={() => setShowCreate(true)}
                     >
                         Add Insight
                     </button>
-                </div>
+                </>
             }
             {showCreate &&
                 <InsightForm
@@ -25,7 +25,7 @@ const InsightCreate = ({ userId, cityId }) => {
                     setShow={setShowCreate}
                 />
             }
-        </>
+        </div>
     );
 };
 

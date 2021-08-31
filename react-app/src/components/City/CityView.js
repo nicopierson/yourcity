@@ -1,7 +1,7 @@
 import styles from './City.module.css';
 
-const CityView = ({ city, setShowEdit, isOwner }) => {
-    console.log(city);
+const CityView = ({ city, setShowEdit, isOwner, username }) => {
+
     return (
         <>
             <div className={`${styles.header_container} header_edit_container`}>
@@ -23,7 +23,7 @@ const CityView = ({ city, setShowEdit, isOwner }) => {
                     </span>
                     <span>
                         <i className='fas fa-user'></i>
-                        { city.user_id }
+                        { username }
                     </span>
                 </p>
                 <p>{ city.description }</p>

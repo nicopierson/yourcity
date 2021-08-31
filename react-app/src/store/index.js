@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import city from './city';
 import insight from './insight';
+import user from './user';
 
 const rootReducer = combineReducers({
   session,
   city,
   insight,
+  user,
 });
 
 
