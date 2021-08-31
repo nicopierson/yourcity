@@ -1,0 +1,53 @@
+.layout__profile_card_container
+{
+    grid-area: card;
+    width: 25vw;
+    background-color: blueviolet;
+    height: 100vh;
+}
+
+.layout__profile_feed_container
+{
+    grid-area: feed;
+    width: 70vw;
+    background-color: yellowgreen;
+    height: 100vh;
+}
+
+.layout__profile_container
+{
+    display: grid;
+    grid-template-columns: 1fr 25% 70% 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". card feed ."
+    ;
+    overflow: hidden;
+}
+
+
+@media only screen and (max-width: 850px) {
+    .layout__profile_container
+    {
+        display: grid;
+        grid-template-columns: 1fr 95% 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            ". card ."
+            ". feed ."
+        ;
+        overflow: auto;
+    }
+
+    .layout__profile_card_container
+    {
+        width: 95vw;
+        height: auto;
+    }
+
+    .layout__profile_feed_container
+    {
+        width: 95vw;
+        height: 100vw;
+    }
+}
