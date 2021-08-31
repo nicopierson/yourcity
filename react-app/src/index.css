@@ -48,13 +48,15 @@ button.add_button:hover
 button.cancel_button
 {
     background-color: rgb(244, 244, 244);
-    border: rgb(172, 172, 172) solid 1px;
+    border: rgb(159, 159, 159) solid 1px;
+    color: rgb(172, 170, 170);
 }
 
 button.cancel_button:hover
 {
     background-color: rgb(224, 224, 224);
-    border: #000 solid 1px;
+    border: rgb(70, 70, 70) solid 1px;
+    color: #000;
 }
 
 button.save_button

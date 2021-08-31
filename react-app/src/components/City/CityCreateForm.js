@@ -9,6 +9,7 @@ import styles from './CityEdit.module.css';
 const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [errors, setErrors] = useState([]);
     const [name, setName] = useState('');
     const [state, setState] = useState('');
     const [description, setDescription] = useState('');
@@ -28,14 +29,23 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
         }
 
         const city = await dispatch(createCity(payload));
-        history.push(`/city/${city.id}`)
-        setShowModal(false);
+        if (city) {
+            setErrors(city);
+        } else {
+            history.push(`/city/${city.id}`)
+            setShowModal(false);
+        }
     };
 
     return (
         <div className='city_container'>
             <div className='header_edit_container'>
                 <h2>Create City</h2>
+                <div className={styles.errors}>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error.field}: {error.message}</div>
+                    ))}
+                </div>
             </div>
             <div className={styles.edit_input_container}>
                 <input

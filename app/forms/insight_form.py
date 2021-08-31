@@ -17,7 +17,7 @@ def insight_id_exists(form, field):
     """
     id = field.data
     insight = Insight.query.filter(Insight.id == id).first()
-    if not insight:
+    if insight:
         raise ValidationError('Insight provided not found.')
 
 
