@@ -8,7 +8,7 @@ class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False, unique=True)
     state = db.Column(db.String(50))
-    thumbnail_img = db.Column(db.String(500))
+    thumbnail_img = db.Column(db.String(800))
     description = db.Column(db.String(1200))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, 

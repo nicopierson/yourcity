@@ -20,7 +20,42 @@
     justify-content: flex-end;
 }
 
-.edit_header
-{
+.header_container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: 85px;
+}
 
+.header_container div
+{
+  font-size: 12px;
+}
+
+.header_description
+{
+    color: #000;
+}
+
+.header_outer_container p.header_description_edit_city
+{
+    color: #000;
+    font-size: 14px;
+}
+
+.errors
+{
+    font-size: 12px;
+    height: 55px;
+    width: 100%;
+    color: red;
+}
+
+.errors_insight
+{
+    font-size: 12px;
+    height: 15px;
+    width: 100%;
+    color: red;
 }

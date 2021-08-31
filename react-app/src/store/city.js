@@ -79,9 +79,14 @@ export const updateCity = (payload) => async(dispatch) => {
     });
 
     if (response.ok) {
-        const city = await response.json();
-        await dispatch(setCity(city));
-        return city;
+        const data = await response.json();
+        await dispatch(setCity(data));
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+        return data.errors;
+        }
     } else {
         return ['An error occurred. Please try again.']
     }
@@ -95,9 +100,14 @@ export const createCity = (payload) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const city = await response.json();
-        await dispatch(setCity(city));
-        return city;
+        const data = await response.json();
+        await dispatch(setCity(data));
+        return null;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+        return data.errors;
+        }
     } else {
         return ['An error occurred. Please try again.']
     }

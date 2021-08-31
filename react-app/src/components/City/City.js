@@ -10,6 +10,7 @@ import CityBanner from './CityBanner';
 import InsightPage from '../Insight';
 
 import styles from './City.module.css';
+import './CityLayout.css';
 
 const City = () => {
     const { cityId } = useParams();
@@ -38,8 +39,8 @@ const City = () => {
     if (!city) return null;
 
     return (
-        <>
-            <div className='layout__main_container'>
+        <main className='layout__main_container'>
+            <section className='layout__city_container'>
                 <CityBanner city={city} />
                 {!showEdit &&
                     <div className={styles.main_city_text}>
@@ -62,14 +63,14 @@ const City = () => {
                         />
                     </div>
                 }
-            </div>
-            <div className={`layout__insights_container ${styles.insights_text}`}>
+            </section>
+            <section className={`layout__insights_container ${styles.insights_text}`}>
                 <InsightPage
                     cityId={cityId}
                     userId={userId}
                 />
-            </div>
-        </>
+            </section>
+        </main>
     )
 };
 

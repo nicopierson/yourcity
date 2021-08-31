@@ -9,6 +9,7 @@ import styles from './CityEdit.module.css';
 const CityEdit = ({ city, setShowEdit, isOwner }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [errors, setErrors] = useState([]);
     const [name, setName] = useState(city.name ? city.name : '');
     const [state, setState] = useState(city.state ? city.state : '');
     const [description, setDescription] = useState(city.description ? city.description : '');
@@ -16,7 +17,7 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
 
     const TEXTAREA_ROWS = 4;
 
-    const handleEdit = (e) => {
+    const handleEdit = async (e) => {
         e.preventDefault();
 
         const payload = {
@@ -28,8 +29,12 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
             user_id: city.user_id,
         }
 
-        dispatch(updateCity(payload));
-        setShowEdit(false);
+        const cityData = await dispatch(updateCity(payload));
+        if (cityData) {
+            setErrors(cityData);
+        } else {
+            setShowEdit(false);
+        }
     };
 
     const handleDelete = (e) => {
@@ -49,6 +54,14 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
                             className={`fas fa-minus-circle delete_item`}
                             onClick={handleDelete}
                         ></i>
+                    }
+                </div>
+                <div className={styles.errors}>
+                    {errors.length > 0 && errors.map((error, ind) => (
+                        <div key={ind}>{error.field}: {error.message}</div>
+                    ))}
+                    {errors.length === 0 &&
+                        <p className={styles.header_description_edit_city}>Edit your city...</p>
                     }
                 </div>
             </div>
