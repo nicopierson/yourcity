@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import City from './components/City';
 import CitiesList from './components/TestComponents/CitiesList';
 import MyCities from './components/TestComponents/MyCities';
+import Profile from './components/Profile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,15 +38,18 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/' exact={true} >
+        <Route path='/' exact={true}>
           <CitiesList />
         </Route>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/profile' exact={true} >
+        <ProtectedRoute path='/profile' exact={true}>
           <MyCities />
         </ProtectedRoute>
+        <Route path='/profile/:profileId'>
+          <Profile />
+        </Route>
         <Route path='/city/:cityId' exact={true}>
           <City />
         </Route>
