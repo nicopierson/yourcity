@@ -49,16 +49,19 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
             <div className={styles.header_outer_container}>
                 <div className='header_edit_container'>
                     <h2>Edit {city.name}</h2>
-                    <div className={styles.errors}>
-                        {errors.length > 0 && errors.map((error, ind) => (
-                            <div key={ind}>{error.field}: {error.message}</div>
-                        ))}
-                    </div>
                     {isOwner &&
                         <i 
                             className={`fas fa-minus-circle delete_item`}
                             onClick={handleDelete}
                         ></i>
+                    }
+                </div>
+                <div className={styles.errors}>
+                    {errors.length > 0 && errors.map((error, ind) => (
+                        <div key={ind}>{error.field}: {error.message}</div>
+                    ))}
+                    {errors.length === 0 &&
+                        <p className={styles.header_description_edit_city}>Edit your city...</p>
                     }
                 </div>
             </div>
