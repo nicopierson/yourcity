@@ -24,6 +24,7 @@
     grid-template-areas:
         ". card feed ."
     ;
+    height: 90vh;
     overflow: hidden;
 }
 
@@ -50,6 +51,6 @@
     .layout__profile_feed_container
     {
         width: 95vw;
-        height: 100vw;
+        height: auto;
     }
 }

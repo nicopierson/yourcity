@@ -1,8 +1,7 @@
-.layout__city_container
+.layout__city_info_container
 {
     grid-area: city;
     width: 95vw;
-    
 }
 
 .layout__insights_container
@@ -11,7 +10,7 @@
     width: 50vw;
 }
 
-.layout__main_container
+.layout__city_container
 {
     display: grid;
     grid-template-columns: 1fr 50% 45% 1fr;
@@ -22,9 +21,8 @@
     ;
 }
 
-
 @media only screen and (max-width: 850px) {
-    .layout__main_container
+    .layout__city_container
     {
         display: grid;
         grid-template-columns: 1fr 95% 1fr;
@@ -39,4 +37,9 @@
     {
         width: 95vw;
     }
+}
+
+.layout__main_container
+{
+    overflow: auto;
 }
