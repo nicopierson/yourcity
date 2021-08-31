@@ -29,6 +29,8 @@ const City = () => {
     useEffect(() => {
         if (cityId) {
             dispatch(getCity(cityId));
+        }
+        if (cityId && cityOwnerId) {
             dispatch(getUser(cityOwnerId));
         }
     }, [dispatch, cityId, cityOwnerId]);

@@ -41,3 +41,30 @@
 {
     color: #000;
 }
+
+.text_show_all
+{
+ /* styling not needed */
+}
+
+.text_dots
+{
+    text-align: end;
+}
+
+.text_show_min
+{
+    overflow: hidden;
+    height: 93px;
+}
+
+.text_view_more
+{
+    font-weight: 600;
+}
+
+.text_view_more:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}

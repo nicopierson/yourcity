@@ -1,7 +1,7 @@
 import styles from './City.module.css';
 
 const CityView = ({ city, setShowEdit, isOwner, username }) => {
-    console.log(city);
+
     return (
         <>
             <div className={`${styles.header_container} header_edit_container`}>
