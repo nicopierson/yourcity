@@ -7,6 +7,7 @@ import styles from '../City/CityEdit.module.css';
 
 const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) => {
     const dispatch = useDispatch();
+    const [errors, setErrors] = useState([]);
     const [insightText, setInsightText] = useState(insight?.insight ? insight.insight : '');
     const title = isCreate ? 'Add Insight' : 'Edit Insight';
     const city_id = insight?.city_id ? insight.city_id : cityId;
@@ -24,11 +25,12 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
             city_id,
         };
 
-        await dispatch(updateInsight(payload));
-        // const data = await dispatch(updateInsight(payload));
-        // console.log(data);
-        // returns the errors or the insight
-        setShow(false);
+        const data = await dispatch(updateInsight(payload));
+        if (data) {
+            setErrors(data);
+        } else {
+            setShow(false);
+        }
     };
 
     const handleCreate = async (e) => {
@@ -40,11 +42,12 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
             city_id,
         };
 
-        await dispatch(createInsight(payload));
-        // const data = await dispatch(createInsight(payload));
-        // console.log(data);
-        // returns the errors or the insight
-        setShow(false);
+        const data = await dispatch(createInsight(payload));
+        if (data) {
+            setErrors(data);
+        } else {
+            setShow(false);
+        }
     };
 
     const handleDelete = (e) => {
@@ -57,6 +60,11 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
         <div className='layout__insight_create_form'>
             <div className={`header_edit_container`}>
                 <h2>{ title }</h2>
+                <div className={styles.errors}>
+                    {errors.length > 0 && errors.map((error, ind) => (
+                        <div key={ind}>{error.field}: {error.message}</div>
+                    ))}
+                </div>
                 {isOwner && !isCreate &&
                     <i
                         onClick={handleDelete}
