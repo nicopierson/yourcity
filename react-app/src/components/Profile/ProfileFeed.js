@@ -1,4 +1,4 @@
-import { NavLink, BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 
 import MyCities from './ProfilePage/MyCities';
 import MyFeed from './ProfilePage/MyFeed';
@@ -9,9 +9,7 @@ import MyMatches from './ProfilePage/MyMatches';
 import styles from './ProfileFeed.module.css';
 
 const ProfileFeed = ({ profileId, isOwner }) => {
-    const location = useLocation();
 
-    console.log(location);
     return (
         <div
             className={styles.feed_container}

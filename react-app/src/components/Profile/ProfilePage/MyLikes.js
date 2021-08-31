@@ -1,6 +1,9 @@
 const MyLikes = () => {
     return (
-        <h2>My Likes</h2>
+        <>
+            <h2>My Likes</h2>
+            <p>Coming Soon...</p>
+        </>
     );
 };
 
