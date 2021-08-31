@@ -2,16 +2,18 @@
 {
     grid-area: card;
     width: 25vw;
-    background-color: blueviolet;
     height: 100vh;
+    background-color: rgb(33, 33, 33);
+    color: rgb(233, 233, 233);
 }
 
 .layout__profile_feed_container
 {
     grid-area: feed;
     width: 70vw;
-    background-color: yellowgreen;
+    background-color: rgb(55, 55, 55);
     height: 100vh;
+    color: rgb(233, 233, 233);
 }
 
 .layout__profile_container

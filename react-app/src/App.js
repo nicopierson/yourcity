@@ -47,7 +47,7 @@ function App() {
         <ProtectedRoute path='/profile' exact={true}>
           <MyCities />
         </ProtectedRoute>
-        <Route path='/profile/:profileId' exact={true}>
+        <Route path='/profile/:profileId'>
           <Profile />
         </Route>
         <Route path='/city/:cityId' exact={true}>

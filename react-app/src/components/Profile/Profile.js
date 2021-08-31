@@ -39,6 +39,7 @@ const Profile = () => {
             >
                 <ProfileFeed 
                     isOwner={isOwner}
+                    profileId={profileId}
                 />
             </section>
         </div>
