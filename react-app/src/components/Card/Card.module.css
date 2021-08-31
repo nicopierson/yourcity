@@ -1,8 +1,9 @@
-.section_feed__page
+.section_feed__page,
+.section_insight__page
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .card_container
@@ -19,6 +20,15 @@
     border-radius: 10px;
     border: 1px rgb(55, 55, 55) solid;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+.card_insight_container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
 }
 
 .card_container:hover
@@ -49,5 +59,5 @@
 
 .card_container p
 {
-    margin-top: 3px;
+    margin-top: 4px;
 }

@@ -6,18 +6,17 @@ import CityCard from '../../Card/CityCard';
 
 import styles from '../../Card/Card.module.css';
 
-const MyCities = () => {
+const MyCities = ({ profileId }) => {
     const dispatch = useDispatch();
 
     const cities = useSelector(state => state.city);
-    const userId = useSelector(state => state.session.user?.id);
 
     useEffect(() => {
-        if (userId) {
+        if (profileId) {
             dispatch(resetCities())
-            dispatch(getCitiesByUser(userId));
+            dispatch(getCitiesByUser(profileId));
         }
-    }, [dispatch, userId]);
+    }, [dispatch, profileId]);
 
     return (
         <section

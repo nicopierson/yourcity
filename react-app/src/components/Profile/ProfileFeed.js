@@ -30,21 +30,31 @@ const ProfileFeed = ({ profileId, isOwner }) => {
                       return false;
                     }}
                 >
-                    <p>My Cities</p>
+                    <p>
+                        {isOwner &&
+                            <span>My </span>
+                        } 
+                        Cities
+                    </p>
                 </NavLink>
                 <NavLink 
                     to={`/profile/${profileId}/insights`}
                     activeClassName={styles.active}
                     style={{ textDecoration: 'none' }}
                 >
-                    <p>My Insights</p>
+                    <p>
+                        {isOwner &&
+                            <span>My </span>
+                        } 
+                        Insights
+                    </p>
                 </NavLink>
                 <NavLink 
                     to={`/profile/${profileId}/likes`}
                     activeClassName={styles.active}
                     style={{ textDecoration: 'none' }}
                 >
-                    <p>Likes</p>
+                    <p>Favorites</p>
                 </NavLink>
                 <NavLink 
                     to={`/profile/${profileId}/matches`}
@@ -64,16 +74,24 @@ const ProfileFeed = ({ profileId, isOwner }) => {
             <div>
                 <Switch>
                     <Route exact path={[`/profile/${profileId}/cities`, `/profile/${profileId}/`]}>
-                        <MyCities />
+                        <MyCities 
+                            profileId={profileId}
+                        />
                     </Route>
                     <Route exact path={`/profile/${profileId}/insights`}>
-                        <MyInsights />
+                        <MyInsights 
+                            profileId={profileId}
+                        />
                     </Route>
                     <Route exact path={`/profile/${profileId}/likes`}>
-                        <MyLikes />
+                        <MyLikes 
+                            profileId={profileId}
+                        />
                     </Route>
                     <Route exact path={`/profile/${profileId}/matches`}>
-                        <MyMatches />
+                        <MyMatches 
+                            profileId={profileId}
+                        />
                     </Route>
                     <Route exact path={`/profile/${profileId}/feed`}>
                         <MyFeed />

@@ -1,7 +1,7 @@
-const MyLikes = () => {
+const MyLikes = ({ profileId }) => {
     return (
         <>
-            <h2>My Likes</h2>
+            <h2>Likes for {profileId}</h2>
             <p>Coming Soon...</p>
         </>
     );

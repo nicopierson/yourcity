@@ -1,7 +1,7 @@
-const MyMatches = () => {
+const MyMatches = ({ profileId }) => {
     return (
         <>
-            <h2>My Cities</h2>
+            <h2>Matches for {profileId}</h2>
             <p>Coming Soon...</p>
         </>
     );
