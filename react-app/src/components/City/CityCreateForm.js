@@ -39,9 +39,9 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
 
     return (
         <div className='city_container'>
-            <div className='header_edit_container'>
+            <div className={`header_edit_container ${styles.header_container}`}>
                 <h2>Create City</h2>
-                <div className={styles.errors}>
+                <div className='errors'>
                     {errors.length > 0 && errors.map((error, ind) => (
                         <div key={ind}>{error.field}: {error.message}</div>
                     ))}

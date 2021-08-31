@@ -1,53 +1,9 @@
-.parent_container
-{
-    height: 100vh;
-    width: 50vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parent_container_sign_in
-{
-    width: 100vw;
-    background-image: url("https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/alfons-taekema-lvXeO04CxwQ-unsplash.jpg");
-}
-
-.parent_container_sign_up
-{
-    background-image: url("https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/cyril-mazarin-WSvth_lwCi0-unsplash.jpg");
-}
-
-.sign_in_container
-{
-    position: fixed;
-    width: 50%;
-    top: 0;
-    bottom: 0;
-}
-
-.sign_up_container
-{
-    position: fixed;
-    width: 50vw;
-    top: 0;
-    bottom: 0;
-    right: 0;
-}
-
-/* .sign_up_container img
-{
-    display: absolute;
-    height: 100vh;
-} */
-
 .form_container
 {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
     padding: 15px;
     background-color: #000;
     color: #fff;
@@ -73,7 +29,7 @@
 .errors
 {
     color: rgb(255, 0, 0);
-    font-size: 12px;
+    font-size: 14px;
     height: 20px;
 }
 

@@ -128,3 +128,9 @@ textarea.edit_field
 {
     display: inline-block;
 }
+
+.errors
+{
+    color: red;
+    font-size: 14px;
+}

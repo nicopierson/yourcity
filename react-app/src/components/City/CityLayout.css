@@ -1,0 +1,42 @@
+.layout__city_container
+{
+    grid-area: city;
+    width: 95vw;
+    
+}
+
+.layout__insights_container
+{
+    grid-area: insights;
+    width: 50vw;
+}
+
+.layout__main_container
+{
+    display: grid;
+    grid-template-columns: 1fr 50% 45% 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". city city ."
+        ". insights . ."
+    ;
+}
+
+
+@media only screen and (max-width: 850px) {
+    .layout__main_container
+    {
+        display: grid;
+        grid-template-columns: 1fr 95% 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            ". city ."
+            ". insights ."
+        ;
+    }
+
+    .layout__insights_container
+    {
+        width: 95vw;
+    }
+}

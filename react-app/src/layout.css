@@ -13,38 +13,21 @@
     grid-area: main;
 }
 
-.layout__insights_container
-{
-    grid-area: insights;
-}
-
 #root
 {
     display: grid;
-    grid-template-columns: 40px 1fr 1fr 40px;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto;
     grid-template-areas:
-        "header header header header"
-        ". main main ."
-        ". insights . ."
-        "footer footer footer footer"
+        "header"
+        "main"
+        "footer"
     ;
+    height: 100vh;
 }
 
-
-@media only screen and (max-width: 600px) {
-    #root
-    {
-        display: grid;
-        grid-template-columns: 1fr 95% 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "header header header"
-            ". main ."
-            ". insights ."
-            "footer footer footer"
-        ;
+@media only screen and (max-width: 1000px) {
+    #root{
+        grid-template-rows: 65px auto;
     }
 }
-
-/* Container Layout styling */
