@@ -4,8 +4,16 @@ import styles from './Footer.module.css';
 const Footer = () => {
   return (
       <div className={`${styles.footer_container} layout__footer_container`}>
-        <p>Copyright @ 2021 YourCity Inc. All rights reserved.</p>
-        <p>Privacy Policy</p>
+        <p
+          className={styles.copyright}
+        >
+          Copyright @ 2021 YourCity Inc. All rights reserved.
+        </p>
+        <p
+          className={styles.privacy}
+        >
+          Privacy Policy
+        </p>
         <a href='https://github.com/nicopierson'>
           <i className='fab fa-github'></i>
         </a>
@@ -15,8 +23,16 @@ const Footer = () => {
         <a href='https://angel.co/u/nico-gerard-pierson'>
           <i className='fab fa-angellist'></i>
         </a>
-        <p>Terms of Use</p>
-        <p>United States</p>
+        <p
+          className={styles.terms}
+        >
+          Terms of Use
+        </p>
+        <p
+          className={styles.country}
+        >
+          United States
+        </p>
       </div>
   );
 };

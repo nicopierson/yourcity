@@ -26,3 +26,33 @@
 .footer_container i:hover {
   color: #fff;
 }
+
+@media only screen and (max-width: 750px) {
+  .footer_container {
+    flex-wrap: wrap;
+  }
+
+  .privacy
+  {
+    display: none;
+  }
+
+  .terms
+  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .country
+  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .copyright
+  {
+    display: none;
+  }
+}
