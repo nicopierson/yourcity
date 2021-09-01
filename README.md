@@ -33,31 +33,58 @@ YourCity is a city matching App that matches users to their ideal city. It is a 
 
 ## Features
 
-### Sign In and Sign Up
-![Sign Up](./readme-assets/images/signup.jpg)
+### Sign Up and Login Pages
+![Sign Up](./readme-assets/images/sign-up.jpg)
 ![Login](./readme-assets/images/login.jpg)
 
-### Feed Page
-YourCity feed displays all cities
+### Splash Page
 Discover and search for new cities
+![Feed Page](./readme-assets/images/splash.jpg)
+
+Features
+![Splash Features](./readme-assets/images/splash-features.jpg)
+
+## Profile
+Profile card about user and view cities
+![Profile](./readme-assets/images/profile.jpg)
+
+## Feed Tab
+YourCity feed displays all cities
 ![Feed Page](./readme-assets/images/feed.jpg)
 
-### View City
+### View, Add, Edit, and Delete Cities
 Single city of name, photos, insights
-![City Page](./readme-assets/images/city-page.jpg)
+![City Page](./readme-assets/images/city.jpg)
 
-### Add City
-Add a new city to the database
-![Add City](./readme-assets/images/city-add.jpg)
-Cancel adding city
-![Cancel Add City](./readme-assets/images/city-add-cancel.jpg)
+#### Add a City
+<p align='center'>
+<img alt="follow" src="./readme-assets/images/city-add.png" height=300/>
+</p>
+
+#### Cancel adding city
+<p align='center'>
+<img alt="follow" src="./readme-assets/images/city-cancel-confirmation.png" height=300/>
+</p>
+
+#### Edit a city
+![Edit City](./readme-assets/images/city-edit.png)
 
 ### Create, Read, Update, Delete City Insights
-View Insights
-![Insights](./readme-assets/images/insights.png)
-Edit and Add Insights in the database
-![Edit Insights](./readme-assets/images/insights-edit.png)
-![Add Insights](./readme-assets/images/insights-add.png)
+
+#### View Insights
+<p align='center'>
+<img alt="follow" src="./readme-assets/images/insight-view.png" height=400/>
+</p>
+
+#### Add Insights
+<p align='center'>
+<img alt="follow" src="./readme-assets/images/insight-add.png" height=200/>
+</p>
+
+#### Edit Insights
+<p align='center'>
+<img alt="follow" src="./readme-assets/images/insight-edit.png" height=200/>
+</p>
 
 
 ## Installation
@@ -66,7 +93,7 @@ To build/run project locally, please follow these steps:
 1. Clone this repository
 
 ```shell
-git clone https://github.com/nicopierson/yourcity.git
+git clone https://github.com/{github-handle}/{app-name}.git
 ```
 
 2. Install Pipfile dependencies and create the virtual environment
@@ -84,6 +111,11 @@ npm install
 3. In the `/` root directory, create a `.env` based on the `.env.example` with proper settings
 
 4. Setup your PostgreSQL user, password and database and ensure it matches your `.env` file
+
+5. Before running any flask commands, confirm you are in the pipenv virtual env. If not, run the command:
+```shell
+pipenv shell
+```
 
 5. In the root folder, create the database by running in the terminal:
 ```shell
