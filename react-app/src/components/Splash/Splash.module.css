@@ -64,12 +64,14 @@
 
 .splash_body_header h2
 {
+    text-align: center;
     font-size: 56px;
     margin-top: 28px;
 }
 
 .splash_body_header h3
 {
+    text-align: center;
     margin-top: 5px;
     font-weight: 400;
     font-size: 36px;
@@ -77,6 +79,7 @@
 
 .splash_body_header p
 {
+    text-align: center;
     margin-top: 20px;
     color: #b8b8b8;
     font-size: 18px;
@@ -109,21 +112,28 @@
 .header_images
 {
     display: flex;
+    padding: 50px;
+    justify-content: space-around;
+}
+
+.header_images div
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header_images img
 {
-    height: 250px;
+    margin: 50px 10px 30px 10px;
+    height: 175px;
 }
 
-.country_image img
+.header_images p
 {
-    height: 200px;
-}
-
-.world_image img
-{
-    height: 350px;
+    font-size: 20px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -137,6 +147,21 @@
     .header_inner_container
     {
         margin: 20px 0 0 180px;
+    }
+
+    .header_images p
+    {
+        font-size: 18px;
+    }
+
+    .header_images img
+    {
+        margin: 7px 7px 30px 7px;
+        height: 140px;
+    }
+    .header_images
+    {
+        padding: 20px;
     }
 }
 
@@ -155,6 +180,20 @@
             rgba(255, 255, 255, 0.502),
             rgba(255, 255, 255, 0)
             );
+    }
+    .header_images
+    {
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+    .header_images img
+    {
+        padding: 5px;
+    }
+    .header_images p
+    {
+        padding: 3px;
+        margin-bottom: 10px;
     }
 }
 

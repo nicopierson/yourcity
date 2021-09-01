@@ -24,15 +24,18 @@ const SplashBody = () => {
             <div
                 className={styles.header_images}
             >
-                {/* <div className={styles.city_image}>
+                <div className={styles.city_image}>
                     <img src={cityImage} alt='city' />
-                </div> */}
-                {/* <div className={styles.world_image}>
+                    <p>Look up the most popular urban cities</p>
+                </div>
+                <div className={styles.world_image}>
                     <img src={worldImage} alt='world' />
-                </div> */}
-                {/* <div className={styles.country_image}>
+                    <p>Favorite your locations</p>
+                </div>
+                <div className={styles.country_image}>
                     <img src={countryImage} alt='country' />
-                </div> */}
+                    <p>Consider your wellness goals</p>
+                </div>
             </div>
         </div>
     );

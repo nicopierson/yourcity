@@ -7,7 +7,7 @@
 .layout__splash_body
 {
     grid-area: sp-body;
-    height: 75vh;
+    height: 80vh;
 }
 
 .layout__splash_footer
@@ -32,4 +32,11 @@
 .layout__main_container
 {
     overflow: auto;
+}
+
+@media only screen and (max-width: 1050px) {
+    .layout__splash_body
+    {
+        height: auto;
+    }
 }
