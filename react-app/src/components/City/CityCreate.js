@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import CityCreateForm from './CityCreateForm';
 import { ModalVerify, ModalCreateCity } from '../../context/Modal'; 
 
-const CityCreate = ({ userId }) => {
+const CityCreate = () => {
     const history = useHistory();
     const [showModal, setShowModal] = useState();
     const [showVerification, setShowVerification] = useState(false);
@@ -36,7 +36,7 @@ const CityCreate = ({ userId }) => {
                     onClose={() => setShowVerification(true)}
                 >
                     <CityCreateForm 
-                        userId={userId}
+                        userId={user.id}
                         setShowModal={setShowModal}
                         setShowVerification={setShowVerification}
                     />

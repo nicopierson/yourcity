@@ -6,6 +6,7 @@ import CityCreate from '../City/CityCreate';
 import { login } from '../../store/session';
 
 import './NavBar.css';
+import logo from '../../assets/images/yourcity-white-red-logo.png';
 
 const NavBar = () => {
 
@@ -14,19 +15,17 @@ const NavBar = () => {
 
     const demoLogin = async () => {
         await dispatch(login('nicopierson@gmail.com', 'password'));
-    }
+    };
 
     return (
         <nav className="navbar-container layout__header_container">
             <ul className="navbar-ul">
                 <div className="navbar-li navbar-title-and-feed">
-                    <li>
-                        <NavLink to='/' exact={true}
-                            className="navbar-title navbar-btn-container"
-                        >
-                            YourCity
-                        </NavLink>
-                    </li>
+                    <NavLink to='/' exact={true}
+                        className="navbar-title navbar-btn-container"
+                    >
+                        <img alt='logo' src={logo} />
+                    </NavLink>
                 </div>
                 <div className="navbar-li navbar-search">
                     <div className="navbar-search__input-wrapper">
@@ -41,14 +40,14 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className="navbar-li navbar-create-and-auth">
-                    <li>
+                    {/* <li>
                         <NavLink to='/profile' exact={true} 
                             activeClassName='active'
                             className="navbar-btn"
                         >
                             My Cities
                         </NavLink>
-                    </li>
+                    </li> */}
                     {!user &&
                         <>
                             <li>
@@ -61,7 +60,6 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink to='/login' exact={true} 
-                                    activeClassName='active'
                                     className="navbar-btn navbar-btn-signed-out"
                                 >
                                     Login
@@ -69,7 +67,6 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink to='/sign-up' exact={true} 
-                                    activeClassName='active'
                                     className="navbar-btn navbar-btn-signed-out"
                                 >
                                     
@@ -90,8 +87,9 @@ const NavBar = () => {
                             <li className="profile-avatar">
                                 <NavLink  to={`/profile/${user.id}`} 
                                     exact={true}
-                                    className=""
+                                    style={{ textDecoration: 'none' }}
                                 >
+                                    <span>MyProfile</span>
                                     <i className="fa fa-user"></i>
                                 </NavLink>
                             </li>

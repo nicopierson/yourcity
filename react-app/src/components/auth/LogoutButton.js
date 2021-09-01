@@ -4,16 +4,23 @@ import { logout } from '../../store/session';
 import { useHistory } from 'react-router-dom';
 
 const LogoutButton = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-  const onLogout = async (e) => {
-    e.preventDefault();
-    await dispatch(logout());
-    history.push('/');
-  };
+    const onLogout = async (e) => {
+        e.preventDefault();
+        await dispatch(logout());
+        history.push('/');
+    };
 
-  return <button onClick={onLogout}>Logout</button>;
+    return (
+        <button 
+            onClick={onLogout}
+            className='add_button'
+        >
+            Logout
+        </button>
+    );
 };
 
 export default LogoutButton;

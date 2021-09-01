@@ -55,11 +55,21 @@
     padding: 50px 0 0 0;
 }
 
+.cities_inner_container .header_text div
+{
+    margin-top: 10px;
+}
+
 .insights_inner_container
 {
     height: 100%;
     padding: 50px 0 0 0;
     text-align: center;
+}
+
+.header_text
+{
+    padding: 7px;
 }
 
 .header_text h2
@@ -257,6 +267,7 @@
     .splash_body_container
     {
         padding: 10px;
+        padding-top: 35px;
     }
 
     .header_links
