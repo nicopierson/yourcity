@@ -60,7 +60,6 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink to='/login' exact={true} 
-                                    activeClassName='active'
                                     className="navbar-btn navbar-btn-signed-out"
                                 >
                                     Login
@@ -68,7 +67,6 @@ const NavBar = () => {
                             </li>
                             <li>
                                 <NavLink to='/sign-up' exact={true} 
-                                    activeClassName='active'
                                     className="navbar-btn navbar-btn-signed-out"
                                 >
                                     
@@ -91,7 +89,7 @@ const NavBar = () => {
                                     exact={true}
                                     style={{ textDecoration: 'none' }}
                                 >
-                                    My Profile
+                                    <span>MyProfile</span>
                                     <i className="fa fa-user"></i>
                                 </NavLink>
                             </li>
