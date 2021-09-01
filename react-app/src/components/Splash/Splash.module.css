@@ -55,6 +55,11 @@
     padding: 50px 0 0 0;
 }
 
+.cities_inner_container .header_text div
+{
+    margin-top: 10px;
+}
+
 .insights_inner_container
 {
     height: 100%;
