@@ -141,3 +141,10 @@
         left: 20vw;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .form_input p span
+    {
+        display: block;
+    }
+}
