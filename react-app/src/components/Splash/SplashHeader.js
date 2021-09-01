@@ -8,10 +8,15 @@ const SplashHeader = () => {
             <div
                 className={styles.header_inner_container}
             >
-                <h2>Find Your City</h2>
-                <p>Our app matches you to your lost city.</p>
-                <p>Whether you are looking to travel or to move, YourCity will help you along the way.</p>
-                <h4>Learn More</h4>
+                <div
+                    className={styles.header_text}
+                >
+                    <h2>Find Your City</h2>
+                    <p>We match you to your lost city.</p>
+                    <p>Whether you are looking to travel or to move,</p>
+                    <p>YourCity will help you along the way.</p>
+                    <h4>Learn More<i className='far fa-arrow-alt-circle-right'></i></h4>
+                </div>
             </div>
         </div>
     )

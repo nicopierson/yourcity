@@ -8,11 +8,165 @@
 
 .header_inner_container
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 50px;
     height: 100%;
-    /* background: linear-gradient(
-            rgb(0, 0, 0), 
-            rgba(33, 33, 33, 0.9),
-            rgba(33, 33, 33, 0.5)
-            ); */
+    margin: 20px 0 0 200px;
+    color: #121212;
+}
+
+.header_text h2
+{
+    font-size: 56px;
+}
+
+.header_text p
+{
+    color: #3f3f3f;
+    font-size: 24px;
+    margin: 5px 0 0 0;
+}
+
+.header_text h4
+{
+    color: #0066cc;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.header_text h4:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.header_text h4 i
+{
+    margin-left: 5px;
+}
+
+.splash_body_container
+{
+    height: 100%;
+    background-color: #000;
+    color: #f5f5f7;
+}
+
+.splash_body_header
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash_body_header h2
+{
+    font-size: 56px;
+    margin-top: 28px;
+}
+
+.splash_body_header h3
+{
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 36px;
+}
+
+.splash_body_header p
+{
+    margin-top: 20px;
+    color: #b8b8b8;
+    font-size: 18px;
+}
+
+.header_links
+{
+    display: flex;
+    justify-content: center;
+    color: #2997ff;
+    margin: 30px 0 30px 0;
+    font-size: 20px;
+}
+
+.header_links span
+{
+    margin: 0 20px 0 20px;
+}
+
+.header_links span i
+{
+    margin-left: 5px;
+}
+
+.header_links span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.header_images
+{
+    display: flex;
+}
+
+.header_images img
+{
+    height: 250px;
+}
+
+.country_image img
+{
+    height: 200px;
+}
+
+.world_image img
+{
+    height: 350px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .header_text p
+    {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .header_inner_container
+    {
+        margin: 20px 0 0 180px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .header_outer_container
+    {
+        background-position: right;
+    }
+
+    .header_inner_container
+    {
+        margin: 0;
+        text-align: center;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.687), 
+            rgba(255, 255, 255, 0.502),
+            rgba(255, 255, 255, 0)
+            );
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .header_inner_container,
+    .splash_body_container
+    {
+        padding: 10px;
+    }
+
+    .header_links
+    {
+        font-size: 16px;
+    }
 }

@@ -1,22 +1,21 @@
 .layout__splash_header
 {
     grid-area: sp-header;
-    height: 70vh;
+    height: 73vh;
 }
 
 .layout__splash_body
 {
     grid-area: sp-body;
-    height: 70vh;
+    height: 75vh;
 }
 
 .layout__splash_footer
 {
     grid-area: sp-footer;
     background-color: gold;
-    height: 70vh;
+    height: 75vh;
 }
-
 
 .layout__splash_container
 {

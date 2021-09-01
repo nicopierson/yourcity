@@ -1,5 +1,6 @@
 
 import SplashHeader from './SplashHeader';
+import SplashBody from './SplashBody';
 
 import './SplashLayout.css';
 
@@ -16,7 +17,7 @@ const Splash = () => {
             <section
                 className='layout__splash_body'
             >
-                <h2>Splash Body</h2>
+                <SplashBody />
             </section>
             <section
                 className='layout__splash_footer'
