@@ -51,7 +51,7 @@
     color: #dcdcdc;
 }
 
-.title_link:hover
+.title_link:hover > h2
 {
     text-decoration: underline;
     color: #fff;
