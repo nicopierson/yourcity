@@ -37,9 +37,39 @@
     background-image: url('https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/duy-pham-Cecb0_8Hx-o-unsplash.jpg');
 }
 
+.cities_overlay_container
+{
+    height: 100%;
+    background: linear-gradient(
+    rgba(255, 255, 255, 0.536), 
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0)
+    );
+}
+
+.cities_inner_container
+{
+    height: 100%;
+    text-align: center;
+    color: #2d2d2d;
+    padding: 50px 0 0 0;
+}
+
+.insights_inner_container
+{
+    height: 100%;
+    padding: 50px 0 0 0;
+    text-align: center;
+}
+
 .header_text h2
 {
     font-size: 56px;
+}
+
+.header_text h3
+{
+    font-size: 48px;
 }
 
 .header_text p
@@ -60,6 +90,11 @@
 {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.header_text h4:hover i
+{
+    text-decoration: none;
 }
 
 .header_text h4 i
@@ -86,7 +121,7 @@
 {
     text-align: center;
     font-size: 56px;
-    margin-top: 28px;
+    margin-top: 35px;
 }
 
 .splash_body_header h3

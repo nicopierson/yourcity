@@ -1,9 +1,13 @@
+import { useHistory } from 'react-router-dom';
+
 import styles from './Splash.module.css';
 import cityImage from '../../assets/images/undraw_city.svg';
 import countryImage from '../../assets/images/undraw_Country_side_k69.svg';
 import worldImage from '../../assets/images/undraw_world.svg';
 
 const SplashBody = () => {
+    const history = useHistory();
+
     return (
         <div
             className={styles.splash_body_container}
@@ -18,8 +22,18 @@ const SplashBody = () => {
             <div
                 className={styles.header_links}
             >
-                <span>Learn More<i className='far fa-arrow-alt-circle-right'></i></span>
-                <span>Match<i className='far fa-arrow-alt-circle-right'></i></span>
+                <span
+                    onClick={() => history.push('/sign-up')}
+                >
+                    Learn More
+                    <i className='far fa-arrow-alt-circle-right'></i>
+                </span>
+                <span
+                    onClick={() => history.push('/sign-up')}
+                >
+                    Match
+                    <i className='far fa-arrow-alt-circle-right'></i>
+                </span>
             </div>
             <div
                 className={styles.header_images}
