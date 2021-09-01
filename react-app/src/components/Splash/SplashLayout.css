@@ -10,22 +10,27 @@
     height: 80vh;
 }
 
-.layout__splash_footer
+.layout__splash_cities
 {
-    grid-area: sp-footer;
-    background-color: gold;
+    grid-area: sp-cities;
+    height: 75vh;
+}
+
+.layout__splash_insights
+{
+    grid-area: sp-insights;
     height: 75vh;
 }
 
 .layout__splash_container
 {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-        "sp-header"
-        "sp-body"
-        "sp-footer"
+        "sp-header sp-header"
+        "sp-body sp-body"
+        "sp-cities sp-insights"
     ;
 }
 
@@ -38,5 +43,20 @@
     .layout__splash_body
     {
         height: auto;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .layout__splash_container
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "sp-header"
+            "sp-body"
+            "sp-cities" 
+            "sp-insights"
+        ;
     }
 }

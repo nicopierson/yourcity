@@ -1,6 +1,8 @@
 
 import SplashHeader from './SplashHeader';
 import SplashBody from './SplashBody';
+import SplashCities from './SplashCities';
+import SplashInsights from './SplashInsights';
 
 import './SplashLayout.css';
 
@@ -20,9 +22,14 @@ const Splash = () => {
                 <SplashBody />
             </section>
             <section
-                className='layout__splash_footer'
+                className='layout__splash_cities'
             >
-                <h2>Splash Lower</h2>
+                <SplashCities />
+            </section>
+            <section
+                className='layout__splash_insights'
+            >
+                <SplashInsights />
             </section>
         </div>
     )

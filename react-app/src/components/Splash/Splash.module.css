@@ -17,6 +17,26 @@
     color: #121212;
 }
 
+.cities_outer_container
+{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    background-image: url('https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/sven-fischer-V7WkmXntA8M-unsplash.jpg');
+}
+
+.insights_outer_container
+{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-image: url('https://yourcity-app.s3.us-west-1.amazonaws.com/login-photos/duy-pham-Cecb0_8Hx-o-unsplash.jpg');
+}
+
 .header_text h2
 {
     font-size: 56px;
