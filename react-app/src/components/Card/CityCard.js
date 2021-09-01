@@ -5,24 +5,27 @@ const CityCard = ({ city }) => {
     if (!city) return null;
 
     return (
-        <div
-            className={styles.card_container}
+        <Link 
+            to={`/city/${city.id}`}
+            className={styles.title_link}  
         >
-            <img
-                src={city.thumbnail_img}
-                alt='title'
-            />
-            <Link 
-                to={`/city/${city.id}`}
-                className={styles.title_link}  
+            <div
+                className={styles.card_container}
             >
-                <h2>{city.name}</h2>
-            </Link>
-            <p><i className='fas fa-globe-europe'></i> {city.state}</p>
-            <p>
-                <i className='fas fa-award'></i> food, music
-            </p>
-        </div>
+                
+                <img
+                    src={city.thumbnail_img}
+                    alt='title'
+                />
+                
+                    <h2>{city.name}</h2>
+                
+                <p><i className='fas fa-globe-europe'></i> {city.state}</p>
+                <p>
+                    <i className='fas fa-award'></i> food, music
+                </p>
+            </div>
+        </Link>
     )
 };
 

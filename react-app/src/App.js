@@ -8,9 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/TestComponents/User';
 import { authenticate } from './store/session';
 
+import Splash from './components/Splash';
 import City from './components/City';
-import CitiesList from './components/TestComponents/CitiesList';
-import MyCities from './components/TestComponents/MyCities';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
 
@@ -41,13 +40,10 @@ function App() {
             <SignUpForm />
           </Route>
           <Route path='/' exact={true}>
-            <CitiesList />
+            <Splash />
           </Route>
           <ProtectedRoute path='/users/:userId' exact={true}>
             <User />
-          </ProtectedRoute>
-          <ProtectedRoute path='/profile' exact={true}>
-            <MyCities />
           </ProtectedRoute>
           <Route path='/profile/:profileId'>
             <Profile />
