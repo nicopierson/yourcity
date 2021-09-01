@@ -67,6 +67,11 @@
     text-align: center;
 }
 
+.header_text
+{
+    padding: 7px;
+}
+
 .header_text h2
 {
     font-size: 56px;
@@ -262,6 +267,7 @@
     .splash_body_container
     {
         padding: 10px;
+        padding-top: 35px;
     }
 
     .header_links

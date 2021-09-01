@@ -1,5 +1,5 @@
 .navbar-container{
-    background-color: white;
+    background-color: #121212;
     margin: 0;
     width: 100%;
     top: 0;
@@ -62,6 +62,11 @@
     justify-content: space-between;
 }
 
+.navbar-title-and-feed img {
+    height: 150px;
+    margin-top: 20px;
+}
+
 .navbar-create-and-auth {
     width: auto;
     display: flex;
@@ -75,11 +80,6 @@
     font-weight: 900;
     color: black;
     margin-left: 20px;
-}
-
-.navbar-title:hover {
-    border-bottom: 1px solid black;
-    color: black;
 }
 
 .create-recipe-base-wrapper {
@@ -104,41 +104,20 @@
     align-items: center;
 }
 
-button#demo-login-btn {
-    display: inline-block;
-    border-style: none;
-    border-radius: 2px;
-    padding: 10px;
-    margin: 0;
-    margin-right: 20px;
-    text-decoration: none;
-    background: black;
-    color: white;
-    font-size: 12px;
-    font-weight: 900;
-    min-width: 75px;
-    cursor: pointer;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
-
-}
-
 button#demo-login-btn:hover {
     background: white;
     color: black;
 }
 
 .navbar-btn {
-    font-weight: 900;
-    color: black;
+    color: #bdbdbd;
+    text-decoration: none;
     margin: 20px;
 }
 
 .navbar-btn:hover {
-    border-bottom: 1px solid black;
-    color: black;
+    cursor: pointer;
+    color: #f5f5f5;
 }
 
 .navbar-btn-container {
@@ -161,6 +140,31 @@ button#demo-login-btn:hover {
     margin-right: 30px;
     margin-left: 20px;
     z-index: 1;
+    text-decoration: none;
+}
+
+.profile-avatar a
+{
+    text-decoration: none;
+    color:rgb(172, 172, 172);
+}
+
+.profile-avatar a:hover,
+.profile-avatar a:hover > i
+{
+    text-decoration: none;
+    color:#f5f5f5;
+}
+
+.profile-avatar i
+{
+    margin-left: 10px;
+    color:rgb(172, 172, 172);
+}
+
+.profile-avatar .active
+{
+    color: #f5f5f5;
 }
 
 .profile-avatar__image{
@@ -168,41 +172,6 @@ button#demo-login-btn:hover {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-}
-
-.profile-avatar__image:hover{
-    background-color: rgb(236, 236, 236);
-}
-
-.profile-avatar__content{
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 80px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 2;
-}
-
-.logout-style-button {
-    border-style: none;
-    border-radius: 3px;
-    padding: 9px;
-    text-decoration: none;
-    background: black;
-    color: white;
-    font-size: 12px;
-    font-weight: 900;
-    min-width: 75px;
-    cursor: pointer;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-right: 6px;
-}
-
-.logout-style-button:hover {
-    background: white;
-    color: black;
 }
 
 /* responsive queries*/
@@ -228,7 +197,7 @@ button#demo-login-btn:hover {
 
     .navbar-btn
     {
-        margin: 10px;
+        margin: 0 7px 0 7px;
         font-size: 16px;
     }
 }
@@ -240,5 +209,21 @@ button#demo-login-btn:hover {
 
     .navbar-search{
         display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar-btn
+    {
+        margin: 0 5px 0 5px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar-btn
+    {
+        margin: 0 5px 0 5px;
+        font-size: 14px;
     }
 }
