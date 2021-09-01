@@ -48,12 +48,11 @@
 .title_link
 {
     text-decoration: none;
-    color: #dcdcdc;
+    color: #c6c6c6;
 }
 
-.title_link:hover > h2
+.title_link:hover
 {
-    text-decoration: underline;
     color: #fff;
 }
 

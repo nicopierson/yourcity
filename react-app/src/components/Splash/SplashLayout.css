@@ -1,0 +1,36 @@
+.layout__splash_header
+{
+    grid-area: sp-header;
+    height: 70vh;
+}
+
+.layout__splash_body
+{
+    grid-area: sp-body;
+    height: 70vh;
+}
+
+.layout__splash_footer
+{
+    grid-area: sp-footer;
+    background-color: gold;
+    height: 70vh;
+}
+
+
+.layout__splash_container
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "sp-header"
+        "sp-body"
+        "sp-footer"
+    ;
+}
+
+.layout__main_container
+{
+    overflow: auto;
+}
