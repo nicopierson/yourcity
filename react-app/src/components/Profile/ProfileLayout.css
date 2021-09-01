@@ -3,7 +3,7 @@
     grid-area: card;
     width: 25vw;
     height: 100vh;
-    background-color: rgb(33, 33, 33);
+    background-color: #121212e5;
     color: rgb(233, 233, 233);
 }
 
@@ -11,7 +11,7 @@
 {
     grid-area: feed;
     width: 70vw;
-    background-color: rgb(55, 55, 55);
+    background-color: #121212;
     height: 100vh;
     color: rgb(233, 233, 233);
 }

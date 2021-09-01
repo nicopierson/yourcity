@@ -23,7 +23,7 @@ const ProfileFeed = ({ profileId, isOwner }) => {
                     activeClassName={styles.active}
                     style={{ textDecoration: 'none' }}
                     isActive={(match, location) => {
-                      if(location.pathname === `/profile/${profileId}/`
+                      if(location.pathname === `/profile/${profileId}`
                       || match?.isExact) {
                           return true;
                       }
