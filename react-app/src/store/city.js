@@ -30,7 +30,7 @@ export const getCity = (id) => async (dispatch) => {
         await dispatch(setCity(city));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -42,7 +42,7 @@ export const getCitiesByUser = (userId) => async (dispatch) => {
         await dispatch(setAllCities(cities));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -54,7 +54,7 @@ export const getAllCities = () => async (dispatch) => {
         await dispatch(setAllCities(data.cities));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -67,7 +67,7 @@ export const removeCity = (id) => async (dispatch) => {
         await dispatch(deleteCity(id));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -81,14 +81,14 @@ export const updateCity = (payload) => async(dispatch) => {
     if (response.ok) {
         const data = await response.json();
         await dispatch(setCity(data));
-        return null;
+        return { 'id': data.id };
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-        return data.errors;
+            return data;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -102,14 +102,14 @@ export const createCity = (payload) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         await dispatch(setCity(data));
-        return null;
+        return { 'id': data.id };
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
-        return data.errors;
+            return data;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 

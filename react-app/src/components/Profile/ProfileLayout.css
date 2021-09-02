@@ -1,0 +1,56 @@
+.layout__profile_card_container
+{
+    grid-area: card;
+    width: 25vw;
+    height: 100vh;
+    background-color: #121212e5;
+    color: rgb(233, 233, 233);
+}
+
+.layout__profile_feed_container
+{
+    grid-area: feed;
+    width: 70vw;
+    background-color: #121212;
+    height: 100vh;
+    color: rgb(233, 233, 233);
+}
+
+.layout__profile_container
+{
+    display: grid;
+    grid-template-columns: 1fr 25% 70% 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". card feed ."
+    ;
+    height: 90vh;
+    overflow: hidden;
+}
+
+
+@media only screen and (max-width: 850px) {
+    .layout__profile_container
+    {
+        display: grid;
+        grid-template-columns: 1fr 95% 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            ". card ."
+            ". feed ."
+        ;
+        overflow: auto;
+    }
+
+    .layout__profile_card_container
+    {
+        width: 95vw;
+        height: auto;
+    }
+
+    .layout__profile_feed_container
+    {
+        width: 95vw;
+        height: auto;
+    }
+}

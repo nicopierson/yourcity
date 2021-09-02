@@ -29,10 +29,10 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
         }
 
         const city = await dispatch(createCity(payload));
-        if (city) {
-            setErrors(city);
+        if ('errors' in city) {
+            setErrors(city.errors);
         } else {
-            history.push(`/city/${city.id}`)
+            history.push(`/city/${city.id}`);
             setShowModal(false);
         }
     };

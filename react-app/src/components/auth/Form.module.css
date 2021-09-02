@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    background-color: #000;
+    background-color: #121212;
     color: #fff;
     overflow: hidden;
 }
@@ -59,7 +59,7 @@
     padding: 7px 10px 7px 10px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: rgb(255, 255, 255);
-    background-color: #000;
+    background-color: #121212;
 }
 
 .form_input label {
@@ -109,7 +109,7 @@
     text-decoration: underline 1px solid #fff;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 800px) {
     .parent_container
     {
         width: 100vw;
@@ -139,5 +139,12 @@
         padding: 5px 5px 5px 5px;
         color: rgb(212, 212, 212);
         left: 20vw;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .form_input p span
+    {
+        display: block;
     }
 }

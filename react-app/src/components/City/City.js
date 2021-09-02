@@ -39,8 +39,8 @@ const City = () => {
     if (!city) return null;
 
     return (
-        <main className='layout__main_container'>
-            <section className='layout__city_container'>
+        <div className='layout__city_container'>
+            <section className='layout__city_info_container'>
                 <CityBanner city={city} />
                 {!showEdit &&
                     <div className={styles.main_city_text}>
@@ -70,7 +70,7 @@ const City = () => {
                     userId={userId}
                 />
             </section>
-        </main>
+        </div>
     )
 };
 

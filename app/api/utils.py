@@ -61,7 +61,6 @@ def user_is_owner(user_id):
     """
     if current_user:
         return user_id == current_user.id
-    print("Invalid User")
     return False
 
 

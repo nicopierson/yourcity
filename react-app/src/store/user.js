@@ -30,7 +30,7 @@ export const getUser = (id) => async (dispatch) => {
         await dispatch(setUser(user));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -42,7 +42,7 @@ export const getAllUsers = () => async (dispatch) => {
         await dispatch(setAllUsers(data.users));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': ['An error occurred. Please try again.']};
     }
 };
 
@@ -55,7 +55,7 @@ export const removeUser = (id) => async (dispatch) => {
         await dispatch(deleteUser(id));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -71,7 +71,7 @@ export const updateUser = (payload) => async(dispatch) => {
         await dispatch(setUser(user));
         return user;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -87,7 +87,7 @@ export const createUser = (payload) => async (dispatch) => {
         await dispatch(setUser(user));
         return user;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 

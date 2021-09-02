@@ -1,4 +1,7 @@
-// constants
+import { resetCities } from './city';
+import { resetInsights } from './insight';
+import { resetUsers } from './user';
+
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
@@ -52,7 +55,7 @@ export const login = (email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
   }
 
 }
@@ -65,6 +68,9 @@ export const logout = () => async (dispatch) => {
   });
 
   if (response.ok) {
+    dispatch(resetCities());
+    dispatch(resetInsights());
+    dispatch(resetUsers());
     dispatch(removeUser());
   }
 };
@@ -93,7 +99,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
   }
 }
 

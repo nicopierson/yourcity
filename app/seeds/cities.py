@@ -101,7 +101,7 @@ def seed_cities():
         user_id=21,
     )
     houston = City(
-        name='The Colony',
+        name='Dallas',
         state='Texas',
         thumbnail_img='https://wikitravel.org/upload/shared//f/ff/Houston_banner.jpg',
         description='Houston is the largest city in Texas and the fourth largest in the United States. Apart from its population, it is also huge in terms of square miles. Houston is multicultural and diverse, home to some of the nation\'s largest Latino, African American and Asian American populations. It boasts an eclectic museum and arts scene, vibrant shopping, and has become a burgeoning destination for food lovers.',
@@ -142,6 +142,13 @@ def seed_cities():
         description='Bangkok is the capital of Thailand and, with a population of over eleven million inhabitants. It is one of Asia\'s most cosmopolitan cities with magnificent temples and palaces, authentic canals, busy markets and a vibrant nightlife that has something for everyone. Bangkok is a huge and modern city humming with nightlife and great aromas.',
         user_id=1,
     )
+    bruges = City(
+        name='Bruges',
+        state='Bruges',
+        thumbnail_img='https://lp-cms-production.imgix.net/2019-06/56c84b58a313f0e8cc74512036d63b73-bruges.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=75&dpr=1',
+        description='If you set out to design a fairy-tale medieval town, it would be hard to improve on central Bruges (Brugge in Dutch), one of Europe\'s best preserved cities. Picturesque cobbled lanes and dreamy canals link photogenic market squares lined with soaring towers, historical churches and lane after lane of old whitewashed almshouses.',
+        user_id=24,
+    )
     
     db.session.add(sao_paulo)
     db.session.add(san_francisco)
@@ -163,6 +170,7 @@ def seed_cities():
     db.session.add(montreal)
     db.session.add(cairo)
     db.session.add(bangkok)
+    db.session.add(bruges)
     
     db.session.commit()
     

@@ -1,0 +1,32 @@
+.splash_link__city_create
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash_link__city_create p
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: #0066cc;
+}
+
+.splash_link__city_create p:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.splash_link__city_create i
+{
+    font-size: 20px;
+    margin-left: 5px;
+    color: #0066cc;
+    margin-top: 6px;
+}
+
+.splash_link__city_create i:hover
+{
+    text-decoration: none;
+}

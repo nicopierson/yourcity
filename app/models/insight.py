@@ -23,4 +23,7 @@ class Insight(db.Model):
             'insight': self.insight,
             'user_id': self.user_id,
             'city_id': self.city_id,
+            # 'city': [{ 'name': city.name, 'state': city.state, 'description': city.description } for city in self.city_relation ],
+            'city_name': self.city_relation.name,
+            'city_state': self.city_relation.state,
         }

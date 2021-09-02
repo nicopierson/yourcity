@@ -30,8 +30,8 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
         }
 
         const cityData = await dispatch(updateCity(payload));
-        if (cityData) {
-            setErrors(cityData);
+        if ('errors' in cityData) {
+            setErrors(cityData.errors);
         } else {
             setShowEdit(false);
         }
@@ -41,7 +41,7 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
         e.preventDefault();
 
         dispatch(removeCity(city.id));
-        history.push('/profile');
+        history.push(`/profile/${city.user_id}`);
     };
 
     return (
