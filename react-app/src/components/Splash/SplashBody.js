@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import styles from './Splash.module.css';
 import cityImage from '../../assets/images/undraw_city.svg';
@@ -7,6 +8,16 @@ import worldImage from '../../assets/images/undraw_world.svg';
 
 const SplashBody = () => {
     const history = useHistory();
+    const user = useSelector(state => state.session.user);
+
+    const handleLearnMore = (e) => {
+        e.preventDefault();
+        if (user) {
+            history.push(`/profile/${user.id}`)
+        } else {
+            history.push('/sign-up')
+        }
+    };
 
     return (
         <div
@@ -23,13 +34,13 @@ const SplashBody = () => {
                 className={styles.header_links}
             >
                 <span
-                    onClick={() => history.push('/sign-up')}
+                    onClick={handleLearnMore}
                 >
                     Learn More
                     <i className='far fa-arrow-alt-circle-right'></i>
                 </span>
                 <span
-                    onClick={() => history.push('/sign-up')}
+                    onClick={handleLearnMore}
                 >
                     Match
                     <i className='far fa-arrow-alt-circle-right'></i>

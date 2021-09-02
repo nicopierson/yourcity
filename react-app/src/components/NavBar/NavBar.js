@@ -9,7 +9,6 @@ import './NavBar.css';
 import logo from '../../assets/images/yourcity-white-red-logo.png';
 
 const NavBar = () => {
-
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 

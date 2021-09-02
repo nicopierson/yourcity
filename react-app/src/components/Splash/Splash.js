@@ -1,4 +1,3 @@
-
 import SplashHeader from './SplashHeader';
 import SplashBody from './SplashBody';
 import SplashCities from './SplashCities';
@@ -7,6 +6,7 @@ import SplashInsights from './SplashInsights';
 import './SplashLayout.css';
 
 const Splash = () => {
+
     return (
         <div
             className='layout__splash_container'

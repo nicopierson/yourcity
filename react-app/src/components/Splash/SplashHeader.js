@@ -1,9 +1,21 @@
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 import styles from './Splash.module.css';
 
 const SplashHeader = () => {
     const history = useHistory();
+    const user = useSelector(state => state.session.user);
+
+    const handleLearnMore = (e) => {
+        e.preventDefault();
+        if (user) {
+            history.push(`/profile/${user.id}`)
+        } else {
+            history.push('/sign-up')
+        }
+    };
 
     return (
         <div
@@ -20,7 +32,7 @@ const SplashHeader = () => {
                     <p>Whether you are looking to travel or to move,</p>
                     <p>YourCity will help you along the way.</p>
                     <h4
-                        onClick={() => history.push('/sign-up')}
+                        onClick={handleLearnMore}
                     >
                         Learn More
                         <i className='far fa-arrow-alt-circle-right'></i>
