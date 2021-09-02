@@ -19,7 +19,7 @@
 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 5vh auto;
+    grid-template-rows: 5vh auto 5vh;
     grid-template-areas:
         "header"
         "main"
@@ -27,16 +27,16 @@
     ;
     height: 100vh;
     overflow-wrap: anywhere;
+    /* overflow: hidden; */
 }
 
 @media only screen and (max-width: 1000px) {
     #root{
-        grid-template-rows: 6.5vh auto;
+        grid-template-rows: 6.5vh auto 6.5vh;
     }
 
     .layout__footer_container
     {
-        grid-area: footer;
         height: 6.5vh;
     }
 }
