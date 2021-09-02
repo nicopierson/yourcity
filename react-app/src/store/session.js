@@ -1,6 +1,6 @@
-import { unloadCities } from './city';
-import { unloadInsights } from './insight';
-import { unloadUsers } from './user';
+import { resetCities } from './city';
+import { resetInsights } from './insight';
+import { resetUsers } from './user';
 
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
@@ -68,9 +68,9 @@ export const logout = () => async (dispatch) => {
   });
 
   if (response.ok) {
-    dispatch(unloadCities());
-    dispatch(unloadInsights());
-    dispatch(unloadUsers());
+    dispatch(resetCities());
+    dispatch(resetInsights());
+    dispatch(resetUsers());
     dispatch(removeUser());
   }
 };
