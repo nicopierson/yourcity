@@ -52,7 +52,7 @@ const ProfileFeed = ({ profileId, isOwner }) => {
                             Insights
                         </p>
                     </NavLink>
-                    <NavLink 
+                    {/* <NavLink 
                         to={`/profile/${profileId}/likes`}
                         activeClassName={styles.active}
                         style={{ textDecoration: 'none' }}
@@ -65,7 +65,7 @@ const ProfileFeed = ({ profileId, isOwner }) => {
                         style={{ textDecoration: 'none' }}
                     >
                         <p>Matches</p>
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink 
                         to={`/profile/${profileId}/feed`}
                         activeClassName={styles.active}
