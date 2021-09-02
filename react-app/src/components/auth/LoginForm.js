@@ -58,7 +58,7 @@ const LoginForm = () => {
             >
               Welcome Back
             </h2>
-            <div className={styles.errors}>
+            <div className={`${styles.errors} login_form__errors_container`}>
               {errors.length > 0 && errors.map((error, ind) => (
                 <div key={ind}>{error.field}: {error.message}</div>
               ))}

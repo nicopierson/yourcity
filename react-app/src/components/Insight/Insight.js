@@ -39,6 +39,7 @@ const Insight = ({ insight, userId }) => {
                     insight={insight}
                     setShow={setShowEdit}
                     isCreate={false}
+                    desc={'Edit'}
                 />
             }
         </div>

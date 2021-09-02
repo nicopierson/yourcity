@@ -23,6 +23,7 @@ const InsightCreate = ({ userId, cityId }) => {
                     userId={userId}
                     cityId={cityId}
                     setShow={setShowCreate}
+                    desc={'Add'}
                 />
             }
         </div>

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, ValidationError, Length
+from wtforms.validators import InputRequired, ValidationError, Length, URL, Optional
 from app.models import City
 
 
@@ -41,17 +41,17 @@ def city_exists(form, field):
     
 
 class CityPostForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired(), city_exists, Length(min=1, max=80)])
+    name = StringField('name', validators=[InputRequired(), city_exists, Length(min=1, max=80)])
     state = StringField('state', validators=[Length(min=0, max=50)])
-    thumbnail_img = StringField('thumbnail_img', validators=[Length(min=0, max=800)])
+    thumbnail_img = StringField('thumbnail_img', validators=[Optional(), URL(), Length(min=0, max=800)])
     description = StringField('description', validators=[Length(min=0, max=1200)])
-    user_id = IntegerField('user_id', validators=[DataRequired()])
+    user_id = IntegerField('user_id', validators=[InputRequired()])
     
     
 class CityUpdateForm(FlaskForm):
-    id = IntegerField('id', validators=[DataRequired(), city_id_exists])
-    name = StringField('name', validators=[DataRequired(), city_exists, Length(min=1, max=80)])
+    id = IntegerField('id', validators=[InputRequired(), city_id_exists])
+    name = StringField('name', validators=[InputRequired(), city_exists, Length(min=1, max=80)])
     state = StringField('state', validators=[Length(min=0, max=50)])
-    thumbnail_img = StringField('thumbnail_img', validators=[Length(min=0, max=800)])
+    thumbnail_img = StringField('thumbnail_img', validators=[Optional(), URL(), Length(min=0, max=800)])
     description = StringField('description', validators=[Length(min=0, max=1200)])
-    user_id = IntegerField('user_id', validators=[DataRequired()])
+    user_id = IntegerField('user_id', validators=[InputRequired()])
