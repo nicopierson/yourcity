@@ -81,7 +81,9 @@ def insight_delete(id):
         try:
             db.session.delete(insight)
             db.session.commit()
-            return insight.to_dict()
+            # ? why does insight.to_dict() error out: 1. there is no cascade and delete orphan
+            # return insight.to_dict()
+            return {'id': id}
         except:
             return throw_server_error()
     return throw_authorization_error()

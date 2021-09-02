@@ -21,7 +21,7 @@ def city_id_exists(form, field):
     
     
 def city_exists(form, field):
-    """Checking if city exists
+    """Checking if city exists for both post and put requests
 
     Args:
         form (FlaskForm): wtf flask form
@@ -32,8 +32,12 @@ def city_exists(form, field):
     """
     name = field.data
     city = City.query.filter(City.name == name).first()
-    if city:
-        raise ValidationError('City name already exists.')
+    if 'id' in form.data:
+        if city and city.id != form.data['id']:
+            raise ValidationError('City name already exists.')
+    else:
+        if city:
+            raise ValidationError('City name already exists.')
     
 
 class CityPostForm(FlaskForm):
