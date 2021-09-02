@@ -151,14 +151,62 @@ Description 1
 
 Part of code is shown below:
 
-```python
-print('add code snippet 1 here')
+```javascript
+const [showMore, setShowMore] = useState(false);
+const [isOverflow, setIsOverflow] = useState(true);
+
+  
+useEffect(() => {
+  const scrollHeight = document.getElementById(`insight__text_id-${insight.id}`)?.scrollHeight;
+  const offsetHeight = document.getElementById(`insight__text_id-${insight.id}`)?.offsetHeight;
+
+  if (scrollHeight && offsetHeight) {
+    if (scrollHeight > offsetHeight) {
+      setShowMore(false);
+    } else {
+      setShowMore(true);
+      setIsOverflow(false);
+    }
+  }
+}, [insight.id]);
 ```
 
 Description 2
 
 ```javascript
-print('add code snippet 2 here')
+{!showMore &&
+  <>
+    <p>
+      <span>
+        { username }
+      </span>
+      { insight.insight }
+    </p>
+    <p className={styles.text_dots}>...</p>
+    <span 
+      onClick={() => setShowMore(true)}
+    >
+      Read more
+    </span>
+  </>
+}
+{showMore &&
+  <>
+    <p>
+      <span>
+        { username }
+      </span>  
+      { insight.insight }
+    </p>
+    {isOverflow &&
+      <span 
+        onClick={() => setShowMore(false)}
+      >
+        Show less
+      </span>
+    }
+  </>
+}
 ```
 
 ### Detail 2
@@ -167,7 +215,63 @@ Description 1
 Code snippet is shown here:
 
 ```javascript
-print('add code snippet 1 here')
+export default function reducer(state = {}, action) {
+  let newState = { ...state };
+  switch (action.type) {
+    case SET_CITY:
+      newState[action.city.id] = action.city;
+      return newState;
+    case SET_ALL_CITIES:
+      action.cities.forEach(city => {
+          newState[city.id] = city;
+      });
+      return newState;
+    case DELETE_CITY:
+      delete newState[action.cityId];
+      return newState;
+    case UNLOAD_CITIES:
+      newState = {}
+      return newState;
+    default:
+      return state;
+  }
+}
+```
+
+### Detail 2
+Description 1
+
+Code snippet is shown here:
+
+```python
+class CityPostForm(FlaskForm):
+    name = StringField('name', validators=[DataRequired(), city_exists, Length(min=1, max=80)])
+    state = StringField('state', validators=[Length(min=0, max=50)])
+    thumbnail_img = StringField('thumbnail_img', validators=[Length(min=0, max=800)])
+    description = StringField('description', validators=[Length(min=0, max=1200)])
+    user_id = IntegerField('user_id', validators=[DataRequired()])
+```
+
+```javascript
+const handleCreate = async (e) => {
+  e.preventDefault();
+
+  const payload = {
+    name,
+    state,
+    description,
+    thumbnail_img: thumbnailImg,
+    user_id: userId,
+  }
+
+  const city = await dispatch(createCity(payload));
+  if (city) {
+    setErrors(city);
+  } else {
+    history.push(`/city/${city.id}`)
+    setShowModal(false);
+  }
+};
 ```
 
 
