@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import LogoutButton from '../auth/LogoutButton';
 import CityCreate from '../City/CityCreate';
@@ -9,11 +9,16 @@ import './NavBar.css';
 import logo from '../../assets/images/yourcity-white-red-logo.png';
 
 const NavBar = () => {
+    const history = useHistory();
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 
-    const demoLogin = async () => {
+    const DEMO_ID = 1;
+
+    const demoLogin = async (e) => {
+        e.preventDefault();
         await dispatch(login('nicopierson@gmail.com', 'password'));
+        history.push(`/profile/${DEMO_ID}`);
     };
 
     return (
