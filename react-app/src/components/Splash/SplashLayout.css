@@ -1,42 +1,33 @@
 .layout__splash_header
 {
     grid-area: sp-header;
-    height: 73vh;
 }
 
 .layout__splash_body
 {
     grid-area: sp-body;
-    height: 80vh;
 }
 
 .layout__splash_cities
 {
     grid-area: sp-cities;
-    height: 75vh;
 }
 
 .layout__splash_insights
 {
     grid-area: sp-insights;
-    height: 75vh;
 }
 
 .layout__splash_container
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 75vh auto 75vh;
     grid-template-areas:
         "sp-header sp-header"
         "sp-body sp-body"
         "sp-cities sp-insights"
     ;
-}
-
-.layout__main_container
-{
-    overflow: auto;
 }
 
 @media only screen and (max-width: 1050px) {

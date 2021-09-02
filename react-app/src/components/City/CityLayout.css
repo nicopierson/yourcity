@@ -38,8 +38,3 @@
         width: 95vw;
     }
 }
-
-.layout__main_container
-{
-    overflow: auto;
-}
