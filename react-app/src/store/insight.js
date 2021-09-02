@@ -30,7 +30,7 @@ export const getInsight = (id) => async (dispatch) => {
         await dispatch(setInsight(insight));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -42,7 +42,7 @@ export const getInsightsByUser = (userId) => async (dispatch) => {
         await dispatch(setAllInsights(insights));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -54,7 +54,7 @@ export const getInsightsByCity = (cityId) => async (dispatch) => {
         await dispatch(setAllInsights(insights));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -66,7 +66,7 @@ export const getAllInsights = () => async (dispatch) => {
         await dispatch(setAllInsights(data.insights));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -79,7 +79,7 @@ export const removeInsight = (id) => async (dispatch) => {
         await dispatch(deleteInsight(id));
         return response;
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -100,7 +100,7 @@ export const updateInsight = (payload) => async(dispatch) => {
         return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 
@@ -121,7 +121,7 @@ export const createInsight = (payload) => async (dispatch) => {
         return data.errors;
         }
     } else {
-        return ['An error occurred. Please try again.']
+        return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }
 };
 

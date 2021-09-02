@@ -52,7 +52,7 @@ export const login = (email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
   }
 
 }
@@ -93,7 +93,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
   }
 }
 

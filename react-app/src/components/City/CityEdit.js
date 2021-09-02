@@ -30,8 +30,8 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
         }
 
         const cityData = await dispatch(updateCity(payload));
-        if (cityData) {
-            setErrors(cityData);
+        if ('errors' in cityData) {
+            setErrors(cityData.errors);
         } else {
             setShowEdit(false);
         }

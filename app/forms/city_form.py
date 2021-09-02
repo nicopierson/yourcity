@@ -46,7 +46,7 @@ class CityPostForm(FlaskForm):
     
 class CityUpdateForm(FlaskForm):
     id = IntegerField('id', validators=[DataRequired(), city_id_exists])
-    name = StringField('name', validators=[DataRequired(), Length(min=1, max=80)])
+    name = StringField('name', validators=[DataRequired(), city_exists, Length(min=1, max=80)])
     state = StringField('state', validators=[Length(min=0, max=50)])
     thumbnail_img = StringField('thumbnail_img', validators=[Length(min=0, max=800)])
     description = StringField('description', validators=[Length(min=0, max=1200)])
