@@ -146,10 +146,45 @@ npm start
 
 ## Technical Implementation Details
 
-### Detail 1
-Description 1
+### City Validators
+This is the first project I used flask and SQLAlchemy, and I didn't have much experience using the wtform validators. After reading documentation, I created Forms to validate required fields with `DataRequired` and the length of fields with the `Length` class by providing a min and max.
 
-Part of code is shown below:
+Code snippet is shown here:
+
+```python
+class CityPostForm(FlaskForm):
+    name = StringField('name', validators=[DataRequired(), city_exists, Length(min=1, max=80)])
+    state = StringField('state', validators=[Length(min=0, max=50)])
+    thumbnail_img = StringField('thumbnail_img', validators=[Length(min=0, max=800)])
+    description = StringField('description', validators=[Length(min=0, max=1200)])
+    user_id = IntegerField('user_id', validators=[DataRequired()])
+```
+
+The form is created from the POST route to create a city, and it is validated using the validators above. If any fields throw an error, then the `form.validate_on_submit()` will fail and return the errors from `form.errors`. The resulting errors are passed into a custom error handler that sends back each of the errors to the frontend to display to the user, e.g. 'Field is required' or 'Name field must be between 0 and 100 characters in length'.
+
+```python
+@city_routes.route('/', methods=['POST'])
+@login_required
+def city_post():
+        form = CityPostForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            city = City()
+            form.populate_obj(city)
+            try:
+                db.session.add(city)
+                db.session.commit()
+                return city.to_dict()
+            except:
+                return throw_server_error()
+        return throw_validation_error(form.errors)
+```
+
+
+### Read More for Long Posts (Insights)
+Posts for insights are can span an entire page, which is not ideal for user experience. In order to limit the length, I created a `Read More` and `Show Less` buttons to conditionally render the entire post and to hide the post. I was able to use the `scrollHeight` and `offsetHeight` of the textarea input to determine if the text was overfilling the container. If the scroll is greater than the offset, then the post is longer and a `Read More` button should appear.
+
+The frontend uses the `isOverflow` state to initially determine if the post is overflowing. 
 
 ```javascript
 const [showMore, setShowMore] = useState(false);
@@ -171,7 +206,9 @@ useEffect(() => {
 }, [insight.id]);
 ```
 
-Description 2
+The `showMore` state is used to conditionally render a short post and the entire post. If `showMore` is false the component will render a cut off post that has a `Read more` click event to toggle the state. When the `Read more` is clicked, `showMore` is set to true and the component now renders the entire post.
+
+In addition the `isOverflow` is used to render `Show less` only if the post is overfilling the container.
 
 ```javascript
 {!showMore &&
@@ -209,10 +246,10 @@ Description 2
 }
 ```
 
-### Detail 2
-Description 1
+### City Reducer
+One of my goals on this project was to create a simple reducer with slices of state for each table. Taking code from one of my previous projects, I refactored the code to create four actions. The `SET_CITY` action case is used for updating the store for the CRUD operations of CREATE, UPDATE, and READ.
 
-Code snippet is shown here:
+The reducer for my City table is shown below:
 
 ```javascript
 export default function reducer(state = {}, action) {
@@ -238,48 +275,14 @@ export default function reducer(state = {}, action) {
 }
 ```
 
-### Detail 2
-Description 1
-
-Code snippet is shown here:
-
-```python
-class CityPostForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired(), city_exists, Length(min=1, max=80)])
-    state = StringField('state', validators=[Length(min=0, max=50)])
-    thumbnail_img = StringField('thumbnail_img', validators=[Length(min=0, max=800)])
-    description = StringField('description', validators=[Length(min=0, max=1200)])
-    user_id = IntegerField('user_id', validators=[DataRequired()])
-```
-
-```javascript
-const handleCreate = async (e) => {
-  e.preventDefault();
-
-  const payload = {
-    name,
-    state,
-    description,
-    thumbnail_img: thumbnailImg,
-    user_id: userId,
-  }
-
-  const city = await dispatch(createCity(payload));
-  if (city) {
-    setErrors(city);
-  } else {
-    history.push(`/city/${city.id}`)
-    setShowModal(false);
-  }
-};
-```
-
 
 ## Future Features
 
-1. __Search__ - search cities
+1. __Matches__ - match people with cities based on their question responses
 
-2. __Edit Profile__ - users edit profile info and add banner
+2. __Search__ - search cities
+
+3. __Edit Profile__ - users edit profile info and add banner
 
 
 ## Contact
@@ -293,6 +296,6 @@ nicogpt@gmail.com
 
 
 ## Special Thanks
-* Fellow peers who have given me support and community: [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), and [John](https://github.com/Jomix-13)
+* Fellow peers who have given me support and community: [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [John](https://github.com/Jomix-13), [Justice](https://github.com/jujmart), [Jubin](https://github.com/Jubintgh), and [Torrell](https://github.com/tkenned2020)
 * Mentors who have given me their time and effort: [Zach](https://github.com/zdwatts), [Olivia](https://github.com/OByrnes), [Ed](https://github.com/edherm), and [Javier](https://github.com/javiermortiz) 
 * My partner: [Thayse](https://www.linkedin.com/in/thayse-alencar-946703196/)
