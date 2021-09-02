@@ -42,7 +42,7 @@
     {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 75vh auto 65vh 65vh;
         grid-template-areas:
             "sp-header"
             "sp-body"
