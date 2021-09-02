@@ -5,7 +5,7 @@ import { updateInsight, removeInsight, createInsight } from '../../store/insight
 
 import styles from '../City/CityEdit.module.css';
 
-const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) => {
+const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId, desc }) => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [insightText, setInsightText] = useState(insight?.insight ? insight.insight : '');
@@ -73,7 +73,7 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId }) =>
                         <div key={ind}>{error.field}: {error.message}</div>
                     ))}
                     {errors.length === 0 &&
-                        <p className={styles.header_description_edit_city}>Edit your insight...</p>
+                        <p className={styles.header_description_edit_city}>{desc} your insight...</p>
                     }
                 </div>
             </div>

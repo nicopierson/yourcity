@@ -1,7 +1,7 @@
 from app.models.insight import Insight
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, Length, ValidationError
+from wtforms.validators import InputRequired, Length, ValidationError
 from app.models import Insight
 
 
@@ -22,13 +22,13 @@ def insight_id_exists(form, field):
 
 
 class InsightPostForm(FlaskForm):
-    insight = StringField('insight', validators=[DataRequired(), Length(min=1, max=2500)])
-    user_id = IntegerField('user_id', validators=[DataRequired()])
-    city_id = IntegerField('city_id', validators=[DataRequired()])
+    insight = StringField('insight', validators=[InputRequired(), Length(min=1, max=2500)])
+    user_id = IntegerField('user_id', validators=[InputRequired()])
+    city_id = IntegerField('city_id', validators=[InputRequired()])
     
     
 class InsightUpdateForm(FlaskForm):
-    id = IntegerField('id', validators=[DataRequired(), insight_id_exists])
-    insight = StringField('insight', validators=[DataRequired(), Length(min=1, max=2500)])
-    user_id = IntegerField('user_id', validators=[DataRequired()])
-    city_id = IntegerField('city_id', validators=[DataRequired()])
+    id = IntegerField('id', validators=[InputRequired(), insight_id_exists])
+    insight = StringField('insight', validators=[InputRequired(), Length(min=1, max=2500)])
+    user_id = IntegerField('user_id', validators=[InputRequired()])
+    city_id = IntegerField('city_id', validators=[InputRequired()])

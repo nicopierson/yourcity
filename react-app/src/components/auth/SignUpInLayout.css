@@ -77,3 +77,8 @@
     height: 90vh;
     overflow: hidden;
 }
+
+.login_form__errors_container
+{
+    height: 50px;
+}
