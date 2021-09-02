@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='./react-app/src/assets/images/yourcity-white-red-logo.png' height='200px'>
+  <img src='./readme-assets/images/your-city-logo-black.png' height='200px'>
 </p>
 
 # YourCity
