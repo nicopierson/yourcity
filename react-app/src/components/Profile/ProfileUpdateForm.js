@@ -19,12 +19,19 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
     const handleCreate = async (e) => {
         e.preventDefault();
 
+        let profile_img;
+        if (profileImg.length === 0) {
+            profile_img = 'https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/user_default.png';
+        } else {
+            profile_img = profileImg;
+        }
+
         const payload = {
             id: profile.id,
             username,
             location,
             bio,
-            profile_img: profileImg,
+            profile_img,
             site,
         }
 

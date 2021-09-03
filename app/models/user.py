@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(128), nullable=False, unique=True)
     hashed_password = db.Column(db.String(128), nullable=False)
-    profile_img = db.Column(db.String(500))
+    profile_img = db.Column(db.String(500), nullable=False, default='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/user_default.png')
     bio = db.Column(db.String(255))
     location = db.Column(db.String(50))
     site = db.Column(db.String(80))

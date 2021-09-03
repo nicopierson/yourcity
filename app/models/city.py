@@ -8,7 +8,8 @@ class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False, unique=True)
     state = db.Column(db.String(50))
-    thumbnail_img = db.Column(db.String(800))
+    # does default only work when you seed data
+    thumbnail_img = db.Column(db.String(800), nullable=False, default='https://yourcity-app.s3.us-west-1.amazonaws.com/city-photos/city_skyline.jpeg')
     description = db.Column(db.String(1200))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, 

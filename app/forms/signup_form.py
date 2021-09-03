@@ -39,3 +39,7 @@ class SignUpForm(FlaskForm):
             InputRequired(), 
             Length(min=6, max=128)
         ])
+    profile_img = StringField('profile_img', 
+        validators=[
+            InputRequired(),
+        ])
