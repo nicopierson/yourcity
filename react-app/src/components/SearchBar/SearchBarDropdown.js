@@ -38,9 +38,7 @@ const SearchBarDropdown = ({ setShowModal }) => {
             <div
                 className={styles.search_container}
             >
-                {/* <i className='fas fa-search'></i> */}
                 <input
-                    // className="navbar-search-input"
                     value={searchString}
                     type='text'
                     placeholder='Search City'
