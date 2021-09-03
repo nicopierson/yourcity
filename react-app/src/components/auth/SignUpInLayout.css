@@ -8,7 +8,6 @@
 { 
     height: 100%;
     width: 100%;
-    object-fit: cover;
 }
 
 .layout__input_sign_up_container
@@ -67,11 +66,6 @@
     .layout__photo_container img
     {
         display: none;
-    }
-
-    .layout__main_container
-    {
-        /* overflow: hidden; */
     }
 }
 
