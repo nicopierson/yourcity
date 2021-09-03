@@ -30,18 +30,20 @@ const SearchBar = () => {
             </ModalSearchBar>
         }
         {!showModal &&
+          <>
             <input
                 className={styles.navbar_search_input}
                 key="search-bar"
                 placeholder="Search City"
                 onFocus={handleOpen}
             />
+            <i
+                className={`fas fa-search ${styles.search_icon}`}
+                onClick={handleOpen}
+            >
+            </i>
+          </>
         }
-        <i
-            className={`fas fa-search ${styles.search_icon}`}
-            onClick={handleOpen}
-        >
-        </i>
     </div>
   );
 };

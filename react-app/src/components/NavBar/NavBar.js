@@ -23,84 +23,81 @@ const NavBar = () => {
     };
 
     return (
-        <nav className="navbar-container layout__header_container">
-            <ul className="navbar-ul">
-                <div className="navbar-li navbar-title-and-feed">
-                    <NavLink to='/' exact={true}
-                        className="navbar-title navbar-btn-container"
-                    >
-                        <img alt='logo' src={logo} />
-                    </NavLink>
-                </div>
+        <>
 
-
-                <div className="navbar-li navbar-search">
-                    <SearchBar />
-                </div>
-
-
-                <div className="navbar-li navbar-create-and-auth">
-                    {/* <li>
-                        <NavLink to='/profile' exact={true} 
-                            activeClassName='active'
-                            className="navbar-btn"
+            <SearchBar />
+            <nav className="navbar-container layout__header_container">
+                <ul className="navbar-ul">
+                    <div className="navbar-li navbar-title-and-feed">
+                        <NavLink to='/' exact={true}
+                            className="navbar-title navbar-btn-container"
                         >
-                            My Cities
+                            <img alt='logo' src={logo} />
                         </NavLink>
-                    </li> */}
-                    {!user &&
-                        <>
-                            <li>
-                                <p
-                                    className="navbar-btn navbar-btn-signed-out"
-                                    onClick={demoLogin}
-                                >
-                                    Demo Login
-                                </p>
-                            </li>
-                            <li>
-                                <NavLink to='/login' exact={true} 
-                                    className="navbar-btn navbar-btn-signed-out"
-                                >
-                                    Login
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to='/sign-up' exact={true} 
-                                    className="navbar-btn navbar-btn-signed-out"
-                                >
-                                    
-                                    Sign Up
-                                </NavLink>
-                            </li>
-                        </>
-                    }
-                    {user &&
-                        <>
-                            <li
-                                className="button-fix navbar-li"
+                    </div>
+                    <div className="navbar-li navbar-create-and-auth">
+                        {/* <li>
+                            <NavLink to='/profile' exact={true} 
+                                activeClassName='active'
+                                className="navbar-btn"
                             >
-                                <CityCreate 
-                                    userId={user.id}
-                                />
-                            </li>
-                            <li className="profile-avatar">
-                                <NavLink  to={`/profile/${user.id}`} 
-                                    exact={true}
-                                    style={{ textDecoration: 'none' }}
+                                My Cities
+                            </NavLink>
+                        </li> */}
+                        {!user &&
+                            <>
+                                <li>
+                                    <p
+                                        className="navbar-btn navbar-btn-signed-out"
+                                        onClick={demoLogin}
+                                    >
+                                        Demo Login
+                                    </p>
+                                </li>
+                                <li>
+                                    <NavLink to='/login' exact={true} 
+                                        className="navbar-btn navbar-btn-signed-out"
+                                    >
+                                        Login
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/sign-up' exact={true} 
+                                        className="navbar-btn navbar-btn-signed-out"
+                                    >
+                                        
+                                        Sign Up
+                                    </NavLink>
+                                </li>
+                            </>
+                        }
+                        {user &&
+                            <>
+                                <li
+                                    className="button-fix navbar-li"
                                 >
-                                    <span>MyProfile</span>
-                                    <i className="fa fa-user"></i>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <LogoutButton />
-                            </li>
-                        </>
-                    }
-                </div>
-            </ul>
-        </nav>
+                                    <CityCreate 
+                                        userId={user.id}
+                                    />
+                                </li>
+                                <li className="profile-avatar">
+                                    <NavLink  to={`/profile/${user.id}`} 
+                                        exact={true}
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        <span>MyProfile</span>
+                                        <i className="fa fa-user"></i>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <LogoutButton />
+                                </li>
+                            </>
+                        }
+                    </div>
+                </ul>
+            </nav>
+        </>
     );
 }
 
