@@ -31,28 +31,28 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <main className='layout__main_container'> 
-        <Switch>
-          <Route path='/login' exact={true}>
-            <LoginForm />
-          </Route>
-          <Route path='/sign-up' exact={true}>
-            <SignUpForm />
-          </Route>
-          <ProtectedRoute path='/users/:userId' exact={true}>
-            <User />
-          </ProtectedRoute>
-          <Route path='/profile/:profileId'>
-            <Profile />
-          </Route>
-          <Route path='/' exact={true}>
-            <Splash />
-          </Route>
-          <Route path='/city/:cityId' exact={true}>
-            <City />
-          </Route>
-        </Switch>
-      </main>
+        <main className='layout__main_container'> 
+          <Switch>
+            <Route path='/login' exact={true}>
+              <LoginForm />
+            </Route>
+            <Route path='/sign-up' exact={true}>
+              <SignUpForm />
+            </Route>
+            <ProtectedRoute path='/users/:userId' exact={true}>
+              <User />
+            </ProtectedRoute>
+            <Route path='/profile/:profileId'>
+              <Profile />
+            </Route>
+            <Route path='/' exact={true}>
+              <Splash />
+            </Route>
+            <Route path='/city/:cityId' exact={true}>
+              <City />
+            </Route>
+          </Switch>
+        </main>
       <Footer />
     </BrowserRouter>
   );
