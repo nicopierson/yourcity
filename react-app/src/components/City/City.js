@@ -21,8 +21,7 @@ const City = () => {
     const cityOwnerId = useSelector(state => state.city[cityId]?.user_id);
     const isOwner = userId === cityOwnerId; 
     /* Get username for city */
-    const profile = useSelector(state => state.profile[cityOwnerId]?.username);
-    const username = useSelector(state => state.user[cityOwnerId]?.username);
+    const username = useSelector(state => state.profile[cityOwnerId]?.username);
 
     const [showEdit, setShowEdit] = useState(false);
 
