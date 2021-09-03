@@ -1,4 +1,4 @@
-/* frontend/src/context/Modal.css */
+/* Modal css */
 .modal {
     position: fixed;
     top: 0;
@@ -26,6 +26,24 @@
     border-radius: 7px;
     width: 50vw;
     padding: 1.5em;
+}
+
+.search_bar__modal_content {
+    position: absolute;
+    top: 1px;
+    right: 50vw;
+    background-color:#FFF;
+    width: 189.5px;
+    height: 26px;
+    margin: 5px 4px 5px 3px;
+}
+
+.search_bar__modal_content div
+{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .modal_verify{

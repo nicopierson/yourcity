@@ -19,6 +19,7 @@
         ". city city ."
         ". insights . ."
     ;
+    min-height: 90vh;
 }
 
 @media only screen and (max-width: 850px) {

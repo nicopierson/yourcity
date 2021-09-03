@@ -65,3 +65,18 @@ export function ModalVerify({ offVerify, onClose, children }) {
     modalNode
   );
 }
+
+export function ModalSearchBar({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div className={styles.modal}>
+      <div className={styles.modal_background} onClick={onClose} />
+      <div className={styles.search_bar__modal_content}>
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}
