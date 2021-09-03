@@ -31,18 +31,18 @@ const NavBar = () => {
                         <img alt='logo' src={logo} />
                     </NavLink>
                 </div>
+
+
                 <div className="navbar-li navbar-search">
                     <div className="navbar-search__input-wrapper">
-                        <input
-                        className="navbar-search-input"
-                        key="search-bar"
-                        placeholder="Search City"
-                        />
+                        
 
                         <i className="fas fa-search navbar-icon-search--icon navbar-icon-search"></i>
 
                     </div>
                 </div>
+
+
                 <div className="navbar-li navbar-create-and-auth">
                     {/* <li>
                         <NavLink to='/profile' exact={true} 

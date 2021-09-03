@@ -1,11 +1,12 @@
-export const search = (payload) => async (dispatch) => {
+export const search = (searchString) => async (dispatch) => {
+
+    const resources = ['city'];
 
     let searchString = [];
-    for (let key in payload) {
-        let item = payload[key];
-        searchString.push(`${key}=${item}`)
+    for (let key in resources) {
+        searchString.push(`${key}=${searchString}`);
     }
-    const searchQuery = searchString.join('&')
+    const searchQuery = searchString.join('&');
 
 
     const response = await fetch(`/api/search?${searchQuery}`);
