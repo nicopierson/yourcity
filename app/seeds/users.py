@@ -59,7 +59,7 @@ def seed_users():
         email='meagans@gmail.com', 
         password='password',
         profile_img='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/female1023094745392.jpeg',
-        bio='',
+        bio='My mission in life is not merely to survive but thrive',
         location=fake.city(),
         site='https://www.meg.com/',)
     pierre = User(
@@ -179,7 +179,7 @@ def seed_users():
         email='peter@gmail.com', 
         password='password',
         profile_img='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/male20151086224549957.jpeg',
-        bio='',
+        bio='It is less about becoming a better person, and more of being better, as a person, cool cool cool',
         location=fake.city(),
         site='https://www.peter.com/',)
     justice = User(

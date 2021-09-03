@@ -2,6 +2,8 @@ import styles from './Profile.module.css';
 
 const ProfileCard = ({ profile, isOwner}) => {
 
+    console.log(profile);
+
     if (!profile) return null;
 
     return (

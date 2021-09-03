@@ -4,12 +4,14 @@ import session from './session';
 import city from './city';
 import insight from './insight';
 import user from './user';
+import profile from './profile';
 
 const rootReducer = combineReducers({
   session,
   city,
   insight,
   user,
+  profile,
 });
 
 
