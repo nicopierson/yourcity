@@ -35,12 +35,7 @@ const NavBar = () => {
 
 
                 <div className="navbar-li navbar-search">
-                    {/* <div className="navbar-search__input-wrapper"> */}
-                        
-                        <SearchBar />
-                        {/* <i className="fas fa-search navbar-icon-search--icon navbar-icon-search"></i> */}
-
-                    {/* </div> */}
+                    <SearchBar />
                 </div>
 
 

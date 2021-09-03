@@ -6,11 +6,8 @@ export const search = (searchString) => async (dispatch) => {
     for (let key of resources) {
         searchArray.push(`${key}=${searchString}`);
     }
-    console.log('fjasljflkjasl ************************************', searchString);
+
     const searchQuery = searchArray.join('&');
-
-
-
     const response = await fetch(`/api/search?${searchQuery}`);
     
     if (response.ok) {

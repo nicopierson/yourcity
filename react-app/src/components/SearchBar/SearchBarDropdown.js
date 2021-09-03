@@ -13,15 +13,16 @@ const SearchBarDropdown = ({ setShowModal }) => {
     const [results, setResults] = useState([]);
 
     const searchOnChange = async () => {
-        console.log(searchString);
         const searchResults = await dispatch(search(searchString));
-        console.log(searchResults);
-        setResults(searchResults.results);
+        // grab only 10 results
+        setResults(searchResults.results.slice(0,10));
     };
 
     useEffect(() => {
         if (searchString.length !== 0) {
             searchOnChange();
+        } else {
+            setResults([])
         }
     }, [searchString]);
 
@@ -32,41 +33,46 @@ const SearchBarDropdown = ({ setShowModal }) => {
         history.push(url);
     };
 
-//   const handleSearch = async () => {
-//     const searchWines = await dispatch(showSearchWines(search));
-//     setWines(searchWines);
-//   };
-
     return (
-        <div
-        className={styles.search_container}
-        >
-            {/* <i className='fas fa-search'></i> */}
-            <input
-                // className="navbar-search-input"
-                value={searchString}
-                type='text'
-                placeholder='Search City'
-                name='search'
-                id='search'
-                onChange={(e) => setSearchString(e.target.value)}
-                autoComplete='off'
-                autoFocus
-            />
-            <label htmlFor='search'></label>
-            <ul>
-                { results.length > 0 && results.map(result => (
-                    <li
-                        onClick={(e) => handleLink(e, `/city/${result.id}`)}
-                        key={result.id}
-                        className={styles.search_link}
-                    >
-                        {result.name}
-                    </li>
-                    ))
-                }
-            </ul>
-        </div>
+        <>
+            <div
+                className={styles.search_container}
+            >
+                {/* <i className='fas fa-search'></i> */}
+                <input
+                    // className="navbar-search-input"
+                    value={searchString}
+                    type='text'
+                    placeholder='Search City'
+                    name='search'
+                    id='search'
+                    onChange={(e) => setSearchString(e.target.value)}
+                    autoComplete='off'
+                    autoFocus
+                />
+                <label htmlFor='search'></label>
+                <i
+                    className={`fas fa-search ${styles.search_icon}`}
+                >
+                </i>
+            </div>
+            <div
+                className={styles.search_results_container}
+            >
+                <ul>
+                    { results.length > 0 && results.map(result => (
+                        <li
+                            onClick={(e) => handleLink(e, `/city/${result.id}`)}
+                            key={result.id}
+                            className={styles.search_link}
+                        >
+                            {result.name}
+                        </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </>
     );
 };
 
