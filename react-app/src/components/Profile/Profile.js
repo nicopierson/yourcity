@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import ProfileCard from './ProfileCard';
 import ProfileFeed from './ProfileFeed';
-import { getUser, resetUsers } from '../../store/user';
+import { getProfile, resetProfiles } from '../../store/profile';
 
 import './ProfileLayout.css';
 
@@ -14,13 +14,13 @@ const Profile = () => {
     
     /* isOwner Boolean to check if profile is owned by current user */
     const user = useSelector(state => state.session.user);
-    const profile = useSelector(state => state?.user[profileId])
+    const profile = useSelector(state => state?.profile[profileId])
     const isOwner = +profileId === user?.id;
     
     useEffect(() => {
         if (profileId) {
-            dispatch(resetUsers());
-            dispatch(getUser(profileId));
+            dispatch(resetProfiles());
+            dispatch(getProfile(profileId));
         }
     }, [dispatch, profileId]);
     

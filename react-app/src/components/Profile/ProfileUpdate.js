@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import CityCreateForm from './CityCreateForm';
+import ProfileUpdateForm from './ProfileUpdateForm';
 import { ModalVerify, Modal } from '../../context/Modal'; 
 
-const CityCreate = () => {
+const ProfileUpdate = () => {
     const history = useHistory();
     const [showModal, setShowModal] = useState();
     const [showVerification, setShowVerification] = useState(false);
@@ -14,7 +14,7 @@ const CityCreate = () => {
     const handleClose = () => {
         setShowModal(false);
     };
-    const handleOpen = (e) => {
+    const handleUpdate = (e) => {
         e.preventDefault();
         
         if (user) {
@@ -26,16 +26,16 @@ const CityCreate = () => {
 
     return (
         <>
-            <p
-                onClick={handleOpen}
+            <i
+                className='fas fa-edit'
+                onClick={handleUpdate}
             >
-                Add City
-            </p>
+            </i>
             {showModal && (
                 <Modal
                     onClose={() => setShowVerification(true)}
                 >
-                    <CityCreateForm 
+                    <ProfileUpdateForm 
                         userId={user.id}
                         setShowModal={setShowModal}
                         setShowVerification={setShowVerification}
@@ -57,4 +57,4 @@ const CityCreate = () => {
     )
 };
 
-export default CityCreate;
+export default ProfileUpdate;
