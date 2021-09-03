@@ -35,3 +35,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.city_link_user
+{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+
+.city_link_user:hover
+{
+    cursor: pointer;
+    color: #000;
+}

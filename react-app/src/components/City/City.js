@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getCity } from '../../store/city';
-import { getUser } from '../../store/user';
+import { getProfile } from '../../store/profile';
 import CityEdit from './CityEdit';
 import CityView from './CityView';
 import CityBanner from './CityBanner';
@@ -32,7 +32,7 @@ const City = () => {
             dispatch(getCity(cityId));
         }
         if (cityId && cityOwnerId) {
-            dispatch(getUser(cityOwnerId));
+            dispatch(getProfile(cityOwnerId));
         }
     }, [dispatch, cityId, cityOwnerId]);
 
@@ -59,7 +59,6 @@ const City = () => {
                             setShowEdit={setShowEdit}
                             isOwner={isOwner}
                             className={styles.main_city_text}
-                            username={username}
                         />
                     </div>
                 }
