@@ -21,19 +21,21 @@ def username_exists(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[
-                                    InputRequired(), 
-                                    username_exists, 
-                                    Length(min=3, max=40)
-                                ])
-    email = StringField('email', validators=[
-                                                InputRequired(), 
-                                                user_exists, 
-                                                Email(), 
-                                                Length(min=6, max=128)
-                                            ])
-    password = StringField('password', validators=[
-                                                    InputRequired(), 
-                                                    Length(min=6, max=128)
-                                                  ])
+    username = StringField('username', 
+        validators=[
+            InputRequired(), 
+            username_exists, 
+            Length(min=3, max=40)
+        ])
+    email = StringField('email', 
+        validators=[
+            InputRequired(), 
+            user_exists, 
+            Email(), 
+            Length(min=6, max=128)
+        ])
+    password = StringField('password', 
+        validators=[
+            InputRequired(), 
+            Length(min=6, max=128)
+        ])
