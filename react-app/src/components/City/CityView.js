@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styles from './City.module.css';
 
 const CityView = ({ city, setShowEdit, isOwner, username }) => {
@@ -23,7 +25,12 @@ const CityView = ({ city, setShowEdit, isOwner, username }) => {
                     </span>
                     <span>
                         <i className='fas fa-user'></i>
-                        { username }
+                        <Link 
+                            to={`/profile/${city.user_id}`}
+                            className={styles.city_link_user}
+                        >
+                            { username }
+                        </Link>
                     </span>
                 </p>
                 <p>{ city.description }</p>

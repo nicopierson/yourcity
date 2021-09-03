@@ -27,7 +27,7 @@ export function ModalProvider({ children }) {
   );
 }
 
-export function ModalCreateCity({ onClose, children }) {
+export function Modal({ onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;
 
@@ -60,6 +60,21 @@ export function ModalVerify({ offVerify, onClose, children }) {
           <div  className={styles.button_style_stay} onClick={offVerify}>Stay</div>
           <div className={styles.button_style_exit} onClick={verifyAndClose}>Exit</div>
         </div>
+      </div>
+    </div>,
+    modalNode
+  );
+}
+
+export function ModalSearchBar({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div className={styles.modal}>
+      <div className={styles.modal_background} onClick={onClose} />
+      <div className={styles.search_bar__modal_content}>
+        {children}
       </div>
     </div>,
     modalNode

@@ -20,11 +20,18 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
     const handleCreate = async (e) => {
         e.preventDefault();
 
+        let thumbnail_img;
+        if (thumbnailImg.length === 0) {
+            thumbnail_img = 'https://yourcity-app.s3.us-west-1.amazonaws.com/city-photos/city_skyline.jpeg';
+        } else {
+            thumbnail_img = thumbnailImg;
+        }
+
         const payload = {
             name,
             state,
             description,
-            thumbnail_img: thumbnailImg,
+            thumbnail_img,
             user_id: userId,
         }
 
@@ -41,9 +48,9 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
         <div className='city_container'>
             <div className={`${styles.header_container}`}>
                 <h2>Create City</h2>
-                <div className='errors'>
+                <div className={styles.errors}>
                     {errors.length > 0 && errors.map((error, ind) => (
-                        <div key={ind}>{error.field}: {error.message}</div>
+                        <p key={ind}>{error.field}: {error.message}</p>
                     ))}
                     {errors.length === 0 &&
                         <p className={styles.header_description}>Fill out the information about your city...</p>

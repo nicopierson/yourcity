@@ -9,8 +9,12 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(128), nullable=False, unique=True)
+    hashed_password = db.Column(db.String(128), nullable=False)
+    profile_img = db.Column(db.String(500), nullable=False, default='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/user_default.png')
+    bio = db.Column(db.String(255))
+    location = db.Column(db.String(50))
+    site = db.Column(db.String(80))
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, 
                            server_default=func.now(), onupdate=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False, 
@@ -37,4 +41,22 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'created_at': self.created_at,
+            'num': self.number_insights(),
+        }
+        
+    def number_insights(self):
+        return len(self.insight_relation)
+        
+    def profile_to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'profile_img': self.profile_img,
+            'bio': self.bio,
+            'location': self.location,
+            'site': self.site,
+            'insights_count': self.number_insights(),
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
         }

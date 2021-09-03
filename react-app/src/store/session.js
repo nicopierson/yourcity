@@ -1,6 +1,7 @@
 import { resetCities } from './city';
 import { resetInsights } from './insight';
 import { resetUsers } from './user';
+import { resetProfiles } from './profile';
 
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
@@ -71,6 +72,7 @@ export const logout = () => async (dispatch) => {
     dispatch(resetCities());
     dispatch(resetInsights());
     dispatch(resetUsers());
+    dispatch(resetProfiles());
     dispatch(removeUser());
   }
 };
@@ -86,6 +88,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
       username,
       email,
       password,
+      profile_img: 'https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/user_default.png',
     }),
   });
   

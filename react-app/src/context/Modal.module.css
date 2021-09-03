@@ -1,4 +1,4 @@
-/* frontend/src/context/Modal.css */
+/* Modal css */
 .modal {
     position: fixed;
     top: 0;
@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 11;
+    z-index: 12;
 }
 
 .modal_background {
@@ -24,8 +24,27 @@
     position: absolute;
     background-color:#FFF;
     border-radius: 7px;
-    width: 500px;
-    padding: 1.5em;
+    width: 50vw;
+    padding: 16px;
+    height: auto;
+}
+
+.search_bar__modal_content {
+    top: 4px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 12;
+    right: 50vw;
+    width: 25vw;
+}
+
+.search_bar__modal_content div
+{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .modal_verify{
@@ -82,4 +101,22 @@
     border: rgb(70, 70, 70) solid 1px;
     color: #000;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+    .modal_content {
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .modal_content {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .modal_content {
+        width: 100vw;
+    }
 }

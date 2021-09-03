@@ -8,7 +8,6 @@
 { 
     height: 100%;
     width: 100%;
-    object-fit: cover;
 }
 
 .layout__input_sign_up_container
@@ -20,11 +19,10 @@
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 90vh;
     grid-template-areas:
         "photo sign-up"
     ;
-    height: 90vh;
     overflow: hidden;
 }
 
@@ -37,11 +35,10 @@
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 90vh;
     grid-template-areas:
         "login photo" 
     ;
-    height: 90vh;
     overflow: hidden;
 }
 
@@ -50,7 +47,7 @@
     {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 87vh;
         grid-template-areas:
             "sign-up"
         ;
@@ -60,7 +57,7 @@
     {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 87vh;
         grid-template-areas:
             "login"
         ;
@@ -72,8 +69,7 @@
     }
 }
 
-.layout__main_container
+.login_form__errors_container
 {
-    height: 90vh;
-    overflow: hidden;
+    height: 50px;
 }

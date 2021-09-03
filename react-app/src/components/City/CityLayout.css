@@ -19,6 +19,7 @@
         ". city city ."
         ". insights . ."
     ;
+    min-height: 90vh;
 }
 
 @media only screen and (max-width: 850px) {
@@ -37,9 +38,4 @@
     {
         width: 95vw;
     }
-}
-
-.layout__main_container
-{
-    overflow: auto;
 }

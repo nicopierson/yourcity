@@ -1,8 +1,6 @@
 .layout__profile_card_container
 {
     grid-area: card;
-    width: 25vw;
-    height: 100vh;
     background-color: #121212e5;
     color: rgb(233, 233, 233);
 }
@@ -10,9 +8,7 @@
 .layout__profile_feed_container
 {
     grid-area: feed;
-    width: 70vw;
     background-color: #121212;
-    height: 100vh;
     color: rgb(233, 233, 233);
 }
 
@@ -24,8 +20,7 @@
     grid-template-areas:
         ". card feed ."
     ;
-    height: 90vh;
-    overflow: hidden;
+    min-height: 90vh;
 }
 
 
@@ -40,17 +35,5 @@
             ". feed ."
         ;
         overflow: auto;
-    }
-
-    .layout__profile_card_container
-    {
-        width: 95vw;
-        height: auto;
-    }
-
-    .layout__profile_feed_container
-    {
-        width: 95vw;
-        height: auto;
     }
 }
