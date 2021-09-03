@@ -29,6 +29,7 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
         }
 
         const profileData = await dispatch(updateProfile(payload));
+
         if ('errors' in profileData) {
             setErrors(profileData.errors);
         } else {

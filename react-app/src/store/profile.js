@@ -50,7 +50,12 @@ export const updateProfile = (payload) => async(dispatch) => {
     if (response.ok) {
         const profile = await response.json();
         await dispatch(setProfile(profile));
-        return profile;
+        return { 'id': profile.id };
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
     } else {
         return {'errors': [ {'field': 'server', 'message': 'An error occurred. Please try again.'} ]};
     }

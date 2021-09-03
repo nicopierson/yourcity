@@ -3,7 +3,7 @@ from flask_login import login_required
 from app.models import User, db
 from app.forms import ProfileForm
 from app.api.utils import (
-    throw_authorization_error, user_is_owner, throw_not_found_error, throw_server_error
+    throw_authorization_error, user_is_owner, throw_validation_error, throw_server_error
 )
 
 profile_routes = Blueprint('profiles', __name__)
@@ -30,6 +30,7 @@ def profile_update(id):
         if form.validate_on_submit():
             if user_is_owner(id):
                 user = User.query.get_or_404(id)
+                print('user query ************************: ', user)
                 form.populate_obj(user)
                 try:
                     db.session.add(user)
@@ -38,4 +39,4 @@ def profile_update(id):
                 except:
                     return throw_server_error()
             return throw_authorization_error()
-        return throw_not_found_error()
+        return throw_validation_error(form.errors)
