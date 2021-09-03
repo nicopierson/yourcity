@@ -6,25 +6,25 @@ from app.api.utils import (
     throw_authorization_error, user_is_owner, throw_not_found_error, throw_server_error
 )
 
-profile_routes = Blueprint('users', __name__)
+profile_routes = Blueprint('profiles', __name__)
 
 
 @profile_routes.route('/')
 @login_required
-def users():
+def profiles():
     users = User.query.all()
-    return {'users': [user.profile_to_dict() for user in users]}
+    return {'profiles': [user.profile_to_dict() for user in users]}
 
 
 @profile_routes.route('/<int:id>')
-def user(id):
+def profile(id):
     user = User.query.get_or_404(id)
     return user.profile_to_dict()
 
 
 @profile_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def user_update(id):
+def profile_update(id):
         form = ProfileForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():

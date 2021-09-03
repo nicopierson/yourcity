@@ -11,9 +11,10 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(128), nullable=False, unique=True)
     hashed_password = db.Column(db.String(128), nullable=False)
-    bio = db.Column(db.String(500))
-    location = db.Column(db.String(100))
-    site = db.Column(db.String(100))
+    profile_img = db.Column(db.String(500))
+    bio = db.Column(db.String(250))
+    location = db.Column(db.String(50))
+    site = db.Column(db.String(80))
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, 
                            server_default=func.now(), onupdate=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False, 
@@ -51,6 +52,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
+            'profile_img': self.profile_img,
             'bio': self.bio,
             'location': self.location,
             'site': self.site,
