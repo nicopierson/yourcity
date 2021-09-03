@@ -49,17 +49,19 @@ class CityPostForm(FlaskForm):
         ])
     state = StringField('state', 
         validators=[
-            Length(min=0, max=50)
+            Optional(),
+            Length(min=2, max=50)
         ])
     thumbnail_img = StringField('thumbnail_img', 
         validators=[
             Optional(), 
             URL(), 
-            Length(min=0, max=800)
+            Length(min=8, max=800)
         ])
     description = StringField('description', 
         validators=[
-            Length(min=0, max=1200)
+            Optional(),
+            Length(min=3, max=1200)
         ])
     user_id = IntegerField('user_id', 
         validators=[
@@ -81,17 +83,19 @@ class CityUpdateForm(FlaskForm):
         ])
     state = StringField('state', 
         validators=[
-            Length(min=0, max=50)
+            Optional(),
+            Length(min=2, max=50)
         ])
     thumbnail_img = StringField('thumbnail_img', 
         validators=[
             Optional(), 
             URL(), 
-            Length(min=0, max=800)
+            Length(min=8, max=800)
         ])
     description = StringField('description', 
         validators=[
-            Length(min=0, max=1200)
+            Optional(),
+            Length(min=3, max=1200)
         ])
     user_id = IntegerField('user_id', 
         validators=[

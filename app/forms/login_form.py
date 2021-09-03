@@ -37,24 +37,3 @@ class LoginForm(FlaskForm):
             password_matches, 
             Length(min=6, max=128)
         ])
-    profile_img = StringField('profile_img', 
-        validators=[
-            Optional(),
-            URL(),
-            Length(min=1, max=500)
-        ])
-    bio = StringField('bio', 
-        validators=[
-            Optional(),
-            Length(min=1, max=250),
-        ])
-    location = StringField('location', 
-        validators=[
-            Optional(),
-            Length(min=1, max=50),
-        ])
-    site = StringField('site', 
-        validators=[
-            Optional(),
-            Length(min=1, max=80),
-        ])
