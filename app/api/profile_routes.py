@@ -29,7 +29,7 @@ def profile_update(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             if user_is_owner(id):
-                user = User.query_or_404.get(id)
+                user = User.query.get_or_404(id)
                 form.populate_obj(user)
                 try:
                     db.session.add(user)

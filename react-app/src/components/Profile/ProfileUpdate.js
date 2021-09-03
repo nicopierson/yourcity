@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import ProfileUpdateForm from './ProfileUpdateForm';
 import { ModalVerify, Modal } from '../../context/Modal'; 
 
-const ProfileUpdate = () => {
-    const history = useHistory();
+const ProfileUpdate = ({ profile }) => {
     const [showModal, setShowModal] = useState();
     const [showVerification, setShowVerification] = useState(false);
-    const user = useSelector(state => state.session.user);
 
     const handleClose = () => {
         setShowModal(false);
@@ -17,17 +13,13 @@ const ProfileUpdate = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
         
-        if (user) {
-            setShowModal(true);
-        } else {
-            history.push('/sign-up');
-        }
+        setShowModal(true);
     };
 
     return (
         <>
             <i
-                className='fas fa-edit'
+                className='fas fa-edit edit_item_white'
                 onClick={handleUpdate}
             >
             </i>
@@ -36,7 +28,7 @@ const ProfileUpdate = () => {
                     onClose={() => setShowVerification(true)}
                 >
                     <ProfileUpdateForm 
-                        userId={user.id}
+                        profile={profile}
                         setShowModal={setShowModal}
                         setShowVerification={setShowVerification}
                     />

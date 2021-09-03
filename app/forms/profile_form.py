@@ -32,7 +32,9 @@ def profile_exists(form, field):
     
 
 class ProfileForm(FlaskForm):
-    id = IntegerField('id', validators=[InputRequired()])
+    id = IntegerField('id', validators=[
+        InputRequired()
+    ])
     username = StringField('username', 
         validators=[
             InputRequired(), 

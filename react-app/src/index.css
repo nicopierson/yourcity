@@ -88,6 +88,18 @@ i.edit_item:hover
     color: rgb(0, 0, 0);
 }
 
+i.edit_item_white
+{
+    cursor: pointer;
+    color: rgba(238, 238, 238, 0.6);
+    padding: 3px;
+}
+
+i.edit_item_white:hover
+{
+    color: rgb(252, 252, 252);
+}
+
 i.delete_item
 {
     cursor: pointer;

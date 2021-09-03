@@ -1,8 +1,8 @@
+import ProfileUpdate from './ProfileUpdate';
+
 import styles from './Profile.module.css';
 
 const ProfileCard = ({ profile, isOwner}) => {
-
-    console.log(profile);
 
     if (!profile) return null;
 
@@ -10,6 +10,11 @@ const ProfileCard = ({ profile, isOwner}) => {
         <div
             className={styles.profile_container}
         >
+            {isOwner &&
+                <ProfileUpdate 
+                    profile={profile}
+                />
+            }
             <div
                 className={styles.headers_container}
             >
