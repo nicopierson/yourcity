@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Modal } from '../../context/Modal';
+import { ModalSearchBar } from '../../context/Modal';
 import SearchBarDropdown from './SearchBarDropdown';
 
 import styles from './SearchBar.module.css';
@@ -10,34 +10,35 @@ const SearchBar = () => {
 
   const handleOpen = (e) => {
     e.preventDefault();
-
     setShowModal(true);
   };
 
   const handleClose = (e) => {
     e.preventDefault();
-
     setShowModal(false);
   };
 
   return (
-    <div>
+    <div className={styles.search_outer_container}>
         {showModal &&
-            <Modal
+            <ModalSearchBar
                 onClose={handleClose}
                 >
                 <SearchBarDropdown
                     setShowModal={setShowModal} 
                 />
-            </Modal>
+            </ModalSearchBar>
         }
-        <input
-            className="navbar-search-input"
-            key="search-bar"
-            placeholder="Search City"
-        />
+        {!showModal &&
+            <input
+                className={styles.navbar_search_input}
+                key="search-bar"
+                placeholder="Search City"
+                onFocus={handleOpen}
+            />
+        }
         <i
-            className={`fas fa-search nav_bar_right_link ${styles.search_icon}`}
+            className={`fas fa-search ${styles.search_icon}`}
             onClick={handleOpen}
         >
         </i>

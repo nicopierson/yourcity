@@ -3,6 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 
 import LogoutButton from '../auth/LogoutButton';
 import CityCreate from '../City/CityCreate';
+import SearchBar from '../SearchBar/SearchBar';
 import { login } from '../../store/session';
 
 import './NavBar.css';
@@ -34,12 +35,12 @@ const NavBar = () => {
 
 
                 <div className="navbar-li navbar-search">
-                    <div className="navbar-search__input-wrapper">
+                    {/* <div className="navbar-search__input-wrapper"> */}
                         
+                        <SearchBar />
+                        {/* <i className="fas fa-search navbar-icon-search--icon navbar-icon-search"></i> */}
 
-                        <i className="fas fa-search navbar-icon-search--icon navbar-icon-search"></i>
-
-                    </div>
+                    {/* </div> */}
                 </div>
 
 

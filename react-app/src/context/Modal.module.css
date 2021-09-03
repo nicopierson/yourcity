@@ -28,6 +28,14 @@
     padding: 1.5em;
 }
 
+.search_bar__modal_content {
+    position: absolute;
+    top: 0;
+    background-color:#FFF;
+    width: 10vw;
+    padding: 1.5em;
+}
+
 .modal_verify{
     border-radius: 5px;
     font-weight: bold;

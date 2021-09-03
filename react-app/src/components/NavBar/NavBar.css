@@ -28,7 +28,7 @@
     border-radius: 4px;
 }
 
-.navbar-search__input-wrapper{
+/* .navbar-search__input-wrapper{
     width: 40%;
     position: relative;
     display: flex;
@@ -52,7 +52,7 @@
 .navbar-icon-search--icon{
     padding-top: 7px;
     color: rgb(172, 172, 172);
-}
+} */
 
 .navbar-title-and-feed {
     width: auto;

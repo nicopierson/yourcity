@@ -13,13 +13,16 @@ const SearchBarDropdown = ({ setShowModal }) => {
     const [results, setResults] = useState([]);
 
     const searchOnChange = async () => {
-
+        console.log(searchString);
         const searchResults = await dispatch(search(searchString));
-        setResults(searchResults);
+        console.log(searchResults);
+        setResults(searchResults.results);
     };
 
     useEffect(() => {
-        searchOnChange();
+        if (searchString.length !== 0) {
+            searchOnChange();
+        }
     }, [searchString]);
 
     const handleLink = async (e, url) => {
@@ -38,29 +41,30 @@ const SearchBarDropdown = ({ setShowModal }) => {
         <div
         className={styles.search_container}
         >
-        <i className='fas fa-search'></i>
-        <input
-            value={searchString}
-            type='text'
-            placeholder='Search City'
-            name='search'
-            id='search'
-            onChange={(e) => setSearchString(e.target.value)}
-            autoComplete='off'
-            autoFocus
-        />
-        <label htmlFor='search'></label>
+            {/* <i className='fas fa-search'></i> */}
+            <input
+                // className="navbar-search-input"
+                value={searchString}
+                type='text'
+                placeholder='Search City'
+                name='search'
+                id='search'
+                onChange={(e) => setSearchString(e.target.value)}
+                autoComplete='off'
+                autoFocus
+            />
+            <label htmlFor='search'></label>
             <ul>
-            { results.length > 0 && results.map(result => (
-                <li
-                    onClick={(e) => handleLink(e, `/cities/${result.id}`)}
-                    key={result.id}
-                    className={styles.search_link}
-                >
-                    {result.name}
-                </li>
-                ))
-            }
+                { results.length > 0 && results.map(result => (
+                    <li
+                        onClick={(e) => handleLink(e, `/city/${result.id}`)}
+                        key={result.id}
+                        className={styles.search_link}
+                    >
+                        {result.name}
+                    </li>
+                    ))
+                }
             </ul>
         </div>
     );
