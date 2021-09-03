@@ -12,6 +12,7 @@ import Splash from './components/Splash';
 import City from './components/City';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
+import Page404 from './components/Errors/Page404';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,30 +31,33 @@ function App() {
  
   return (
     <BrowserRouter>
-      <NavBar />
-        <main className='layout__main_container'> 
-          <Switch>
-            <Route path='/login' exact={true}>
-              <LoginForm />
-            </Route>
-            <Route path='/sign-up' exact={true}>
-              <SignUpForm />
-            </Route>
-            <ProtectedRoute path='/users/:userId' exact={true}>
-              <User />
-            </ProtectedRoute>
-            <Route path='/profile/:profileId'>
-              <Profile />
-            </Route>
-            <Route path='/' exact={true}>
-              <Splash />
-            </Route>
-            <Route path='/city/:cityId' exact={true}>
-              <City />
-            </Route>
-          </Switch>
-        </main>
-      <Footer />
+        <NavBar />
+          <main className='layout__main_container'> 
+            <Switch>
+              <Route path='/login' exact={true}>
+                <LoginForm />
+              </Route>
+              <Route path='/sign-up' exact={true}>
+                <SignUpForm />
+              </Route>
+              <ProtectedRoute path='/users/:userId' exact={true}>
+                <User />
+              </ProtectedRoute>
+              <Route path='/profile/:profileId'>
+                <Profile />
+              </Route>
+              <Route path='/' exact={true}>
+                <Splash />
+              </Route>
+              <Route path='/city/:cityId' exact={true}>
+                <City />
+              </Route>
+              <Route path='/'>
+                <Page404 />
+              </Route>
+            </Switch>
+          </main>
+        <Footer />
     </BrowserRouter>
   );
 }

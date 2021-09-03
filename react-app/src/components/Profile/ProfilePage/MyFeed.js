@@ -10,7 +10,6 @@ const MyFeed = () => {
     const dispatch = useDispatch();
 
     const cities = useSelector(state => state.city);
-    const userId = useSelector(state => state.session.user?.id);
 
     useEffect(() => {
         dispatch(resetCities())
