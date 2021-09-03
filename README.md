@@ -119,7 +119,7 @@ pipenv shell
 
 5. In the root folder, create the database by running in the terminal:
 ```shell
-flask db create
+flask db init
 ```
 
 6. In the root folder, migrate tables to the database by running in the terminal:
@@ -296,6 +296,6 @@ nicogpt@gmail.com
 
 
 ## Special Thanks
-* Fellow peers who have given me support and community: [Andrew and Kira](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [John](https://github.com/Jomix-13), [Justice](https://github.com/jujmart), [Jubin](https://github.com/Jubintgh), and [Torrell](https://github.com/tkenned2020)
+* Fellow peers who have given me support and community: [Andrew and Kira](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [John](https://github.com/Jomix-13), [Justice](https://github.com/jujmart), [Jubin](https://github.com/Jubintgh), [Torrell](https://github.com/tkenned2020), [Manna](https://github.com/makon57), [Monte](https://github.com/theflaggship), [Diana](https://github.com/dianabeatriztinoco), and [Justice](https://github.com/jujmart)
 * Mentors who have given me their time and effort: [Zach](https://github.com/zdwatts), [Olivia](https://github.com/OByrnes), [Ed](https://github.com/edherm), and [Javier](https://github.com/javiermortiz) 
 * My partner: [Thayse](https://www.linkedin.com/in/thayse-alencar-946703196/)
