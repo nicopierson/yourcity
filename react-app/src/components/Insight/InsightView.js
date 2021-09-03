@@ -3,7 +3,7 @@ import InsightText from './InsightText';
 import styles from './Insight.module.css';
 import './InsightLayout.css';
 
-const InsightView = ({ insight, isOwner, setShow, username }) => {
+const InsightView = ({ insight, isOwner, setShow, username, profileImg }) => {
     
     return (
         <div className='layout__one_insight_container'>
@@ -12,7 +12,7 @@ const InsightView = ({ insight, isOwner, setShow, username }) => {
             >
                 <img 
                     alt='profile' 
-                    src='https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/pudds_profile.jpg' 
+                    src={profileImg} 
                 />
             </div>
             <div className={`${styles.text_container} layout__one_insight_text`}>
