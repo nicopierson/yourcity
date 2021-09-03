@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.fields.core import IntegerField
-from wtforms.validators import InputRequired, ValidationError, Email, Length
+from wtforms.validators import InputRequired, ValidationError, Optional, Length, URL
 from app.models import User
 
 
@@ -32,19 +32,34 @@ def profile_exists(form, field):
     
 
 class ProfileForm(FlaskForm):
-    id = IntegerField('id', validators=[InputRequired()])
-    username = StringField('username', validators=[
-                                InputRequired(), 
-                                profile_exists, 
-                                Length(min=1, max=40)
-                            ])
-    email = StringField('email', validators=[
-                                                InputRequired(), 
-                                                email_exists, 
-                                                Email(), 
-                                                Length(min=1, max=255)
-                                            ])
-    password = StringField('password', validators=[
-                                                    InputRequired(), 
-                                                    Length(min=1, max=255)
-                                                  ])
+    id = IntegerField('id', 
+    validators=[
+        InputRequired()
+    ])
+    username = StringField('username', 
+        validators=[
+            InputRequired(), 
+            profile_exists, 
+            Length(min=1, max=40)
+        ])
+    profile_img = StringField('profile_img', 
+        validators=[
+            Optional(),
+            URL(),
+            Length(min=1, max=500)
+        ])
+    bio = StringField('bio', 
+        validators=[
+            Optional(),
+            Length(min=1, max=250),
+        ])
+    location = StringField('location', 
+        validators=[
+            Optional(),
+            Length(min=1, max=50),
+        ])
+    site = StringField('site', 
+        validators=[
+            Optional(),
+            Length(min=1, max=80),
+        ])

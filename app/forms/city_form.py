@@ -41,17 +41,59 @@ def city_exists(form, field):
     
 
 class CityPostForm(FlaskForm):
-    name = StringField('name', validators=[InputRequired(), city_exists, Length(min=1, max=80)])
-    state = StringField('state', validators=[Length(min=0, max=50)])
-    thumbnail_img = StringField('thumbnail_img', validators=[Optional(), URL(), Length(min=0, max=800)])
-    description = StringField('description', validators=[Length(min=0, max=1200)])
-    user_id = IntegerField('user_id', validators=[InputRequired()])
+    name = StringField('name', 
+        validators=[
+            InputRequired(), 
+            city_exists, 
+            Length(min=1, max=80)
+        ])
+    state = StringField('state', 
+        validators=[
+            Length(min=0, max=50)
+        ])
+    thumbnail_img = StringField('thumbnail_img', 
+        validators=[
+            Optional(), 
+            URL(), 
+            Length(min=0, max=800)
+        ])
+    description = StringField('description', 
+        validators=[
+            Length(min=0, max=1200)
+        ])
+    user_id = IntegerField('user_id', 
+        validators=[
+            InputRequired()
+        ])
     
     
 class CityUpdateForm(FlaskForm):
-    id = IntegerField('id', validators=[InputRequired(), city_id_exists])
-    name = StringField('name', validators=[InputRequired(), city_exists, Length(min=1, max=80)])
-    state = StringField('state', validators=[Length(min=0, max=50)])
-    thumbnail_img = StringField('thumbnail_img', validators=[Optional(), URL(), Length(min=0, max=800)])
-    description = StringField('description', validators=[Length(min=0, max=1200)])
-    user_id = IntegerField('user_id', validators=[InputRequired()])
+    id = IntegerField('id', 
+        validators=[
+            InputRequired(), 
+            city_id_exists
+        ])
+    name = StringField('name', 
+        validators=[
+            InputRequired(), 
+            city_exists, 
+            Length(min=1, max=80)
+        ])
+    state = StringField('state', 
+        validators=[
+            Length(min=0, max=50)
+        ])
+    thumbnail_img = StringField('thumbnail_img', 
+        validators=[
+            Optional(), 
+            URL(), 
+            Length(min=0, max=800)
+        ])
+    description = StringField('description', 
+        validators=[
+            Length(min=0, max=1200)
+        ])
+    user_id = IntegerField('user_id', 
+        validators=[
+            InputRequired()
+        ])
