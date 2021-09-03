@@ -12,19 +12,20 @@ const SearchBarDropdown = ({ setShowModal }) => {
     const [searchString, setSearchString] = useState('');
     const [results, setResults] = useState([]);
 
-    const searchOnChange = async () => {
-        const searchResults = await dispatch(search(searchString));
-        // grab only 10 results
-        setResults(searchResults.results.slice(0,10));
-    };
-
     useEffect(() => {
+
+        async function searchOnChange() {
+            const searchResults = await dispatch(search(searchString));
+            // grab only 10 results
+            setResults(searchResults.results.slice(0,10));
+        }
+
         if (searchString.length !== 0) {
             searchOnChange();
         } else {
             setResults([])
         }
-    }, [searchString]);
+    }, [dispatch, searchString]);
 
     const handleLink = async (e, url) => {
         e.preventDefault();
@@ -39,6 +40,7 @@ const SearchBarDropdown = ({ setShowModal }) => {
                 className={styles.search_container}
             >
                 <input
+                    className={styles.navbar_search_input}
                     value={searchString}
                     type='text'
                     placeholder='Search City'
@@ -48,7 +50,6 @@ const SearchBarDropdown = ({ setShowModal }) => {
                     autoComplete='off'
                     autoFocus
                 />
-                <label htmlFor='search'></label>
                 <i
                     className={`fas fa-search ${styles.search_icon}`}
                 >

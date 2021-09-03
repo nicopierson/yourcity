@@ -30,13 +30,53 @@
     /* overflow: hidden; */
 }
 
-@media only screen and (max-width: 1000px) {
-    #root{
-        grid-template-rows: 6.5vh auto 6.5vh;
+@media only screen and (max-height: 800px) {
+    #root 
+    {
+        grid-template-rows: 7vh auto 7vh;   
+    }
+
+    .layout__header_container
+    {
+        height: 7vh;
     }
 
     .layout__footer_container
     {
-        height: 6.5vh;
+        height: 7vh;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    #root 
+    {
+        grid-template-rows: 10vh auto 10vh;   
+    }
+
+    .layout__header_container
+    {
+        height: 10vh;
+    }
+
+    .layout__footer_container
+    {
+        height: 10vh;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    #root 
+    {
+        grid-template-rows: 15vh auto 15vh;   
+    }
+
+    .layout__header_container
+    {
+        height: 15vh;
+    }
+
+    .layout__footer_container
+    {
+        height: 15vh;
     }
 }

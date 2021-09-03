@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 11;
+    z-index: 12;
 }
 
 .modal_background {
@@ -25,17 +25,18 @@
     background-color:#FFF;
     border-radius: 7px;
     width: 50vw;
-    padding: 1.5em;
+    padding: 16px;
+    height: auto;
 }
 
 .search_bar__modal_content {
+    top: 4px;
     position: absolute;
-    top: 1px;
+    display: flex;
+    align-items: center;
+    z-index: 12;
     right: 50vw;
-    background-color:#FFF;
-    width: 189.5px;
-    height: 26px;
-    margin: 5px 4px 5px 3px;
+    width: 25vw;
 }
 
 .search_bar__modal_content div
