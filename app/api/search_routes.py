@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import City
 
-search_routes = Blueprint('results', __name__)
+search_routes = Blueprint('search', __name__)
 
 
 @search_routes.route('/')
