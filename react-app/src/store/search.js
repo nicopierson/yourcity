@@ -1,5 +1,4 @@
 export const search = (searchString) => async (dispatch) => {
-
     const resources = ['city'];
 
     let searchArray = [];

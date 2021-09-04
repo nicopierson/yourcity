@@ -12,18 +12,22 @@ const SearchBarDropdown = ({ setShowModal }) => {
     const [searchString, setSearchString] = useState('');
     const [results, setResults] = useState([]);
 
-    useEffect(() => {
+    
 
+    useEffect(() => {
         async function searchOnChange() {
             const searchResults = await dispatch(search(searchString));
-            // grab only 10 results
-            setResults(searchResults.results.slice(0,10));
+            if ('results' in searchResults) {
+                setResults(searchResults.results.slice(0,10));
+            } else {
+                setResults([]);
+            }
         }
 
         if (searchString.length !== 0) {
             searchOnChange();
         } else {
-            setResults([])
+            setResults([]);
         }
     }, [dispatch, searchString]);
 
