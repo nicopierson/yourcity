@@ -24,7 +24,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     } else {
-      setErrors([{"field": "password", "message": "Passwords do not match."}])
+      setErrors([{"password": "", "confirmPassword": "Passwords do not match."}])
     }
   };
 
@@ -65,20 +65,16 @@ const SignUpForm = () => {
           onSubmit={onSignUp}
           className={styles.form_container}
         >
-          <div className={`${styles.header_container} ${styles.header}`}>
+          <div className={`${styles.header_container}`}>
             <h2
               className={styles.header_text}
             >
               Let's Get Started
             </h2>
-            <div className={styles.errors}>
-              {errors.length > 0 && errors.map((error, ind) => (
-                <div key={ind}>{error.field}: {error.message}</div>
-              ))}
-            </div>
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('username') ? 'errors_input' : ''}`}
               type='text'
               id='username'
               name='username'
@@ -88,9 +84,15 @@ const SignUpForm = () => {
               // required={true}
               ></input>
               <label htmlFor='username'>User Name</label>
+              {errors.length > 0 &&
+                <p className='errors_message'>
+                  {errors[0].username}
+                </p>
+              }
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('email') ? 'errors_input' : ''}`}
               type='email'
               name='email'
               id='email'
@@ -100,9 +102,15 @@ const SignUpForm = () => {
               // required={true}
               ></input>
               <label htmlFor='email'>Email</label>
+              {errors.length > 0 &&
+                <p className='errors_message'>
+                  {errors[0].email}
+                </p>
+              }
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('password') ? 'errors_input' : ''}`}
               type='password'
               name='password'
               id='password'
@@ -112,9 +120,15 @@ const SignUpForm = () => {
               placeholder=' '
               ></input>
               <label htmlFor='password'>Password</label>
+              {errors.length > 0 &&
+                <p className='errors_message'>
+                  {errors[0].password}
+                </p>
+              }
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('confirmPassword') ? 'errors_input' : ''}`}
               type='password'
               name='repeat_password'
               onChange={updateRepeatPassword}
@@ -123,6 +137,11 @@ const SignUpForm = () => {
               placeholder=' '
               ></input>
               <label htmlFor='repeat_password'>Confirm Password</label>
+              {errors.length > 0 &&
+                <p className='errors_message'>
+                  {errors[0].confirmPassword}
+                </p>
+              }
           </div>
           <div className={`${styles.form_input}`}>
             <button 

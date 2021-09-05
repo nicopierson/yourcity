@@ -52,20 +52,16 @@ const LoginForm = () => {
           onSubmit={onLogin}
           className={styles.form_container}
         >
-          <div className={`${styles.header_container} ${styles.header}`}>
+          <div className={`${styles.header_container}`}>
             <h2
               className={styles.header_text}
             >
               Welcome Back
             </h2>
-            <div className={`${styles.errors} login_form__errors_container`}>
-              {errors.length > 0 && errors.map((error, ind) => (
-                <div key={ind}>{error.field}: {error.message}</div>
-              ))}
-            </div>
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('email') ? 'errors_input' : ''}`}
               name='email'
               type='email'
               id='email'
@@ -74,9 +70,15 @@ const LoginForm = () => {
               placeholder=' '
             />
             <label htmlFor='email'>Email</label>
+            {errors.length > 0 &&
+                <p className='errors_message'>
+                  {errors[0].email}
+                </p>
+              }
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('password') ? 'errors_input' : ''}`}
               name='password'
               type='password'
               id='password'
@@ -85,6 +87,11 @@ const LoginForm = () => {
               placeholder=' '
             />
             <label htmlFor='password'>Password</label>
+            {errors.length > 0 &&
+                <p className='errors_message'>
+                  {errors[0].password}
+                </p>
+              }
           </div>
           <div className={`${styles.form_input}`}>
             <button 
