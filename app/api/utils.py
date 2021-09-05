@@ -6,15 +6,13 @@ def throw_validation_error(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
     """
-    error_messages = []
+    # error_messages = []
+    error_obj = {}
     for field in validation_errors:
         for error in validation_errors[field]:
-            error_message = {
-                'field': field,
-                'message': error,
-            }
-            error_messages.append(error_message)
-    return {'errors': error_messages}, 401
+            error_obj[field] = error
+    # error_messages.append(error_obj)
+    return {'errors': [ error_obj ]}, 401
 
 
 def id_exists(id, model):

@@ -145,3 +145,14 @@ textarea.edit_field
     color: red;
     font-size: 14px;
 }
+
+p.errors_message
+{
+    color: red;
+    font-size: 12px;
+}
+
+.layout__main_container input.errors_input
+{
+    border: solid 1px red;
+}

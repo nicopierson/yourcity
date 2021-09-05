@@ -91,7 +91,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
       profile_img: 'https://yourcity-app.s3.us-west-1.amazonaws.com/profile-photos/user_default.png',
     }),
   });
-  
+
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
