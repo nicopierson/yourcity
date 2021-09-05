@@ -150,6 +150,7 @@ p.errors_message
 {
     color: red;
     font-size: 12px;
+    padding: 20px;
 }
 
 .layout__main_container input.errors_input

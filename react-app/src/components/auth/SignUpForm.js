@@ -52,7 +52,7 @@ const SignUpForm = () => {
   if (user) {
     return <Redirect to={`/profile/${user.id}`} />;
   }
-  
+
   return (
     <div className='layout__sign_up_container'>
       <section
@@ -65,7 +65,7 @@ const SignUpForm = () => {
           onSubmit={onSignUp}
           className={styles.form_container}
         >
-          <div className={`${styles.header_container} ${styles.header}`}>
+          <div className={`${styles.header_container}`}>
             <h2
               className={styles.header_text}
             >
@@ -92,6 +92,7 @@ const SignUpForm = () => {
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('email') ? 'errors_input' : ''}`}
               type='email'
               name='email'
               id='email'
@@ -109,6 +110,7 @@ const SignUpForm = () => {
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('password') ? 'errors_input' : ''}`}
               type='password'
               name='password'
               id='password'
@@ -126,6 +128,7 @@ const SignUpForm = () => {
           </div>
           <div className={`${styles.form_input}`}>
             <input
+              className={`${errors.length > 0 && Object.keys(errors[0]).includes('confirmPassword') ? 'errors_input' : ''}`}
               type='password'
               name='repeat_password'
               onChange={updateRepeatPassword}

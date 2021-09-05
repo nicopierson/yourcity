@@ -12,13 +12,12 @@
 
 .header_container {
     text-align: center;
-    margin: 5% 0 3% 0;
+    margin: 10px 0 10px 0;
 }
 
 .header_text
 {
     font-size: 36px;
-    margin-bottom: 15px;
 }
 
 .header_container
@@ -38,6 +37,7 @@
     position: relative;
     height: 50px;
     padding: 5px;
+    padding-bottom: 50px;
     display: flex;
     justify-content: center;
     margin: 10px;
@@ -55,7 +55,7 @@
     outline: none;
     border-radius: 5px;
     border-bottom: 2px solid rgb(92, 92, 92);
-    padding: 7px 10px 7px 10px;
+    padding: 10px 10px 10px 10px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: rgb(255, 255, 255);
     background-color: #121212;
@@ -74,7 +74,7 @@
 .form_input input:not(:placeholder-shown) ~ label 
 {
     font-size: 14px;
-    top: -20px;
+    top: -12px;
     color: rgb(175, 175, 175);
     transition: 0.3s;
 }
@@ -94,7 +94,7 @@
 
 .form_input p
 {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .form_input span 
