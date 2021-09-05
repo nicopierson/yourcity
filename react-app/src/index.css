@@ -15,6 +15,10 @@ ul {
   padding: 0;
 }
 
+textarea {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
 button {
     display: inline-block;
     border-style: none;
@@ -153,7 +157,8 @@ p.errors_message
     padding: 20px;
 }
 
-.layout__main_container input.errors_input
+.layout__main_container input.errors_input,
+.layout__main_container textarea.errors_input
 {
     border: solid 1px red;
 }
