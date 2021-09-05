@@ -157,8 +157,23 @@ p.errors_message
     padding: 20px;
 }
 
+p.modal_errors_message,
+.layout__city_container p.modal_errors_message
+{
+    color: red;
+    font-size: 12px;
+    height: 15px;
+    margin-bottom: 0px
+}
+
 .layout__main_container input.errors_input,
 .layout__main_container textarea.errors_input
+{
+    border: solid 1px red;
+}
+
+input.errors_input,
+textarea.errors_input
 {
     border: solid 1px red;
 }

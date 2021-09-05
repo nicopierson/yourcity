@@ -49,17 +49,12 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
             <div className={`${styles.header_container}`}>
                 <h2>Create City</h2>
                 <div className={styles.errors}>
-                    {errors.length > 0 && errors.map((error, ind) => (
-                        <p key={ind}>{error.field}: {error.message}</p>
-                    ))}
-                    {errors.length === 0 &&
-                        <p className={styles.header_description}>Fill out the information about your city...</p>
-                    }
+                    <p className={styles.header_description}>Fill out the information about your city...</p>
                 </div>
             </div>
             <div className={styles.edit_input_container}>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('name') ? 'errors_input' : ''}`}
                     type='text'
                     name='name'
                     onChange={(e) => setName(e.target.value)}
@@ -68,8 +63,15 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
                     autoFocus={true}
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].name}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('state') ? 'errors_input' : ''}`}
                     type='text'
                     name='state'
                     onChange={(e) => setState(e.target.value)}
@@ -77,8 +79,15 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
                     placeholder='State or province'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].state}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('thumbnail_img') ? 'errors_input' : ''}`}
                     type='text'
                     name='thumbnail img'
                     onChange={(e) => setThumbnailImg(e.target.value)}
@@ -86,8 +95,15 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
                     placeholder='banner image url'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].thumbnail_img}
+                        </>
+                    }
+                </p>
                 <textarea
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('description') ? 'errors_input' : ''}`}
                     type='text'
                     name='description'
                     onChange={(e) => setDescription(e.target.value)}
@@ -96,6 +112,13 @@ const CityCreateForm = ({ userId, setShowModal, setShowVerification }) => {
                     placeholder='Add a description...'
                 >
                 </textarea>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].description}
+                        </>
+                    }
+                </p>
                 <div>
                     <button
                         onClick={handleCreate}

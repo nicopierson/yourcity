@@ -64,17 +64,12 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
                     }
                 </div>
                 <div className={styles.errors}>
-                    {errors.length > 0 && errors.map((error, ind) => (
-                        <div key={ind}>{error.field}: {error.message}</div>
-                    ))}
-                    {errors.length === 0 &&
-                        <p className={styles.header_description_edit_city}>Edit your city...</p>
-                    }
+                    <p className={styles.header_description_edit_city}>Change information about your city...</p>
                 </div>
             </div>
             <div className={styles.edit_input_container}>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('name') ? 'errors_input' : ''}`}
                     type='text'
                     name='name'
                     onChange={(e) => setName(e.target.value)}
@@ -83,8 +78,15 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
                     autoFocus={true}
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].name}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('state') ? 'errors_input' : ''}`}
                     type='text'
                     name='state'
                     onChange={(e) => setState(e.target.value)}
@@ -92,8 +94,15 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
                     placeholder='State or province'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].state}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('thumbnail_img') ? 'errors_input' : ''}`}
                     type='text'
                     name='thumbnail img'
                     onChange={(e) => setThumbnailImg(e.target.value)}
@@ -101,8 +110,15 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
                     placeholder='banner image url'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].thumbnail_img}
+                        </>
+                    }
+                </p>
                 <textarea
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('description') ? 'errors_input' : ''}`}
                     type='text'
                     name='description'
                     onChange={(e) => setDescription(e.target.value)}
@@ -111,7 +127,16 @@ const CityEdit = ({ city, setShowEdit, isOwner }) => {
                     placeholder='Add a description...'
                 >
                 </textarea>
-                <div>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].description}
+                        </>
+                    }
+                </p>
+                <div
+                    className={styles.edit_city__buttons}
+                >
                     <button
                         onClick={handleEdit}
                         className='save_button'
