@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import InsightText from './InsightText';
 
 import styles from './Insight.module.css';
@@ -10,10 +12,12 @@ const InsightView = ({ insight, isOwner, setShow, username, profileImg }) => {
             <div 
                 className={`${styles.headers_container} header_edit_container layout__one_insight_header`}
             >
-                <img 
-                    alt='profile' 
-                    src={profileImg} 
-                />
+                <Link to={`/profile/${insight.user_id}`}>
+                    <img 
+                        alt='profile' 
+                        src={profileImg} 
+                    />
+                </Link>
             </div>
             <div className={`${styles.text_container} layout__one_insight_text`}>
                 <InsightText
