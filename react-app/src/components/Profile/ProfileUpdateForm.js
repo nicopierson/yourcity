@@ -49,17 +49,12 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
             <div className={`${styles.header_container}`}>
                 <h2>Update Profile</h2>
                 <div className={styles.errors}>
-                    {errors.length > 0 && errors.map((error, ind) => (
-                        <p key={ind}>{error.field}: {error.message}</p>
-                    ))}
-                    {errors.length === 0 &&
-                        <p className={styles.header_description}>Fill out the information about your profile...</p>
-                    }
+                    <p className={styles.header_description}>Fill out the information about your profile...</p>
                 </div>
             </div>
             <div className={styles.edit_input_container}>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('username') ? 'errors_input' : ''}`}
                     type='text'
                     name='username'
                     onChange={(e) => setUsername(e.target.value)}
@@ -68,8 +63,15 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
                     autoFocus={true}
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].username}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('location') ? 'errors_input' : ''}`}
                     type='text'
                     name='location'
                     onChange={(e) => setLocation(e.target.value)}
@@ -77,8 +79,15 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
                     placeholder='Location'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].location}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('profile_img') ? 'errors_input' : ''}`}
                     type='text'
                     name='profile img'
                     onChange={(e) => setProfileImg(e.target.value)}
@@ -86,17 +95,31 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
                     placeholder='profile image url'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].profile_img}
+                        </>
+                    }
+                </p>
                 <input
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('site') ? 'errors_input' : ''}`}
                     type='text'
                     name='site'
                     onChange={(e) => setSite(e.target.value)}
                     value={site}
-                    placeholder='site url'
+                    placeholder='personal website url'
                 >
                 </input>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].site}
+                        </>
+                    }
+                </p>
                 <textarea
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('bio') ? 'errors_input' : ''}`}
                     type='text'
                     name='bio'
                     onChange={(e) => setBio(e.target.value)}
@@ -105,6 +128,13 @@ const ProfileUpdateForm = ({ profile, setShowModal, setShowVerification }) => {
                     placeholder='Add a bio...'
                 >
                 </textarea>
+                <p className='modal_errors_message'>
+                    {errors.length > 0 &&
+                        <>
+                            {errors[0].bio}
+                        </>
+                    }
+                </p>
                 <div>
                     <button
                         onClick={handleCreate}

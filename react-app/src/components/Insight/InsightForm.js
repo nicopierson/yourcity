@@ -69,9 +69,9 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId, desc
                     }
                 </div>
                 <div className={styles.errors_insight}>
-                    {errors.length > 0 && errors.map((error, ind) => (
-                        <div key={ind}>{error.field}: {error.message}</div>
-                    ))}
+                    {errors.length > 0 && 
+                        <p>{errors[0].insight}</p>
+                    }
                     {errors.length === 0 &&
                         <p className={styles.header_description_edit_city}>{desc} your insight...</p>
                     }
@@ -79,7 +79,7 @@ const InsightForm = ({ insight, isOwner, setShow, isCreate, cityId, userId, desc
             </div>
             <div className={styles.edit_input_container}>
                 <textarea
-                    className='edit_field'
+                    className={`edit_field ${errors.length > 0 && Object.keys(errors[0]).includes('insight') ? 'errors_input' : ''}`}
                     value={insightText}
                     name='insight'
                     type='text'

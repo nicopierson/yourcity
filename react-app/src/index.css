@@ -15,6 +15,10 @@ ul {
   padding: 0;
 }
 
+textarea {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
 button {
     display: inline-block;
     border-style: none;
@@ -144,4 +148,32 @@ textarea.edit_field
 {
     color: red;
     font-size: 14px;
+}
+
+p.errors_message
+{
+    color: red;
+    font-size: 12px;
+    padding: 20px;
+}
+
+p.modal_errors_message,
+.layout__city_container p.modal_errors_message
+{
+    color: red;
+    font-size: 12px;
+    height: 15px;
+    margin-bottom: 0px
+}
+
+.layout__main_container input.errors_input,
+.layout__main_container textarea.errors_input
+{
+    border: solid 1px red;
+}
+
+input.errors_input,
+textarea.errors_input
+{
+    border: solid 1px red;
 }

@@ -24,6 +24,14 @@
     height: 75px;
     width: 75px;
     border-radius: 40px;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+.headers_container img:hover
+{
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
 .text_container span
@@ -40,11 +48,6 @@
 .username_link:hover
 {
     color: #000;
-}
-
-.text_show_all
-{
- /* styling not needed */
 }
 
 .text_dots

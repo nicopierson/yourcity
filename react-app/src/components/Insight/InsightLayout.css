@@ -16,10 +16,10 @@
 .layout__one_insight_container
 {
     display: grid;
-    grid-template-columns: 10px 1fr 4fr 10px;
+    grid-template-columns: 1fr 4fr 10px;
     grid-template-rows: auto;
     grid-template-areas:
-        ". insight-photo insight-text insight-edit"
+        "insight-photo insight-text insight-edit"
     ;
     margin: 15px 0 15px 0;
 }
