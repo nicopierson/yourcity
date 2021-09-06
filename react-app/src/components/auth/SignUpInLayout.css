@@ -47,7 +47,6 @@
     {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 87vh;
         grid-template-areas:
             "sign-up"
         ;
@@ -57,7 +56,6 @@
     {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 87vh;
         grid-template-areas:
             "login"
         ;
@@ -72,4 +70,28 @@
 .login_form__errors_container
 {
     height: 50px;
+}
+
+@media only screen and (max-height: 800px) {
+    .layout__sign_up_container,
+    .layout__login_container
+    {
+        grid-template-rows: 86vh;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .layout__sign_up_container,
+    .layout__login_container
+    {
+        grid-template-rows: 80vh;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    .layout__sign_up_container,
+    .layout__login_container
+    {
+        grid-template-rows: 70vh;
+    }
 }

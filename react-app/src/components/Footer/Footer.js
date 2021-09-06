@@ -20,7 +20,7 @@ const Footer = () => {
         <span
           className={styles.other_project_title}
         >
-          Visit my other projects:
+          My Projects:
         </span>
         <span>
           Unwined
