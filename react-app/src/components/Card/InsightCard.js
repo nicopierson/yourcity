@@ -7,22 +7,26 @@ const InsightCard = ({ insight }) => {
     if (!insight) return null;
 
     return (
-        <div
-            className={`${styles.card_container}`}
+        <Link 
+            to={`/city/${insight.city_id}`}
+            className={styles.title_link}  
         >
             <div
-                className={`${styles.card_insight_container}`}
+                className={`${styles.card_insight_outer_container}`}
             >
-                <Link 
-                    to={`/city/${insight.city_id}`}
-                    className={styles.title_link}  
+                <div
+                    className={`${styles.card_insight_container}`}
                 >
-                    <h2>{ insight.city_name }</h2>
-                </Link>
-                <p><i className='fa fa-globe-europe'></i> { insight.city_state }</p>
-                <p>Insight: <br />{ insight.insight }</p>
+                        <h2>{ insight.city_name }</h2>
+                    <p><i className='fa fa-globe-europe'></i> { insight.city_state }</p>
+                    <div
+                        className={styles.description}
+                    >
+                        { insight.insight }
+                    </div>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 };
 
