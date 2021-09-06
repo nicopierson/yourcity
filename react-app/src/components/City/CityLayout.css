@@ -39,3 +39,24 @@
         width: 95vw;
     }
 }
+
+@media only screen and (max-height: 800px) {
+    .layout__city_container
+    {
+        min-height: 86vh;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .layout__city_container
+    {
+        min-height: 80vh;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    .layout__city_container
+    {
+        min-height: 70vh;
+    }
+}
